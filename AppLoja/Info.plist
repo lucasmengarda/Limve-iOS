@@ -4,6 +4,8 @@
 <dict>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>$(DEVELOPMENT_LANGUAGE)</string>
+	<key>CFBundleDisplayName</key>
+	<string>Limve</string>
 	<key>CFBundleExecutable</key>
 	<string>$(EXECUTABLE_NAME)</string>
 	<key>CFBundleIdentifier</key>
@@ -15,11 +17,95 @@
 	<key>CFBundlePackageType</key>
 	<string>$(PRODUCT_BUNDLE_PACKAGE_TYPE)</string>
 	<key>CFBundleShortVersionString</key>
-	<string>1.0</string>
+	<string>$(MARKETING_VERSION)</string>
+	<key>CFBundleURLTypes</key>
+	<array>
+		<dict>
+			<key>CFBundleTypeRole</key>
+			<string>Editor</string>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>whatsapp</string>
+				<string>fb829691154432482</string>
+			</array>
+		</dict>
+		<dict>
+			<key>CFBundleTypeRole</key>
+			<string>Editor</string>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>limve</string>
+			</array>
+		</dict>
+	</array>
 	<key>CFBundleVersion</key>
-	<string>1</string>
+	<string>$(CURRENT_PROJECT_VERSION)</string>
+	<key>FacebookAdvertiserIDCollectionEnabled</key>
+	<string>TRUE</string>
+	<key>FacebookAppID</key>
+	<string>829691154432482</string>
+	<key>FacebookAutoLogAppEventsEnabled</key>
+	<string>TRUE</string>
+	<key>FacebookDisplayName</key>
+	<string>Limve.com</string>
+	<key>LSApplicationQueriesSchemes</key>
+	<array>
+		<string>limve</string>
+		<string>fbapi</string>
+		<string>fbapi20130214</string>
+		<string>fbapi20130410</string>
+		<string>fbapi20130702</string>
+		<string>fbapi20131010</string>
+		<string>fbapi20131219</string>
+		<string>fbapi20140410</string>
+		<string>fbapi20140116</string>
+		<string>fbapi20150313</string>
+		<string>fbapi20150629</string>
+		<string>fbapi20160328</string>
+		<string>fbauth</string>
+		<string>fb-messenger-share-api</string>
+		<string>fbauth2</string>
+		<string>fbshareextension</string>
+	</array>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
+	<key>NSAppTransportSecurity</key>
+	<dict>
+		<key>NSAllowsArbitraryLoads</key>
+		<true/>
+	</dict>
+	<key>UIAppFonts</key>
+	<array>
+		<string>CeraRoundProBlack.otf</string>
+		<string>IntroScript-Black.otf</string>
+		<string>IntroScript-Bold.otf</string>
+		<string>IntroScript-Heavy.otf</string>
+		<string>IntroScript-Light.otf</string>
+		<string>IntroScript-Medium.otf</string>
+		<string>IntroScript-Regular.otf</string>
+		<string>IntroScript-SemiBold.otf</string>
+		<string>IntroScript-Thin.otf</string>
+		<string>Phenomena-Black.ttf</string>
+		<string>Phenomena-Bold.ttf</string>
+		<string>Phenomena-Light.ttf</string>
+		<string>Phenomena-Regular.ttf</string>
+		<string>Phenomena-ExtraBold.ttf</string>
+		<string>Phenomena-ExtraLight.ttf</string>
+		<string>IntroScriptDemo-Medium.otf</string>
+		<string>CeraRoundProBold.otf</string>
+		<string>CeraRoundProLight.otf</string>
+		<string>CeraRoundProMedium.otf</string>
+		<string>CeraRoundProRegular.otf</string>
+		<string>CeraRoundProThin.otf</string>
+		<string>Ubuntu-Bold.ttf</string>
+		<string>Ubuntu-BoldItalic.ttf</string>
+		<string>Ubuntu-Italic.ttf</string>
+		<string>Ubuntu-Light.ttf</string>
+		<string>Ubuntu-LightItalic.ttf</string>
+		<string>Ubuntu-Medium.ttf</string>
+		<string>Ubuntu-MediumItalic.ttf</string>
+		<string>Ubuntu-Regular.ttf</string>
+	</array>
 	<key>UIApplicationSceneManifest</key>
 	<dict>
 		<key>UIApplicationSupportsMultipleScenes</key>
@@ -50,8 +136,6 @@
 	<key>UISupportedInterfaceOrientations</key>
 	<array>
 		<string>UIInterfaceOrientationPortrait</string>
-		<string>UIInterfaceOrientationLandscapeLeft</string>
-		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
 	<key>UISupportedInterfaceOrientations~ipad</key>
 	<array>
