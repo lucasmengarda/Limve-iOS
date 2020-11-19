@@ -1,0 +1,38 @@
+PODS:
+  - Bolts/Tasks (1.9.1)
+  - DynamicBlurView (4.1.0)
+  - InteractiveSideMenu (2.3)
+  - Parse (1.19.1):
+    - Parse/Core (= 1.19.1)
+  - Parse/Core (1.19.1):
+    - Bolts/Tasks (= 1.9.1)
+  - PopupDialog (1.1.1):
+    - DynamicBlurView (~> 4.0)
+  - TransitionButton (0.5.3)
+
+DEPENDENCIES:
+  - InteractiveSideMenu
+  - Parse
+  - PopupDialog
+  - TransitionButton
+
+SPEC REPOS:
+  trunk:
+    - Bolts
+    - DynamicBlurView
+    - InteractiveSideMenu
+    - Parse
+    - PopupDialog
+    - TransitionButton
+
+SPEC CHECKSUMS:
+  Bolts: 8c1e8aab2f603387b8b9924f57d1d64f43d3ffdc
+  DynamicBlurView: 58e18fae80bb614e34681a4486870e7d257b62e8
+  InteractiveSideMenu: d503a508c6d62a4d5d4372d9fb9e1795637a8e45
+  Parse: e40fdb9c7d665823b7fe9865949cac9a53eb2ce7
+  PopupDialog: 720c92befd8bc23c13442254945213db5612f149
+  TransitionButton: 36283346e17c64775a1b3bc3a7a72940a367de1f
+
+PODFILE CHECKSUM: 7d9bfb0ebc04ecdd8d51a104813c36df6d1683b8
+
+COCOAPODS: 1.10.0

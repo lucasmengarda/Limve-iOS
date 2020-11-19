@@ -1,0 +1,43 @@
+{
+  "object": {
+    "pins": [
+      {
+        "package": "DynamicBlurView",
+        "repositoryURL": "https://github.com/KyoheiG3/DynamicBlurView.git",
+        "state": {
+          "branch": null,
+          "revision": "fbf91352ff3defee8e1fc7525696404bc3740a86",
+          "version": "5.0.4"
+        }
+      },
+      {
+        "package": "Facebook",
+        "repositoryURL": "https://github.com/facebook/facebook-ios-sdk",
+        "state": {
+          "branch": null,
+          "revision": "aa4a4546584f10d17d427c1d7aa2baac224f7dba",
+          "version": "8.1.0"
+        }
+      },
+      {
+        "package": "NVActivityIndicatorView",
+        "repositoryURL": "https://github.com/ninjaprox/NVActivityIndicatorView.git",
+        "state": {
+          "branch": null,
+          "revision": "bcb52371f2259254bac6690f92bb474a61768c47",
+          "version": "5.1.1"
+        }
+      },
+      {
+        "package": "SHSearchBar",
+        "repositoryURL": "https://github.com/Blackjacx/SHSearchBar.git",
+        "state": {
+          "branch": null,
+          "revision": "89e86e6979d305011edc7e4a4299cb2f40760978",
+          "version": "2.0.0"
+        }
+      }
+    ]
+  },
+  "version": 1
+}

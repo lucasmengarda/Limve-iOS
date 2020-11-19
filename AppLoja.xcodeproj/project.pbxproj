@@ -74,7 +74,12 @@
 		12EC8B3424292A8200B66710 /* ComprasVerDetalhes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12EC8B3324292A8200B66710 /* ComprasVerDetalhes.swift */; };
 		12FBD8F9241C3629001C48CF /* Cvv.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12FBD8F8241C3629001C48CF /* Cvv.swift */; };
 		12FBD9012423E747001C48CF /* Obrigado.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12FBD9002423E747001C48CF /* Obrigado.swift */; };
-		E8CFEEAB2BC58576F256E8BC /* Pods_AppLoja.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 97D2C50ABBD078A826CC73E3 /* Pods_AppLoja.framework */; };
+		43682D6CF4D6CFEB35CC6604 /* Pods_AppLoja.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E18F300EA5BAC7FB45ABAF13 /* Pods_AppLoja.framework */; };
+		CB77AE73256729B500ECFBC1 /* Podfile.lock in Resources */ = {isa = PBXBuildFile; fileRef = CB77AE71256729B400ECFBC1 /* Podfile.lock */; };
+		CB77AE74256729B500ECFBC1 /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = CB77AE72256729B400ECFBC1 /* Podfile */; };
+		CBFB12AA25671B1100E225FD /* NVActivityIndicatorView in Frameworks */ = {isa = PBXBuildFile; productRef = CBFB12A925671B1100E225FD /* NVActivityIndicatorView */; };
+		CBFB12B625671E9600E225FD /* DynamicBlurView in Frameworks */ = {isa = PBXBuildFile; productRef = CBFB12B525671E9600E225FD /* DynamicBlurView */; };
+		CBFB12BC25671ED800E225FD /* SHSearchBar in Frameworks */ = {isa = PBXBuildFile; productRef = CBFB12BB25671ED800E225FD /* SHSearchBar */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -106,7 +111,6 @@
 		1210BAD523E234AB00C57C5A /* CeraRoundProMedium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = CeraRoundProMedium.otf; sourceTree = "<group>"; };
 		1210BAD623E234AB00C57C5A /* CeraRoundProBlack.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = CeraRoundProBlack.otf; sourceTree = "<group>"; };
 		1210BAD723E3889100C57C5A /* Public.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Public.swift; sourceTree = "<group>"; };
-		12113D3623E0B9E800BA464D /* Limve.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Limve.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		12113D3923E0B9E800BA464D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		12113D3B23E0B9E800BA464D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		12113D3D23E0B9E800BA464D /* TelaInicial.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TelaInicial.swift; sourceTree = "<group>"; };
@@ -114,10 +118,8 @@
 		12113D4223E0B9EB00BA464D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		12113D4523E0B9EB00BA464D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		12113D4723E0B9EB00BA464D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		12113D4C23E0B9EB00BA464D /* AppLojaTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AppLojaTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		12113D5023E0B9EB00BA464D /* AppLojaTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppLojaTests.swift; sourceTree = "<group>"; };
 		12113D5223E0B9EB00BA464D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		12113D5723E0B9EB00BA464D /* AppLojaUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AppLojaUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		12113D5B23E0B9EB00BA464D /* AppLojaUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppLojaUITests.swift; sourceTree = "<group>"; };
 		12113D5D23E0B9EB00BA464D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		12199368240E027500983D47 /* MinhasCompras.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MinhasCompras.swift; sourceTree = "<group>"; };
@@ -168,9 +170,14 @@
 		12EC8B3324292A8200B66710 /* ComprasVerDetalhes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComprasVerDetalhes.swift; sourceTree = "<group>"; };
 		12FBD8F8241C3629001C48CF /* Cvv.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cvv.swift; sourceTree = "<group>"; };
 		12FBD9002423E747001C48CF /* Obrigado.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Obrigado.swift; sourceTree = "<group>"; };
-		1D1A474C8BBAB02A1AEE228B /* Pods-AppLoja.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AppLoja.debug.xcconfig"; path = "Pods/Target Support Files/Pods-AppLoja/Pods-AppLoja.debug.xcconfig"; sourceTree = "<group>"; };
-		97D2C50ABBD078A826CC73E3 /* Pods_AppLoja.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AppLoja.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		E8A6E3DF54F09FD9D5B90462 /* Pods-AppLoja.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AppLoja.release.xcconfig"; path = "Pods/Target Support Files/Pods-AppLoja/Pods-AppLoja.release.xcconfig"; sourceTree = "<group>"; };
+		3735ECDFBCD43DA709543C3A /* Pods-AppLoja.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AppLoja.debug.xcconfig"; path = "Target Support Files/Pods-AppLoja/Pods-AppLoja.debug.xcconfig"; sourceTree = "<group>"; };
+		CB77AE58256726F200ECFBC1 /* Limve.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; name = Limve.app; path = "/Users/gabirutkoski/Downloads/Limve-iOS/build/Debug-iphoneos/Limve.app"; sourceTree = "<absolute>"; };
+		CB77AE59256726F200ECFBC1 /* AppLojaTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; name = AppLojaTests.xctest; path = "/Users/gabirutkoski/Downloads/Limve-iOS/build/Debug-iphoneos/AppLojaTests.xctest"; sourceTree = "<absolute>"; };
+		CB77AE5A256726F200ECFBC1 /* AppLojaUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; name = AppLojaUITests.xctest; path = "/Users/gabirutkoski/Downloads/Limve-iOS/build/Debug-iphoneos/AppLojaUITests.xctest"; sourceTree = "<absolute>"; };
+		CB77AE71256729B400ECFBC1 /* Podfile.lock */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile.lock; sourceTree = "<group>"; };
+		CB77AE72256729B400ECFBC1 /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; };
+		E18F300EA5BAC7FB45ABAF13 /* Pods_AppLoja.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AppLoja.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		FD94775A4B9C30BC820BF524 /* Pods-AppLoja.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AppLoja.release.xcconfig"; path = "Target Support Files/Pods-AppLoja/Pods-AppLoja.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -178,8 +185,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E8CFEEAB2BC58576F256E8BC /* Pods_AppLoja.framework in Frameworks */,
+				CBFB12B625671E9600E225FD /* DynamicBlurView in Frameworks */,
+				CBFB12AA25671B1100E225FD /* NVActivityIndicatorView in Frameworks */,
 				1235AB26255228650018B887 /* FacebookCore in Frameworks */,
+				CBFB12BC25671ED800E225FD /* SHSearchBar in Frameworks */,
+				43682D6CF4D6CFEB35CC6604 /* Pods_AppLoja.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -253,20 +263,11 @@
 				12113D3823E0B9E800BA464D /* AppLoja */,
 				12113D4F23E0B9EB00BA464D /* AppLojaTests */,
 				12113D5A23E0B9EB00BA464D /* AppLojaUITests */,
-				12113D3723E0B9E800BA464D /* Products */,
-				8AE635E73F886500A6E368A7 /* Pods */,
-				551C6EFFDD14B937F8D2089B /* Frameworks */,
+				AEAA1B61563ABF499B2962AF /* Pods */,
+				3D7CEB780586238FD13EF7AE /* Frameworks */,
+				CB77AE72256729B400ECFBC1 /* Podfile */,
+				CB77AE71256729B400ECFBC1 /* Podfile.lock */,
 			);
-			sourceTree = "<group>";
-		};
-		12113D3723E0B9E800BA464D /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				12113D3623E0B9E800BA464D /* Limve.app */,
-				12113D4C23E0B9EB00BA464D /* AppLojaTests.xctest */,
-				12113D5723E0B9EB00BA464D /* AppLojaUITests.xctest */,
-			);
-			name = Products;
 			sourceTree = "<group>";
 		};
 		12113D3823E0B9E800BA464D /* AppLoja */ = {
@@ -306,7 +307,6 @@
 				12113D4223E0B9EB00BA464D /* Assets.xcassets */,
 				12113D4423E0B9EB00BA464D /* LaunchScreen.storyboard */,
 				12113D4723E0B9EB00BA464D /* Info.plist */,
-				12BCD25225379694009F7768 /* Imagens */,
 				1210BAD023E2331000C57C5A /* Fontes */,
 			);
 			path = AppLoja;
@@ -330,28 +330,21 @@
 			path = AppLojaUITests;
 			sourceTree = "<group>";
 		};
-		12BCD25225379694009F7768 /* Imagens */ = {
+		3D7CEB780586238FD13EF7AE /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-			);
-			path = Imagens;
-			sourceTree = "<group>";
-		};
-		551C6EFFDD14B937F8D2089B /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				97D2C50ABBD078A826CC73E3 /* Pods_AppLoja.framework */,
+				E18F300EA5BAC7FB45ABAF13 /* Pods_AppLoja.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		8AE635E73F886500A6E368A7 /* Pods */ = {
+		AEAA1B61563ABF499B2962AF /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				1D1A474C8BBAB02A1AEE228B /* Pods-AppLoja.debug.xcconfig */,
-				E8A6E3DF54F09FD9D5B90462 /* Pods-AppLoja.release.xcconfig */,
+				3735ECDFBCD43DA709543C3A /* Pods-AppLoja.debug.xcconfig */,
+				FD94775A4B9C30BC820BF524 /* Pods-AppLoja.release.xcconfig */,
 			);
-			name = Pods;
+			path = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -361,11 +354,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 12113D6023E0B9EB00BA464D /* Build configuration list for PBXNativeTarget "AppLoja" */;
 			buildPhases = (
-				CDC09878EE2B09CF31F59B7C /* [CP] Check Pods Manifest.lock */,
+				1238FD58B2A3AAAE15D533F2 /* [CP] Check Pods Manifest.lock */,
 				12113D3223E0B9E800BA464D /* Sources */,
 				12113D3323E0B9E800BA464D /* Frameworks */,
 				12113D3423E0B9E800BA464D /* Resources */,
-				3B1D964DC4AD177A1EFAA700 /* [CP] Embed Pods Frameworks */,
+				128B39761FA66B274AF121D8 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -374,9 +367,12 @@
 			name = AppLoja;
 			packageProductDependencies = (
 				1235AB25255228650018B887 /* FacebookCore */,
+				CBFB12A925671B1100E225FD /* NVActivityIndicatorView */,
+				CBFB12B525671E9600E225FD /* DynamicBlurView */,
+				CBFB12BB25671ED800E225FD /* SHSearchBar */,
 			);
 			productName = AppLoja;
-			productReference = 12113D3623E0B9E800BA464D /* Limve.app */;
+			productReference = CB77AE58256726F200ECFBC1 /* Limve.app */;
 			productType = "com.apple.product-type.application";
 		};
 		12113D4B23E0B9EB00BA464D /* AppLojaTests */ = {
@@ -394,7 +390,7 @@
 			);
 			name = AppLojaTests;
 			productName = AppLojaTests;
-			productReference = 12113D4C23E0B9EB00BA464D /* AppLojaTests.xctest */;
+			productReference = CB77AE59256726F200ECFBC1 /* AppLojaTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 		12113D5623E0B9EB00BA464D /* AppLojaUITests */ = {
@@ -412,7 +408,7 @@
 			);
 			name = AppLojaUITests;
 			productName = AppLojaUITests;
-			productReference = 12113D5723E0B9EB00BA464D /* AppLojaUITests.xctest */;
+			productReference = CB77AE5A256726F200ECFBC1 /* AppLojaUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
 /* End PBXNativeTarget section */
@@ -449,8 +445,11 @@
 			mainGroup = 12113D2D23E0B9E800BA464D;
 			packageReferences = (
 				1235AB24255228650018B887 /* XCRemoteSwiftPackageReference "facebook-ios-sdk" */,
+				CBFB12A825671B1100E225FD /* XCRemoteSwiftPackageReference "NVActivityIndicatorView" */,
+				CBFB12B425671E9600E225FD /* XCRemoteSwiftPackageReference "DynamicBlurView" */,
+				CBFB12BA25671ED800E225FD /* XCRemoteSwiftPackageReference "SHSearchBar" */,
 			);
-			productRefGroup = 12113D3723E0B9E800BA464D /* Products */;
+			productRefGroup = 12113D2D23E0B9E800BA464D;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
@@ -468,8 +467,10 @@
 			files = (
 				12B548A82548FACC00396524 /* Ubuntu-MediumItalic.ttf in Resources */,
 				126DA93523EB486A00055783 /* CeraRoundProThin.otf in Resources */,
+				CB77AE73256729B500ECFBC1 /* Podfile.lock in Resources */,
 				126DA93423EB486900055783 /* CeraRoundProRegular.otf in Resources */,
 				12B548A52548FACC00396524 /* Ubuntu-Medium.ttf in Resources */,
+				CB77AE74256729B500ECFBC1 /* Podfile in Resources */,
 				12B548A62548FACC00396524 /* Ubuntu-Light.ttf in Resources */,
 				12CCE25623EA01F400F7F5BE /* Assets.xcassets in Resources */,
 				12113D4623E0B9EB00BA464D /* LaunchScreen.storyboard in Resources */,
@@ -519,56 +520,43 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		3B1D964DC4AD177A1EFAA700 /* [CP] Embed Pods Frameworks */ = {
+		1238FD58B2A3AAAE15D533F2 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
-			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-AppLoja/Pods-AppLoja-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/Bolts/Bolts.framework",
-				"${BUILT_PRODUCTS_DIR}/DynamicBlurView/DynamicBlurView.framework",
-				"${BUILT_PRODUCTS_DIR}/ImageSlideshow/ImageSlideshow.framework",
-				"${BUILT_PRODUCTS_DIR}/InteractiveSideMenu/InteractiveSideMenu.framework",
-				"${BUILT_PRODUCTS_DIR}/NVActivityIndicatorView/NVActivityIndicatorView.framework",
-				"${BUILT_PRODUCTS_DIR}/Parse/Parse.framework",
-				"${BUILT_PRODUCTS_DIR}/PopupDialog/PopupDialog.framework",
-				"${BUILT_PRODUCTS_DIR}/SHSearchBar/SHSearchBar.framework",
-				"${BUILT_PRODUCTS_DIR}/TransitionButton/TransitionButton.framework",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Bolts.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/DynamicBlurView.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ImageSlideshow.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/InteractiveSideMenu.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/NVActivityIndicatorView.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Parse.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PopupDialog.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SHSearchBar.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/TransitionButton.framework",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-AppLoja/Pods-AppLoja-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		CDC09878EE2B09CF31F59B7C /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
+			inputFileListPaths = (
 			);
 			inputPaths = (
 				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
 				"${PODS_ROOT}/Manifest.lock",
 			);
 			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
 			outputPaths = (
 				"$(DERIVED_FILE_DIR)/Pods-AppLoja-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		128B39761FA66B274AF121D8 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-AppLoja/Pods-AppLoja-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-AppLoja/Pods-AppLoja-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-AppLoja/Pods-AppLoja-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -781,7 +769,7 @@
 		};
 		12113D6123E0B9EB00BA464D /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 1D1A474C8BBAB02A1AEE228B /* Pods-AppLoja.debug.xcconfig */;
+			baseConfigurationReference = 3735ECDFBCD43DA709543C3A /* Pods-AppLoja.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = AppLoja/Limve.entitlements;
@@ -789,6 +777,10 @@
 				DEVELOPMENT_TEAM = KCUHL3HY8Y;
 				INFOPLIST_FILE = AppLoja/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.1;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				MARKETING_VERSION = 1.0.2;
 				PRODUCT_BUNDLE_IDENTIFIER = com.limve.limve;
 				PRODUCT_NAME = Limve;
@@ -799,7 +791,7 @@
 		};
 		12113D6223E0B9EB00BA464D /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = E8A6E3DF54F09FD9D5B90462 /* Pods-AppLoja.release.xcconfig */;
+			baseConfigurationReference = FD94775A4B9C30BC820BF524 /* Pods-AppLoja.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = AppLoja/Limve.entitlements;
@@ -807,6 +799,10 @@
 				DEVELOPMENT_TEAM = KCUHL3HY8Y;
 				INFOPLIST_FILE = AppLoja/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.1;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				MARKETING_VERSION = 1.0.2;
 				PRODUCT_BUNDLE_IDENTIFIER = com.limve.limve;
 				PRODUCT_NAME = Limve;
@@ -945,6 +941,30 @@
 				version = 8.1.0;
 			};
 		};
+		CBFB12A825671B1100E225FD /* XCRemoteSwiftPackageReference "NVActivityIndicatorView" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/ninjaprox/NVActivityIndicatorView.git";
+			requirement = {
+				kind = exactVersion;
+				version = 5.1.1;
+			};
+		};
+		CBFB12B425671E9600E225FD /* XCRemoteSwiftPackageReference "DynamicBlurView" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/KyoheiG3/DynamicBlurView.git";
+			requirement = {
+				kind = exactVersion;
+				version = 5.0.4;
+			};
+		};
+		CBFB12BA25671ED800E225FD /* XCRemoteSwiftPackageReference "SHSearchBar" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Blackjacx/SHSearchBar.git";
+			requirement = {
+				kind = exactVersion;
+				version = 2.0.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -952,6 +972,21 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 1235AB24255228650018B887 /* XCRemoteSwiftPackageReference "facebook-ios-sdk" */;
 			productName = FacebookCore;
+		};
+		CBFB12A925671B1100E225FD /* NVActivityIndicatorView */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = CBFB12A825671B1100E225FD /* XCRemoteSwiftPackageReference "NVActivityIndicatorView" */;
+			productName = NVActivityIndicatorView;
+		};
+		CBFB12B525671E9600E225FD /* DynamicBlurView */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = CBFB12B425671E9600E225FD /* XCRemoteSwiftPackageReference "DynamicBlurView" */;
+			productName = DynamicBlurView;
+		};
+		CBFB12BB25671ED800E225FD /* SHSearchBar */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = CBFB12BA25671ED800E225FD /* XCRemoteSwiftPackageReference "SHSearchBar" */;
+			productName = SHSearchBar;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
