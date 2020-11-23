@@ -6,5 +6,6 @@ target 'AppLoja' do
     pod 'TransitionButton'
     pod 'InteractiveSideMenu'
     pod 'PopupDialog'
+    pod 'Branch'
   
 end

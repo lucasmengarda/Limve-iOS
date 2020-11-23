@@ -1,5 +1,6 @@
 ${PODS_ROOT}/Target Support Files/Pods-AppLoja/Pods-AppLoja-frameworks.sh
 ${BUILT_PRODUCTS_DIR}/Bolts/Bolts.framework
+${BUILT_PRODUCTS_DIR}/Branch/Branch.framework
 ${BUILT_PRODUCTS_DIR}/DynamicBlurView/DynamicBlurView.framework
 ${BUILT_PRODUCTS_DIR}/InteractiveSideMenu/InteractiveSideMenu.framework
 ${BUILT_PRODUCTS_DIR}/Parse/Parse.framework

@@ -16,7 +16,7 @@ import Parse
 import PopupDialog
 import FBSDKCoreKit
 
-class Carrinho: UIViewController, UITableViewDelegate, UITableViewDataSource, EnderecoDelegate, ParcelamentoDelegate, AdicionarCartaoDelegate, DocumentoFiscalDelegate, CvvDelegate, ObrigadoDelegate {
+class Carrinho: UIViewController, UITableViewDelegate, UITableViewDataSource, EnderecoDelegate, ParcelamentoDelegate, AdicionarCartaoDelegate, DocumentoFiscalDelegate, CvvDelegate, ObrigadoDelegate, MelhoreSuaExperienciaDelegate {
     
     @IBOutlet weak var holder: UIView!
     @IBOutlet weak var oTable: UITableView!
@@ -88,8 +88,10 @@ class Carrinho: UIViewController, UITableViewDelegate, UITableViewDataSource, En
     }
     
     var blurEffectView: UIView!
-    @IBAction func alterarEndereco(sender: TransitionButton){
-        let blurView = DynamicBlurView(frame: self.view.bounds)
+    var blurView: DynamicBlurView!
+    
+    func inicializarEfeitosDeBlur(){
+        blurView = DynamicBlurView(frame: self.view.bounds)
         blurView.blurRadius = 4
         blurView.trackingMode = .tracking
         blurView.isDeepRendering = true
@@ -114,10 +116,15 @@ class Carrinho: UIViewController, UITableViewDelegate, UITableViewDataSource, En
         }) { _ in
             
         }
+    }
+    
+    @IBAction func alterarEndereco(sender: TransitionButton){
+        
+        inicializarEfeitosDeBlur()
         
         let adicionar = Endereco.inicializeEndereco(delegate: self)
         self.present(adicionar, animated: true, completion: {
-            blurView.trackingMode = .none
+            self.blurView.trackingMode = .none
         })
     }
     
@@ -424,31 +431,7 @@ class Carrinho: UIViewController, UITableViewDelegate, UITableViewDataSource, En
     }
     
     @objc func alterarParcelamento(){
-        let blurView = DynamicBlurView(frame: self.view.bounds)
-        blurView.blurRadius = 4
-        blurView.trackingMode = .tracking
-        blurView.isDeepRendering = true
-        blurView.tintColor = .clear
-        blurView.autoresizingMask = [.flexibleHeight, .flexibleWidth]
-        
-        let overlay = UIView(frame: self.view.bounds)
-        overlay.backgroundColor = .black
-        overlay.alpha = 0.4
-        overlay.autoresizingMask = [.flexibleHeight, .flexibleWidth]
-        
-        blurEffectView = UIView(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.size.width, height: UIScreen.main.bounds.size.height))
-        blurEffectView.backgroundColor = UIColor.clear
-        
-        blurEffectView.addSubview(blurView)
-        blurEffectView.addSubview(overlay)
-        
-        self.view.addSubview(blurEffectView) //if you have more UIViews, use an insertSubview API to place it where needed
-        
-        UIView.animate(withDuration: 0.25, animations: {
-            self.blurEffectView.alpha = 1
-        }) { _ in
-            
-        }
+        inicializarEfeitosDeBlur()
         
         var taxaEntrega = 0.0
         if (CarrinhoObject.get().valorDoCarrinho < minimoTaxaDeEntregaGratis){
@@ -457,7 +440,7 @@ class Carrinho: UIViewController, UITableViewDelegate, UITableViewDataSource, En
         
         let parc = Parcelamento.inicializeParcelamento(valorTotal: (CarrinhoObject.get().valorDoCarrinho + taxaEntrega), parcelamento: parcelar, delegate: self)
         self.present(parc, animated: true, completion: {
-            blurView.trackingMode = .none
+            self.blurView.trackingMode = .none
         })
     }
     
@@ -476,35 +459,11 @@ class Carrinho: UIViewController, UITableViewDelegate, UITableViewDataSource, En
     
     @objc func adicionarPagamento(){
         
-        let blurView = DynamicBlurView(frame: self.view.bounds)
-        blurView.blurRadius = 4
-        blurView.trackingMode = .tracking
-        blurView.isDeepRendering = true
-        blurView.tintColor = .clear
-        blurView.autoresizingMask = [.flexibleHeight, .flexibleWidth]
-        
-        let overlay = UIView(frame: self.view.bounds)
-        overlay.backgroundColor = .black
-        overlay.alpha = 0.4
-        overlay.autoresizingMask = [.flexibleHeight, .flexibleWidth]
-        
-        blurEffectView = UIView(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.size.width, height: UIScreen.main.bounds.size.height))
-        blurEffectView.backgroundColor = UIColor.clear
-        
-        blurEffectView.addSubview(blurView)
-        blurEffectView.addSubview(overlay)
-        
-        self.view.addSubview(blurEffectView) //if you have more UIViews, use an insertSubview API to place it where needed
-        
-        UIView.animate(withDuration: 0.25, animations: {
-            self.blurEffectView.alpha = 1
-        }) { _ in
-            
-        }
+        inicializarEfeitosDeBlur()
         
         let pgto = FormasPagamento.inicializeFormasPagamento(cartaoSelecionado: Carrinho.cartaoSelecionado, formaDePagamentoTipo: Carrinho.formaPagamentoSelecionado, delegate: self)
         self.present(pgto, animated: true, completion: {
-            blurView.trackingMode = .none
+            self.blurView.trackingMode = .none
         })
     }
     
@@ -553,38 +512,14 @@ class Carrinho: UIViewController, UITableViewDelegate, UITableViewDataSource, En
     
     @objc func trocarDocumentoFiscal(isFinalizacao: Bool = false){
         
-        let blurView = DynamicBlurView(frame: self.view.bounds)
-        blurView.blurRadius = 4
-        blurView.trackingMode = .tracking
-        blurView.isDeepRendering = true
-        blurView.tintColor = .clear
-        blurView.autoresizingMask = [.flexibleHeight, .flexibleWidth]
-        
-        let overlay = UIView(frame: self.view.bounds)
-        overlay.backgroundColor = .black
-        overlay.alpha = 0.4
-        overlay.autoresizingMask = [.flexibleHeight, .flexibleWidth]
-        
-        blurEffectView = UIView(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.size.width, height: UIScreen.main.bounds.size.height))
-        blurEffectView.backgroundColor = UIColor.clear
-        
-        blurEffectView.addSubview(blurView)
-        blurEffectView.addSubview(overlay)
-        
-        self.view.addSubview(blurEffectView) //if you have more UIViews, use an insertSubview API to place it where needed
-        
-        UIView.animate(withDuration: 0.25, animations: {
-            self.blurEffectView.alpha = 1
-        }) { _ in
-            
-        }
+        inicializarEfeitosDeBlur()
         
         let dc = DocumentoFiscal.inicializeDocumentoFiscal(cpfCnpj: Carrinho.cpfCnpj, nome: Carrinho.nome, delegate: self)
         if (isFinalizacao){
             dc.isFinalizacao = true
         }
         self.present(dc, animated: true, completion: {
-            blurView.trackingMode = .none
+            self.blurView.trackingMode = .none
         })
     }
     
@@ -723,6 +658,15 @@ class Carrinho: UIViewController, UITableViewDelegate, UITableViewDataSource, En
         
         sender.startAnimation()
         
+        let hasEmail = (PFUser.current()!["email"] != nil)
+        let hasTelefone = (PFUser.current()!["telefone"] != nil)
+        
+        if (!hasEmail || !hasTelefone){
+            botaoHolder = sender
+            abrirMelhoreSuaExperiencia()
+            return
+        }
+        
         if (Carrinho.formaPagamentoSelecionado == "boleto" || Carrinho.formaPagamentoSelecionado == "transferencia"){
             
             if (Carrinho.cpfCnpj.count == 0 || Carrinho.nome.count == 0){
@@ -738,134 +682,47 @@ class Carrinho: UIViewController, UITableViewDelegate, UITableViewDataSource, En
             return
         }
         
-        let blurView = DynamicBlurView(frame: self.view.bounds)
-        blurView.blurRadius = 4
-        blurView.trackingMode = .tracking
-        blurView.isDeepRendering = true
-        blurView.tintColor = .clear
-        blurView.autoresizingMask = [.flexibleHeight, .flexibleWidth]
-        
-        let overlay = UIView(frame: self.view.bounds)
-        overlay.backgroundColor = .black
-        overlay.alpha = 0.4
-        overlay.autoresizingMask = [.flexibleHeight, .flexibleWidth]
-        
-        blurEffectView = UIView(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.size.width, height: UIScreen.main.bounds.size.height))
-        blurEffectView.backgroundColor = UIColor.clear
-        
-        blurEffectView.addSubview(blurView)
-        blurEffectView.addSubview(overlay)
-        
-        self.view.addSubview(blurEffectView) //if you have more UIViews, use an insertSubview API to place it where needed
-        
-        UIView.animate(withDuration: 0.25, animations: {
-            self.blurEffectView.alpha = 1
-        }) { _ in
-            
-        }
+        inicializarEfeitosDeBlur()
         
         let cvv = Cvv.inicializeCvv(botao: sender, cartao: Carrinho.cartaoSelecionado, delegate: self)
         self.present(cvv, animated: true, completion: {
-            blurView.trackingMode = .none
+            self.blurView.trackingMode = .none
         })
     }
     
     func abrirObrigado(autenticacao: String){
-        let blurView = DynamicBlurView(frame: self.view.bounds)
-        blurView.blurRadius = 4
-        blurView.trackingMode = .tracking
-        blurView.isDeepRendering = true
-        blurView.tintColor = .clear
-        blurView.autoresizingMask = [.flexibleHeight, .flexibleWidth]
-        
-        let overlay = UIView(frame: self.view.bounds)
-        overlay.backgroundColor = .black
-        overlay.alpha = 0.4
-        overlay.autoresizingMask = [.flexibleHeight, .flexibleWidth]
-        
-        blurEffectView = UIView(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.size.width, height: UIScreen.main.bounds.size.height))
-        blurEffectView.backgroundColor = UIColor.clear
-        
-        blurEffectView.addSubview(blurView)
-        blurEffectView.addSubview(overlay)
-        
-        self.view.addSubview(blurEffectView) //if you have more UIViews, use an insertSubview API to place it where needed
-        
-        UIView.animate(withDuration: 0.25, animations: {
-            self.blurEffectView.alpha = 1
-        }) { _ in
-            
-        }
+        inicializarEfeitosDeBlur()
         
         let obg = Obrigado.inicializeObrigado(autenticacao: autenticacao, delegate: self)
         self.present(obg, animated: true, completion: {
-            blurView.trackingMode = .none
+            self.blurView.trackingMode = .none
+        })
+    }
+    
+    func abrirMelhoreSuaExperiencia(){
+        inicializarEfeitosDeBlur()
+        
+        let melhore = MelhoreSuaExperiencia.inicializeMelhoreSuaExperiencia(delegate: self)
+        self.present(melhore, animated: true, completion: {
+            self.blurView.trackingMode = .none
         })
     }
     
     func abrirObrigadoBoleto(boleto: [String : Any]){
-        let blurView = DynamicBlurView(frame: self.view.bounds)
-        blurView.blurRadius = 4
-        blurView.trackingMode = .tracking
-        blurView.isDeepRendering = true
-        blurView.tintColor = .clear
-        blurView.autoresizingMask = [.flexibleHeight, .flexibleWidth]
-        
-        let overlay = UIView(frame: self.view.bounds)
-        overlay.backgroundColor = .black
-        overlay.alpha = 0.4
-        overlay.autoresizingMask = [.flexibleHeight, .flexibleWidth]
-        
-        blurEffectView = UIView(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.size.width, height: UIScreen.main.bounds.size.height))
-        blurEffectView.backgroundColor = UIColor.clear
-        
-        blurEffectView.addSubview(blurView)
-        blurEffectView.addSubview(overlay)
-        
-        self.view.addSubview(blurEffectView) //if you have more UIViews, use an insertSubview API to place it where needed
-        
-        UIView.animate(withDuration: 0.25, animations: {
-            self.blurEffectView.alpha = 1
-        }) { _ in
-            
-        }
+        inicializarEfeitosDeBlur()
         
         let nf = ObrigadoBoleto.inicializeObrigado(boleto: boleto, delegate: self)
         self.present(nf, animated: true, completion: {
-            blurView.trackingMode = .none
+            self.blurView.trackingMode = .none
         })
     }
     
     func abrirObrigadoTransferencia(valor: Double){
-        let blurView = DynamicBlurView(frame: self.view.bounds)
-        blurView.blurRadius = 4
-        blurView.trackingMode = .tracking
-        blurView.isDeepRendering = true
-        blurView.tintColor = .clear
-        blurView.autoresizingMask = [.flexibleHeight, .flexibleWidth]
-        
-        let overlay = UIView(frame: self.view.bounds)
-        overlay.backgroundColor = .black
-        overlay.alpha = 0.4
-        overlay.autoresizingMask = [.flexibleHeight, .flexibleWidth]
-        
-        blurEffectView = UIView(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.size.width, height: UIScreen.main.bounds.size.height))
-        blurEffectView.backgroundColor = UIColor.clear
-        
-        blurEffectView.addSubview(blurView)
-        blurEffectView.addSubview(overlay)
-        
-        self.view.addSubview(blurEffectView) //if you have more UIViews, use an insertSubview API to place it where needed
-        
-        UIView.animate(withDuration: 0.25, animations: {
-            self.blurEffectView.alpha = 1
-        }) { _ in
-            
-        }
+        inicializarEfeitosDeBlur()
         
         let nf = ObrigadoTransferencia.inicializeObrigado(valor: valor, delegate: self)
         self.present(nf, animated: true, completion: {
-            blurView.trackingMode = .none
+            self.blurView.trackingMode = .none
         })
     }
     
@@ -902,6 +759,42 @@ class Carrinho: UIViewController, UITableViewDelegate, UITableViewDataSource, En
                 
             }
         }
+    }
+    
+    func onExitMelhoreSuaExperiencia(telefone: String, email: String) {
+        UIView.animate(withDuration: 0.25, animations: {
+            self.blurEffectView.alpha = 0
+        }) { _ in
+            self.blurEffectView.removeFromSuperview()
+        }
+        
+        if (telefone.count > 0){
+            PFUser.current()!["telefone"] = telefone
+            PFUser.current()!["email"] = email
+            PFUser.current()!.saveInBackground()
+        }
+        
+        
+        if (Carrinho.formaPagamentoSelecionado == "boleto" || Carrinho.formaPagamentoSelecionado == "transferencia"){
+            
+            if (Carrinho.cpfCnpj.count == 0 || Carrinho.nome.count == 0){
+                trocarDocumentoFiscal(isFinalizacao: true)
+            } else {
+                viewBlocker = UIView(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.size.width, height: UIScreen.main.bounds.size.height))
+                viewBlocker.backgroundColor = UIColor.clear
+                self.view.addSubview(viewBlocker)
+                finalizarCompra(botao: botaoHolder, cvv: "")
+            }
+            
+            return
+        }
+    
+        inicializarEfeitosDeBlur()
+        
+        let cvv = Cvv.inicializeCvv(botao: botaoHolder, cartao: Carrinho.cartaoSelecionado, delegate: self)
+        self.present(cvv, animated: true, completion: {
+            self.blurView.trackingMode = .none
+        })
     }
     
     func finalizarCompra(botao: TransitionButton, cvv: String?){

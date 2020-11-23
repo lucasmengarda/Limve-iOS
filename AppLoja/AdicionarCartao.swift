@@ -51,8 +51,20 @@ class AdicionarCartao: UIViewController, UITextFieldDelegate {
     }
     
     @IBAction func fechar(){
-        self.dismiss(animated: true, completion: nil)
-        self.delegate.onExitCartao(sussecefull: false, cartao: nil)
+        
+        let popup = PopupDialog(title: "Tem certeza?", message: "Você tem certeza que deseja cancelar a inclusão de um cartão? O processo feito até aqui não será salvo.")
+        popup.buttonAlignment = .horizontal
+        popup.transitionStyle = .bounceUp
+        let button = DefaultButton(title: "Não", action: {
+        })
+        let button2 = CancelButton(title: "Sim", action: {
+            self.dismiss(animated: true, completion: nil)
+            self.delegate.onExitCartao(sussecefull: false, cartao: nil)
+        })
+        popup.addButton(button)
+        popup.addButton(button2)
+        // Present dialog
+        self.present(popup, animated: true, completion: nil)
     }
     
     override func viewDidLoad() {

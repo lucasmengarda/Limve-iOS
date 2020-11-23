@@ -117,7 +117,10 @@ class DocumentoFiscal: UIViewController {
         
         PFUser.current()!["cpf"] = cpfCnpj.text!
         PFUser.current()!["nome"] = nome.text!
-        PFUser.current()!.saveInBackground()
+        PFUser.current()!.saveInBackground { (certo, erro) in
+            PFUser.current()!.username = self.cpfCnpj.text!
+            PFUser.current()!.saveInBackground()
+        }
         
         self.dismiss(animated: true, completion: nil)
         self.delegate.onExitDocumentoFiscal(sucesseful: true, cpfCnpj: cpfCnpj.text!, nome: nome.text!, isFinalizacao: isFinalizacao)

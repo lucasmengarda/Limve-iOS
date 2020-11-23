@@ -5,7 +5,12 @@
 	<key>aps-environment</key>
 	<string>production</string>
 	<key>com.apple.developer.associated-domains</key>
-	<array/>
+	<array>
+		<string>applinks:limve.app.link</string>
+		<string>applinks:limve-alternate.app.link</string>
+		<string>applinks:limve.test-app.link</string>
+		<string>applinks:limve-alternative.test-app.link</string>
+	</array>
 	<key>com.apple.developer.user-fonts</key>
 	<array>
 		<string>app-usage</string>
