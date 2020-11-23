@@ -81,6 +81,14 @@ class InicioVerdadeiro: UIViewController, SideMenuItemContent {
                 PFUser.logOut()
             }
         }
+        
+        
+        //Deep link mechanism
+        Timer(timeInterval: 1000, repeats: false) { _ in
+            DispatchQueue.main.async {
+                averiguarDeepLinksNaFila()
+            }
+        }.fire()
     }
     
     @IBAction func abrirMenu(){
@@ -92,5 +100,4 @@ class InicioVerdadeiro: UIViewController, SideMenuItemContent {
         NavigationMenuViewController.myVC.menuContainerViewController!.selectContentViewController(TelaInicial.inicializeTelaInicialAsBuscarAcionado())
         NavigationMenuViewController.myVC.menuContainerViewController!.hideSideMenu()
     }
-    
 }

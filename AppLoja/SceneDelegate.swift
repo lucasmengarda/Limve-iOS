@@ -8,22 +8,25 @@
 
 import UIKit
 import FBSDKCoreKit
-
+import Branch
+import PopupDialog
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     var window: UIWindow?
     
     func scene(_ scene: UIScene, openURLContexts URLContexts: Set<UIOpenURLContext>) {
-        guard let url = URLContexts.first?.url else {
+        BranchScene.shared().scene(scene, openURLContexts: URLContexts)
+        let url = URLContexts.first?.url
+        if (url == nil){
             return
         }
         
-        print("App aberto com o URL (Scheme): \(url)")
+        processarDeeplink(.link_appAberto, params: [:], url!)
 
         ApplicationDelegate.shared.application(
             UIApplication.shared,
-            open: url,
+            open: url!,
             sourceApplication: nil,
             annotation: [UIApplication.OpenURLOptionsKey.annotation]
         )
@@ -33,7 +36,16 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // Use this method to optionally configure and attach the UIWindow `window` to the provided UIWindowScene `scene`.
         // If using a storyboard, the `window` property will automatically be initialized and attached to the scene.
         // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
+        
         guard let _ = (scene as? UIWindowScene) else { return }
+        
+        if let deeplink = connectionOptions.urlContexts.first?.url {
+            processarDeeplink(.link_appFechado, params: [:], deeplink)
+        }
+        
+        if let userActivity = connectionOptions.userActivities.first {
+            BranchScene.shared().scene(scene, continue: userActivity)
+        }
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {
@@ -64,6 +76,9 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // to restore the scene back to its current state.
     }
 
+    func scene(_ scene: UIScene, continue userActivity: NSUserActivity) {
+        BranchScene.shared().scene(scene, continue: userActivity)
+    }
 
 }
 

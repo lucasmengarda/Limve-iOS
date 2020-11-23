@@ -152,6 +152,67 @@ extension UITextField {
     }
 }
 
+public enum TipoDeepLink {
+    case branch
+    case link_appAberto
+    case link_appFechado
+}
+
+public enum AcaoDeepLink {
+    case abrirProduto
+}
+
+public var filaDeepLinks = [[AcaoDeepLink : String]]()
+
+public func processarDeeplink(_ tipo: TipoDeepLink, params: [AnyHashable : Any], _ url: URL?){
+    if (tipo == .branch){
+        print("BRANCH PARAMS: \(params)")
+        if (params["produtoid"] != nil){
+            deepLinkAcaoAbrirProduto(produtoId: params["produtoid"] as! String)
+            return
+        }
+    } else if (tipo == .link_appAberto || tipo == .link_appFechado){
+        print("App aberto com o URL (Scheme): \(url)")
+        
+        if (url!.absoluteString.contains("limve://")){
+            let limparURL1 = url!.absoluteString.replacingOccurrences(of: "limve://", with: "")
+            if (limparURL1.contains("?")){
+                if (limparURL1.split(separator: "?")[0] == "abrirproduto"){
+                    let produtoId = url!.queryParameters["produtoid"]
+                    if (produtoId != nil){
+                        
+                        if (tipo == .link_appAberto){
+                            deepLinkAcaoAbrirProduto(produtoId: produtoId!)
+                        } else {
+                            filaDeepLinks.append([AcaoDeepLink.abrirProduto: produtoId!])
+                        }
+                        
+                        return
+                    }
+                }
+            }
+        }
+    }
+}
+
+public func deepLinkAcaoAbrirProduto(produtoId: String){
+    NavigationMenuViewController.myVC.menuContainerViewController!.selectContentViewController(TelaInicial.inicializeTelaInicialFromDeepLink(produtoId: produtoId))
+    NavigationMenuViewController.myVC.menuContainerViewController!.hideSideMenu()
+}
+
+public func averiguarDeepLinksNaFila(){
+    if (filaDeepLinks.count > 0){
+        for acao in filaDeepLinks {
+            if (acao.keys.first! == .abrirProduto){
+                let produtoId = acao[.abrirProduto]
+                NavigationMenuViewController.myVC.menuContainerViewController!.selectContentViewController(TelaInicial.inicializeTelaInicialFromDeepLink(produtoId: produtoId))
+                NavigationMenuViewController.myVC.menuContainerViewController!.hideSideMenu()
+            }
+        }
+        filaDeepLinks.removeAll()
+    }
+}
+
 //eventos de rastreio do FacebookAds
 func logAddToCartEvent(produto: Produto) {
     
@@ -208,4 +269,19 @@ func logAddPaymentInfoEvent(success: Bool) {
     ]
 
     AppEvents.logEvent(.addedPaymentInfo, parameters: parameters)
+}
+
+extension URL {
+    var queryParameters: QueryParameters { return QueryParameters(url: self) }
+}
+
+class QueryParameters {
+    let queryItems: [URLQueryItem]
+    init(url: URL?) {
+        queryItems = URLComponents(string: url?.absoluteString ?? "")?.queryItems ?? []
+        print(queryItems)
+    }
+    subscript(name: String) -> String? {
+        return queryItems.first(where: { $0.name == name })?.value
+    }
 }

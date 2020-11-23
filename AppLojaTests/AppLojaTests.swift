@@ -7,7 +7,6 @@
 //
 
 import XCTest
-@testable import AppLoja
 
 class AppLojaTests: XCTestCase {
 

@@ -1,0 +1,6 @@
+framework module Pods_AppLoja {
+  umbrella header "Pods-AppLoja-umbrella.h"
+
+  export *
+  module * { export * }
+}

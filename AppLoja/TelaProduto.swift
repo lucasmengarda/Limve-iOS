@@ -20,6 +20,7 @@ class TelaProduto: UIViewController, UITableViewDelegate, UITableViewDataSource,
     @IBOutlet weak var oTable: UITableView!
     @IBOutlet weak var loader: UIView!
     
+    @IBOutlet weak var imagemPromocaoAtiva: UIImageView!
     @IBOutlet weak var botaoAdicionarAoCarrinho: TransitionButton!
     @IBOutlet weak var botaoFavorito: TransitionButton!
     
@@ -32,6 +33,8 @@ class TelaProduto: UIViewController, UITableViewDelegate, UITableViewDataSource,
     var produtosSimilares = [Produto]()
     var loadProdutosSimilares = 0
     var favoritado = 0
+    
+    var yUtilizar: CGFloat!
     
     static func inicializeTelaProduto(produto: Produto, delegate: TelaInicial) -> TelaProduto {
         let tela = MAIN_STORYBOARD.instantiateViewController(identifier: "TelaProduto") as! TelaProduto
@@ -53,6 +56,8 @@ class TelaProduto: UIViewController, UITableViewDelegate, UITableViewDataSource,
         
         imagemSobreposta.isHidden = true
         imagemFundo.isHidden = true
+        
+        yUtilizar = self.holder.frame.origin.y
         
         loader.backgroundColor = UIColor.clear
         let nv = NVActivityIndicatorView(frame: CGRect(origin: .zero, size: loader.frame.size), type: NVActivityIndicatorType.ballClipRotateMultiple, color: UIColor.white, padding: 15.0)
@@ -160,11 +165,15 @@ class TelaProduto: UIViewController, UITableViewDelegate, UITableViewDataSource,
                 cell.dePreco.isHidden = false
                 cell.porPreco.isHidden = false
                 cell.precoAntigo.isHidden = false
+                cell.preco.textColor = hexStringToUIColor("#D13C2F")
                 cell.precoAntigo.text = formatarPreco(preco: produto.precoSemDesconto)
+                imagemPromocaoAtiva.isHidden = false
             } else {
                 cell.dePreco.isHidden = true
                 cell.porPreco.isHidden = true
                 cell.precoAntigo.isHidden = true
+                cell.preco.textColor = hexStringToUIColor("#116AB6")
+                imagemPromocaoAtiva.isHidden = true
             }
             
             cell.preco.text = formatarPreco(preco: produto.precoVenda)
@@ -238,6 +247,7 @@ class TelaProduto: UIViewController, UITableViewDelegate, UITableViewDataSource,
                         cell.theCollectionView.reloadData()
                         cell.theCollectionView.isHidden = false
                         cell.loader.isHidden = true
+                        print("produtos similares: \(self.produtosSimilares.count)")
                     }
                 }
             } else if (loadProdutosSimilares == 1){
@@ -347,9 +357,9 @@ class TelaProduto: UIViewController, UITableViewDelegate, UITableViewDataSource,
             if (isCabecalhoVisible){
                 UIView.animate(withDuration: 0.25) {
                     
-                    self.imagemSobreposta.alpha = 0
+                    //self.imagemSobreposta.alpha = 0
                     
-                    self.holder.frame = CGRect(x: self.holder.frame.origin.x, y: 100.0, width: self.holder.frame.width, height: (self.view.frame.height - 100))
+                    self.holder.frame = CGRect(x: self.holder.frame.origin.x, y: (self.yUtilizar - 105.0), width: self.holder.frame.width, height: (self.view.frame.height - (self.yUtilizar - 105.0)))
                     self.holder.layer.cornerRadius = 0.0
                     
                     self.holder.layer.shadowColor = hexStringToUIColor("#00224B").cgColor
@@ -362,9 +372,9 @@ class TelaProduto: UIViewController, UITableViewDelegate, UITableViewDataSource,
         } else {
             if (!isCabecalhoVisible){
                 UIView.animate(withDuration: 0.25) {
-                    self.imagemSobreposta.alpha = 1.0
+                    //self.imagemSobreposta.alpha = 1.0
                     
-                    self.holder.frame = CGRect(x: self.holder.frame.origin.x, y: 256.0, width: self.holder.frame.width, height: (self.view.frame.height - 256.0))
+                    self.holder.frame = CGRect(x: self.holder.frame.origin.x, y: self.yUtilizar, width: self.holder.frame.width, height: (self.view.frame.height - self.yUtilizar))
                     self.holder.layer.cornerRadius = 16.0
                     
                     self.holder.layer.shadowColor = hexStringToUIColor("#00224B").cgColor

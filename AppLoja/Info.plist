@@ -32,6 +32,8 @@
 		<dict>
 			<key>CFBundleTypeRole</key>
 			<string>Editor</string>
+			<key>CFBundleURLName</key>
+			<string>com.limve.limve</string>
 			<key>CFBundleURLSchemes</key>
 			<array>
 				<string>limve</string>
@@ -143,6 +145,16 @@
 		<string>UIInterfaceOrientationPortraitUpsideDown</string>
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
+	</array>
+	<key>branch_key</key>
+	<dict>
+		<key>live</key>
+		<string>key_live_lcH6WPMcyfQIYEMzEp09IjdnrAnBvZX4</string>
+	</dict>
+	<key>branch_universal_link_domains</key>
+	<array>
+		<string>limve.app.link</string>
+		<string>limve-alternate.app.link</string>
 	</array>
 </dict>
 </plist>

@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="HxV-e7-U4x">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17506" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="HxV-e7-U4x">
     <device id="retina6_5" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17126"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17505"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="collection view cell content view" minToolsVersion="11.0"/>
@@ -124,7 +124,7 @@
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Neutralizador de Odores" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DNQ-cF-9ni">
                                                 <rect key="frame" x="107" y="0.0" width="200" height="77"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" heightSizable="YES" flexibleMaxY="YES"/>
-                                                <fontDescription key="fontDescription" name="IntroScript-SemiBold" family="Intro Script" pointSize="28"/>
+                                                <fontDescription key="fontDescription" name="IntroScript-SemiBold" family="Intro Script" pointSize="26"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
@@ -290,6 +290,20 @@
                                                                     </subviews>
                                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 </view>
+                                                                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Q3B-Bb-1rf">
+                                                                    <rect key="frame" x="64" y="90" width="120" height="24"/>
+                                                                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
+                                                                    <subviews>
+                                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="BLACKWEEK" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vfs-Gy-2zi">
+                                                                            <rect key="frame" x="0.0" y="2" width="120" height="21"/>
+                                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                                            <fontDescription key="fontDescription" name="CeraRoundPro-Regular" family="Cera Round Pro" pointSize="17"/>
+                                                                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                            <nil key="highlightedColor"/>
+                                                                        </label>
+                                                                    </subviews>
+                                                                    <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                </view>
                                                                 <view alpha="0.65000000000000002" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="F6s-BW-9bC">
                                                                     <rect key="frame" x="0.0" y="0.0" width="190" height="251"/>
                                                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -317,6 +331,8 @@
                                                 </collectionViewCellContentView>
                                                 <size key="customSize" width="198" height="301"/>
                                                 <connections>
+                                                    <outlet property="blackWeekHolder" destination="Q3B-Bb-1rf" id="DcZ-Ob-rgK"/>
+                                                    <outlet property="blackWeekLabel" destination="Vfs-Gy-2zi" id="93f-mw-zpt"/>
                                                     <outlet property="botaoAdicionarCarrinho" destination="zRH-xP-Zu2" id="5Cr-L8-rr9"/>
                                                     <outlet property="descricaoProduto" destination="LOl-AV-dOg" id="IVb-Tn-tSC"/>
                                                     <outlet property="estoquezerado" destination="F6s-BW-9bC" id="3n4-e5-NHC"/>
@@ -392,7 +408,7 @@
                             </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
-                        <color key="backgroundColor" red="0.043137254899999998" green="0.41568627450000001" blue="0.69019607839999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <color key="backgroundColor" red="0.047058823529411764" green="0.42352941176470588" blue="0.72549019607843135" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <variation key="default">
                             <mask key="subviews">
                                 <exclude reference="3RE-k2-jkF"/>
@@ -1057,85 +1073,87 @@
                             <visualEffectView opaque="NO" alpha="0.80000000000000004" contentMode="scaleAspectFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ldN-IU-20v">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="312"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="aCy-tA-ZY2">
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" alpha="0.14999999999999999" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="aCy-tA-ZY2">
                                     <rect key="frame" x="0.0" y="0.0" width="414" height="312"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                    <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </view>
-                                <blurEffect style="extraLight"/>
+                                <blurEffect style="light"/>
                             </visualEffectView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="omo" translatesAutoresizingMaskIntoConstraints="NO" id="DXV-Dn-h9z">
-                                <rect key="frame" x="97" y="43" width="221" height="221"/>
+                                <rect key="frame" x="79" y="10" width="255" height="254"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </imageView>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="UGM-oE-0bF">
-                                <rect key="frame" x="157" y="103" width="100" height="100"/>
+                                <rect key="frame" x="157" y="88" width="100" height="100"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </view>
                             <view clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="47E-7h-PlR">
                                 <rect key="frame" x="0.0" y="273" width="414" height="623"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES" heightSizable="YES"/>
                                 <subviews>
                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="CPZ-aR-tbS">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="520"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="413" height="519"/>
                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <prototypes>
                                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="CelulaInfoProduto" rowHeight="336" id="dD9-Cb-RzX" customClass="CelulaInfoProduto" customModule="Limve" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="28" width="414" height="336"/>
+                                                <rect key="frame" x="0.0" y="28" width="413" height="336"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="dD9-Cb-RzX" id="wcJ-PS-dW7">
-                                                    <rect key="frame" x="0.0" y="0.0" width="414" height="336"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="413" height="336"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <subviews>
                                                         <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="rP7-2k-ZaQ">
-                                                            <rect key="frame" x="6" y="10" width="400" height="321"/>
-                                                            <autoresizingMask key="autoresizingMask" heightSizable="YES"/>
+                                                            <rect key="frame" x="6" y="10" width="399" height="321"/>
+                                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                             <subviews>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Informações sobre o produto:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fqB-Ky-e3M">
-                                                                    <rect key="frame" x="15" y="8" width="271" height="32"/>
+                                                                    <rect key="frame" x="15" y="8" width="260" height="30"/>
                                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                                    <fontDescription key="fontDescription" name="IntroScript-Bold" family="Intro Script" pointSize="24"/>
+                                                                    <fontDescription key="fontDescription" name="IntroScript-Bold" family="Intro Script" pointSize="23"/>
                                                                     <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Marca:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="H3v-O1-WKi">
-                                                                    <rect key="frame" x="15" y="55" width="47" height="15"/>
+                                                                    <rect key="frame" x="15" y="43" width="47" height="15"/>
                                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                                     <fontDescription key="fontDescription" name="CeraRoundPro-Bold" family="Cera Round Pro" pointSize="15"/>
                                                                     <color key="textColor" red="0.60392156862745094" green="0.60392156862745094" blue="0.60392156862745094" alpha="1" colorSpace="calibratedRGB"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Johnson &amp; Johnson" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qby-Ei-mUk">
-                                                                    <rect key="frame" x="15" y="72" width="376" height="25"/>
+                                                                    <rect key="frame" x="15" y="60" width="374" height="25"/>
                                                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                                                     <fontDescription key="fontDescription" name="IntroScript-Bold" family="Intro Script" pointSize="21"/>
                                                                     <color key="textColor" red="0.0" green="0.1333333333" blue="0.29411764709999999" alpha="1" colorSpace="calibratedRGB"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Descrição:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ajs-Ni-KxB">
-                                                                    <rect key="frame" x="16" y="101" width="74" height="15"/>
+                                                                    <rect key="frame" x="16" y="89" width="74" height="15"/>
                                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                                     <fontDescription key="fontDescription" name="CeraRoundPro-Bold" family="Cera Round Pro" pointSize="15"/>
                                                                     <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Subdescrição:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yTw-i2-Lhs">
-                                                                    <rect key="frame" x="16" y="162" width="100" height="15"/>
+                                                                    <rect key="frame" x="16" y="150" width="100" height="15"/>
                                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                                     <fontDescription key="fontDescription" name="CeraRoundPro-Bold" family="Cera Round Pro" pointSize="15"/>
                                                                     <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="de" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9hc-WR-D9l">
-                                                                    <rect key="frame" x="18" y="214" width="18" height="15"/>
+                                                                    <rect key="frame" x="18" y="202" width="18" height="15"/>
                                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                                     <fontDescription key="fontDescription" name="CeraRoundPro-Bold" family="Cera Round Pro" pointSize="15"/>
                                                                     <color key="textColor" red="0.2627450980392157" green="0.2627450980392157" blue="0.2627450980392157" alpha="1" colorSpace="calibratedRGB"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                                 <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" scrollEnabled="NO" editable="NO" text="Lavagem Perfeita Ativo Concentrado 1,6kg Lavagem Perfeita Ativo Concentrado 1,6kg" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vWd-xO-RB5">
-                                                                    <rect key="frame" x="12" y="109" width="376" height="63"/>
+                                                                    <rect key="frame" x="12" y="97" width="374" height="63"/>
                                                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                     <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -1143,30 +1161,30 @@
                                                                     <textInputTraits key="textInputTraits"/>
                                                                 </textView>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Limão concentrado" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Nws-0f-FXc">
-                                                                    <rect key="frame" x="17" y="181" width="371" height="19"/>
+                                                                    <rect key="frame" x="17" y="169" width="369" height="19"/>
                                                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                                                     <fontDescription key="fontDescription" name="Ubuntu-Medium" family="Ubuntu" pointSize="15"/>
                                                                     <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="R$ 476,98" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bso-1h-skN">
-                                                                    <rect key="frame" x="15" y="230" width="374" height="32"/>
+                                                                    <rect key="frame" x="14" y="218" width="373" height="32"/>
                                                                     <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                                     <fontDescription key="fontDescription" name="CeraRoundPro-Regular" family="Cera Round Pro" pointSize="24"/>
                                                                     <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="por:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="n8W-5Y-JEv">
-                                                                    <rect key="frame" x="19" y="270" width="29" height="15"/>
+                                                                    <rect key="frame" x="18" y="252" width="29" height="15"/>
                                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                                     <fontDescription key="fontDescription" name="CeraRoundPro-Bold" family="Cera Round Pro" pointSize="15"/>
                                                                     <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="R$ 476,98" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hpH-KL-q5J">
-                                                                    <rect key="frame" x="8" y="268" width="381" height="45"/>
+                                                                    <rect key="frame" x="8" y="264" width="379" height="49"/>
                                                                     <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                                    <fontDescription key="fontDescription" name="CeraRoundPro-Bold" family="Cera Round Pro" pointSize="36"/>
+                                                                    <fontDescription key="fontDescription" name="CeraRoundPro-Bold" family="Cera Round Pro" pointSize="40"/>
                                                                     <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
@@ -1190,10 +1208,10 @@
                                                 </connections>
                                             </tableViewCell>
                                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="CelulaSimilares" rowHeight="295" id="PkE-Sx-n8k" customClass="CelulaSimilares" customModule="Limve" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="364" width="414" height="295"/>
+                                                <rect key="frame" x="0.0" y="364" width="413" height="295"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="PkE-Sx-n8k" id="8yM-kq-N9a">
-                                                    <rect key="frame" x="0.0" y="0.0" width="414" height="295"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="413" height="295"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <subviews>
                                                         <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="JTD-uY-pLj">
@@ -1201,7 +1219,7 @@
                                                             <autoresizingMask key="autoresizingMask" heightSizable="YES"/>
                                                             <subviews>
                                                                 <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="3j2-FG-PzB">
-                                                                    <rect key="frame" x="-2" y="286" width="401" height="3"/>
+                                                                    <rect key="frame" x="-2" y="286" width="400" height="3"/>
                                                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                                                     <color key="backgroundColor" red="0.81568627449999997" green="0.94509803920000002" blue="0.96862745100000003" alpha="1" colorSpace="calibratedRGB"/>
                                                                 </view>
@@ -1213,7 +1231,7 @@
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                                 <view contentMode="scaleToFill" id="O5Y-uP-45k">
-                                                                    <rect key="frame" x="149" y="113" width="101" height="101"/>
+                                                                    <rect key="frame" x="149" y="113" width="100" height="101"/>
                                                                     <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                                                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                                 </view>
@@ -1327,10 +1345,10 @@
                                                 </connections>
                                             </tableViewCell>
                                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="CelulaDescricao" rowHeight="338" id="H9g-HR-OHd" customClass="CelulaDescricao" customModule="Limve" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="659" width="414" height="338"/>
+                                                <rect key="frame" x="0.0" y="659" width="413" height="338"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="H9g-HR-OHd" id="18s-OU-V7Z">
-                                                    <rect key="frame" x="0.0" y="0.0" width="414" height="338"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="413" height="338"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <subviews>
                                                         <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Yde-91-53q">
@@ -1338,12 +1356,12 @@
                                                             <autoresizingMask key="autoresizingMask" heightSizable="YES"/>
                                                             <subviews>
                                                                 <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="QMF-XQ-TXX">
-                                                                    <rect key="frame" x="0.0" y="296" width="399" height="2"/>
+                                                                    <rect key="frame" x="-1" y="295" width="400" height="2"/>
                                                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                                                     <color key="backgroundColor" red="0.81568627449999997" green="0.94509803920000002" blue="0.96862745100000003" alpha="1" colorSpace="calibratedRGB"/>
                                                                 </view>
                                                                 <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" scrollEnabled="NO" editable="NO" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XhD-jr-aqP">
-                                                                    <rect key="frame" x="8" y="48" width="383" height="238"/>
+                                                                    <rect key="frame" x="8" y="47" width="383" height="238"/>
                                                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                     <string key="text">OMO mudou e agora está melhor, conheça o novo OMO lavagem perfeita. Com seu pó ultrafino que permite remover as manchas de primeira, cuidar das cores e não deixa resíduos. O novo OMO foi totalmente reformulado e está mais poderoso e por isso deve ter a dosagem ajustada para apenas 1 xícara, que é suficiente para lavar uma máquina cheia. OMO Lavagem Perfeita é 10x melhor, porque tem pó ultrafino de rápida dissolução, sem resíduos que danificam as roupas, remoção de manchas de primeira, higieniza as roupas, brancura imbatível, elimina o mau odor, perfume exclusivo que dura muito mais, produto mais sustentável, cuida das cores e cuida da máquina. Seu uso é recomendado por Brastemp e Consul. Além de todo esse poder e cuidado, o novo OMO se preocupa com o meio ambiente. Sua fórmula contém ativo biodegradável; Não possui fosfato, ajudando a preservar rios e oceanos; Economiza água pois precisa de apenas 1 enxágue.</string>
@@ -1352,7 +1370,7 @@
                                                                     <textInputTraits key="textInputTraits"/>
                                                                 </textView>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Leia mais sobre o produto" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="h7F-qv-mLc">
-                                                                    <rect key="frame" x="15" y="8" width="296" height="32"/>
+                                                                    <rect key="frame" x="14" y="8" width="297" height="32"/>
                                                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                                                     <fontDescription key="fontDescription" name="IntroScript-Bold" family="Intro Script" pointSize="24"/>
                                                                     <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -1377,7 +1395,7 @@
                                         </connections>
                                     </tableView>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XzF-Xo-b6d" customClass="TransitionButton" customModule="TransitionButton">
-                                        <rect key="frame" x="8" y="528" width="235" height="53"/>
+                                        <rect key="frame" x="8" y="528" width="234" height="52"/>
                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES"/>
                                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <fontDescription key="fontDescription" name="IntroScript-Bold" family="Intro Script" pointSize="20"/>
@@ -1389,7 +1407,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wP7-UO-9if" customClass="TransitionButton" customModule="TransitionButton">
-                                        <rect key="frame" x="251" y="528" width="155" height="53"/>
+                                        <rect key="frame" x="252" y="528" width="154" height="52"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMinY="YES"/>
                                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <fontDescription key="fontDescription" name="IntroScript-Bold" family="Intro Script" pointSize="20"/>
@@ -1404,13 +1422,17 @@
                                 <color key="backgroundColor" red="0.96470588239999999" green="0.97647058819999999" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UCU-tN-aZE">
-                                <rect key="frame" x="353" y="57" width="26" height="26"/>
+                                <rect key="frame" x="360" y="43" width="26" height="26"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" image="close.png"/>
+                                <state key="normal" image="close"/>
                                 <connections>
                                     <action selector="fechar" destination="3RO-qT-aVH" eventType="touchUpInside" id="2Lq-v0-NBm"/>
                                 </connections>
                             </button>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="tag" translatesAutoresizingMaskIntoConstraints="NO" id="JHa-T5-6wr">
+                                <rect key="frame" x="25" y="0.0" width="79" height="128"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" heightSizable="YES" flexibleMaxY="YES"/>
+                            </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="8r4-zC-IAK"/>
                         <color key="backgroundColor" red="0.043137254899999998" green="0.41568627450000001" blue="0.69019607839999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -1420,6 +1442,7 @@
                         <outlet property="botaoFavorito" destination="wP7-UO-9if" id="dvm-oY-plA"/>
                         <outlet property="holder" destination="47E-7h-PlR" id="mlP-NU-h1J"/>
                         <outlet property="imagemFundo" destination="U7Q-lo-l4z" id="MRo-Or-07J"/>
+                        <outlet property="imagemPromocaoAtiva" destination="JHa-T5-6wr" id="sRk-xe-8ml"/>
                         <outlet property="imagemSobreposta" destination="DXV-Dn-h9z" id="7kV-Rh-adY"/>
                         <outlet property="loader" destination="UGM-oE-0bF" id="a8R-Ia-ye7"/>
                         <outlet property="oTable" destination="CPZ-aR-tbS" id="A29-1Z-iV0"/>
@@ -3931,7 +3954,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iHL-fL-A86" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4066.666666666667" y="714.50892857142856"/>
+            <point key="canvasLocation" x="4741" y="715"/>
         </scene>
         <!--Compras Ver Detalhes-->
         <scene sceneID="52p-RG-JVC">
@@ -4142,48 +4165,6 @@
                                                 <rect key="frame" x="52" y="644" width="294" height="60"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES"/>
                                             </imageView>
-                                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="NRs-T2-nwO">
-                                                <rect key="frame" x="8" y="219" width="382" height="166"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
-                                                <subviews>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Aproveite essa experiência escolhendo uma categoria" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="46c-sl-IKf">
-                                                        <rect key="frame" x="5" y="117" width="367" height="39"/>
-                                                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                        <fontDescription key="fontDescription" name="CeraRoundPro-Regular" family="Cera Round Pro" pointSize="15"/>
-                                                        <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                        <nil key="highlightedColor"/>
-                                                    </label>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Aqui você encontra a melhor linha de produtos de limpeza e higiene para sua casa." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TF7-ja-BO4">
-                                                        <rect key="frame" x="5" y="14" width="367" height="44"/>
-                                                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                        <fontDescription key="fontDescription" name="CeraRoundPro-Medium" family="Cera Round Pro" pointSize="15"/>
-                                                        <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                        <nil key="highlightedColor"/>
-                                                    </label>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Escolha produtos de qualidade para deixar a sua casa ainda mais aconchegante e ainda os receba em até 24h." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nyb-ud-3cQ">
-                                                        <rect key="frame" x="5" y="60" width="367" height="55"/>
-                                                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                        <fontDescription key="fontDescription" name="CeraRoundPro-Regular" family="Cera Round Pro" pointSize="15"/>
-                                                        <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                        <nil key="highlightedColor"/>
-                                                    </label>
-                                                </subviews>
-                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <variation key="default">
-                                                    <mask key="subviews">
-                                                        <exclude reference="46c-sl-IKf"/>
-                                                        <exclude reference="TF7-ja-BO4"/>
-                                                        <exclude reference="nyb-ud-3cQ"/>
-                                                    </mask>
-                                                </variation>
-                                                <variation key="heightClass=regular">
-                                                    <mask key="subviews">
-                                                        <include reference="46c-sl-IKf"/>
-                                                        <include reference="TF7-ja-BO4"/>
-                                                        <include reference="nyb-ud-3cQ"/>
-                                                    </mask>
-                                                </variation>
-                                            </view>
                                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="cjT-Sv-4UX">
                                                 <rect key="frame" x="0.0" y="450" width="398" height="128"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
@@ -4257,24 +4238,73 @@
                                                     </mask>
                                                 </variation>
                                             </view>
+                                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="NRs-T2-nwO">
+                                                <rect key="frame" x="8" y="208" width="382" height="205"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="• Parcele suas compras em até 3x | Frete grátis*" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="46c-sl-IKf">
+                                                        <rect key="frame" x="3" y="109" width="368" height="39"/>
+                                                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                        <fontDescription key="fontDescription" name="CeraRoundPro-Bold" family="Cera Round Pro" pointSize="15"/>
+                                                        <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Aproveite essa experiência escolhendo uma categoria:" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pCB-zX-93n">
+                                                        <rect key="frame" x="7" y="153" width="368" height="39"/>
+                                                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                        <fontDescription key="fontDescription" name="CeraRoundPro-Regular" family="Cera Round Pro" pointSize="15"/>
+                                                        <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Aqui você encontra a melhor linha de produtos de limpeza e higiene para sua casa." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TF7-ja-BO4">
+                                                        <rect key="frame" x="3" y="14" width="368" height="53"/>
+                                                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                        <fontDescription key="fontDescription" name="CeraRoundPro-Medium" family="Cera Round Pro" pointSize="15"/>
+                                                        <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Escolha produtos de qualidade para deixar a sua casa ainda mais aconchegante e receba-os em até 3h." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nyb-ud-3cQ">
+                                                        <rect key="frame" x="3" y="60" width="368" height="55"/>
+                                                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                        <fontDescription key="fontDescription" name="CeraRoundPro-Regular" family="Cera Round Pro" pointSize="15"/>
+                                                        <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                </subviews>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <variation key="default">
+                                                    <mask key="subviews">
+                                                        <exclude reference="46c-sl-IKf"/>
+                                                        <exclude reference="TF7-ja-BO4"/>
+                                                        <exclude reference="nyb-ud-3cQ"/>
+                                                    </mask>
+                                                </variation>
+                                                <variation key="heightClass=regular">
+                                                    <mask key="subviews">
+                                                        <include reference="46c-sl-IKf"/>
+                                                        <include reference="TF7-ja-BO4"/>
+                                                        <include reference="nyb-ud-3cQ"/>
+                                                    </mask>
+                                                </variation>
+                                            </view>
                                         </subviews>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <variation key="default">
                                             <mask key="subviews">
-                                                <exclude reference="NRs-T2-nwO"/>
                                                 <exclude reference="cjT-Sv-4UX"/>
                                                 <exclude reference="OtG-X4-6kT"/>
+                                                <exclude reference="NRs-T2-nwO"/>
                                             </mask>
                                         </variation>
                                         <variation key="heightClass=regular">
                                             <mask key="subviews">
-                                                <include reference="NRs-T2-nwO"/>
                                                 <include reference="cjT-Sv-4UX"/>
                                                 <include reference="OtG-X4-6kT"/>
+                                                <include reference="NRs-T2-nwO"/>
                                             </mask>
                                         </variation>
                                     </view>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Disponível apenas para Curitiba e região" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jQW-9U-LtE">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="* Disponível apenas para Curitiba e região" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jQW-9U-LtE">
                                         <rect key="frame" x="31" y="720" width="352" height="39"/>
                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                         <fontDescription key="fontDescription" name="Ubuntu-Regular" family="Ubuntu" pointSize="14"/>
@@ -4633,7 +4663,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GTf-0c-hya" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4750.7246376811599" y="714.50892857142856"/>
+            <point key="canvasLocation" x="5425" y="715"/>
         </scene>
         <!--Obrigado Transferencia-->
         <scene sceneID="p5w-ox-VII">
@@ -4804,7 +4834,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Oan-1R-OCx" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5444.9275362318849" y="714.50892857142856"/>
+            <point key="canvasLocation" x="6117" y="715"/>
         </scene>
         <!--Recuperacao Senha Controller-->
         <scene sceneID="eI3-6I-bdE">
@@ -4961,6 +4991,158 @@
             </objects>
             <point key="canvasLocation" x="1376.8115942028987" y="2134.8214285714284"/>
         </scene>
+        <!--Melhore Sua Experiencia-->
+        <scene sceneID="pQ6-nj-iMz">
+            <objects>
+                <viewController storyboardIdentifier="MelhoreSuaExperiencia" modalPresentationStyle="overCurrentContext" id="9co-ix-8xM" customClass="MelhoreSuaExperiencia" customModule="Limve" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="7HY-Oy-nMK">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="sIh-9X-B6e" customClass="UIControl">
+                                <rect key="frame" x="8" y="211" width="399" height="474"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="O17-bJ-szC">
+                                        <rect key="frame" x="12" y="218" width="376" height="54"/>
+                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                        <subviews>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="email" translatesAutoresizingMaskIntoConstraints="NO" id="cLw-oR-8Qe">
+                                                <rect key="frame" x="17" y="14" width="25" height="25"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            </imageView>
+                                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Email" textAlignment="natural" adjustsFontForContentSizeCategory="YES" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="Cp8-Wi-xSa">
+                                                <rect key="frame" x="59" y="6" width="307" height="41"/>
+                                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <fontDescription key="fontDescription" name="CeraRoundPro-Regular" family="Cera Round Pro" pointSize="17"/>
+                                                <textInputTraits key="textInputTraits" keyboardType="emailAddress" returnKeyType="next"/>
+                                                <connections>
+                                                    <action selector="returnClickedWithSender:" destination="9co-ix-8xM" eventType="editingDidEndOnExit" id="rOU-WW-0rE"/>
+                                                    <outlet property="delegate" destination="BYZ-38-t0r" id="Leh-g2-0st"/>
+                                                </connections>
+                                            </textField>
+                                        </subviews>
+                                        <color key="backgroundColor" red="0.96470588239999999" green="0.97647058819999999" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                    </view>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="soC-au-UWQ" customClass="TransitionButton" customModule="TransitionButton">
+                                        <rect key="frame" x="12" y="407" width="376" height="53"/>
+                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <fontDescription key="fontDescription" name="IntroScript-Bold" family="Intro Script" pointSize="20"/>
+                                        <state key="normal" title="Aprimorar minha experiência">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="irComDados" destination="9co-ix-8xM" eventType="touchUpInside" id="yu6-UM-5Hu"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4RQ-u2-NdT" customClass="TransitionButton" customModule="TransitionButton">
+                                        <rect key="frame" x="12" y="353" width="376" height="53"/>
+                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <fontDescription key="fontDescription" name="IntroScript-Regular" family="Intro Script" pointSize="20"/>
+                                        <state key="normal" title="Prosseguir sem estes dados">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="irSemDados" destination="9co-ix-8xM" eventType="touchUpInside" id="XSB-CU-l9W"/>
+                                        </connections>
+                                    </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Melhore sua experiência" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="w8E-zM-qVM">
+                                        <rect key="frame" x="8" y="8" width="380" height="49"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" name="IntroScript-SemiBold" family="Intro Script" pointSize="29"/>
+                                        <color key="textColor" red="0.023529411760000001" green="0.2784313725" blue="0.53725490200000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" alpha="0.15000000596046448" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Melhore sua experiência" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="E04-b6-E6Q">
+                                        <rect key="frame" x="13" y="13" width="375" height="49"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" name="IntroScript-SemiBold" family="Intro Script" pointSize="30"/>
+                                        <color key="textColor" red="0.043137254899999998" green="0.41568627450000001" blue="0.69019607839999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="FQa-Bq-ho7">
+                                        <rect key="frame" x="12" y="278" width="376" height="54"/>
+                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                        <subviews>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="telefone" translatesAutoresizingMaskIntoConstraints="NO" id="DO3-rB-3yp">
+                                                <rect key="frame" x="17" y="14" width="25" height="25"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            </imageView>
+                                            <textField opaque="NO" tag="1" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Telefone de quem irá receber" textAlignment="natural" clearsOnBeginEditing="YES" adjustsFontForContentSizeCategory="YES" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="g0e-eU-jpo">
+                                                <rect key="frame" x="59" y="6" width="307" height="41"/>
+                                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <fontDescription key="fontDescription" name="CeraRoundPro-Regular" family="Cera Round Pro" pointSize="18"/>
+                                                <textInputTraits key="textInputTraits" autocapitalizationType="words" keyboardType="numberPad" returnKeyType="next"/>
+                                                <connections>
+                                                    <action selector="returnClickedWithSender:" destination="9co-ix-8xM" eventType="editingDidEndOnExit" id="bZd-lO-09N"/>
+                                                    <action selector="telefoneDidChanged" destination="9co-ix-8xM" eventType="editingChanged" id="iop-AG-hoa"/>
+                                                    <outlet property="delegate" destination="BYZ-38-t0r" id="68e-nS-jkb"/>
+                                                </connections>
+                                            </textField>
+                                        </subviews>
+                                        <color key="backgroundColor" red="0.96470588239999999" green="0.97647058819999999" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                    </view>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" scrollEnabled="NO" editable="NO" text="Quer melhorar sua experiência de compra com a Limve.com?" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7io-5t-sSQ">
+                                        <rect key="frame" x="12" y="65" width="371" height="51"/>
+                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <fontDescription key="fontDescription" name="CeraRoundPro-Bold" family="Cera Round Pro" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textView>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" scrollEnabled="NO" editable="NO" text="E-MAIL: Ao inserir seu e-mail, você recebe a nota fiscal e demais notificações por lá." selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bfe-tE-UVT">
+                                        <rect key="frame" x="13" y="105" width="370" height="61"/>
+                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <fontDescription key="fontDescription" name="CeraRoundPro-Regular" family="Cera Round Pro" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textView>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" scrollEnabled="NO" editable="NO" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WUk-k8-ydg">
+                                        <rect key="frame" x="13" y="146" width="375" height="77"/>
+                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <string key="text">TELEFONE: Insira seu telefone para podermos entrar em contato em caso de problemas e para você receber a rota do entregador em tempo real.</string>
+                                        <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <fontDescription key="fontDescription" name="CeraRoundPro-Regular" family="Cera Round Pro" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textView>
+                                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="PXT-9e-7ND" customClass="UIControl">
+                                        <rect key="frame" x="13" y="70" width="370" height="127"/>
+                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES" flexibleMaxY="YES"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <connections>
+                                            <action selector="fecharKeyboard" destination="9co-ix-8xM" eventType="touchDown" id="2VE-Mb-QrK"/>
+                                        </connections>
+                                    </view>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <connections>
+                                    <action selector="fecharKeyboard" destination="9co-ix-8xM" eventType="touchDown" id="yNj-t8-ek1"/>
+                                </connections>
+                            </view>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="YoC-fk-qxy"/>
+                        <color key="backgroundColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </view>
+                    <connections>
+                        <outlet property="botaoOk" destination="soC-au-UWQ" id="IL5-WO-pa0"/>
+                        <outlet property="botaoSem" destination="4RQ-u2-NdT" id="vqA-D4-7F6"/>
+                        <outlet property="email" destination="Cp8-Wi-xSa" id="Qrz-OO-qv0"/>
+                        <outlet property="holder" destination="sIh-9X-B6e" id="ubc-Gp-Np7"/>
+                        <outlet property="holderEmail" destination="O17-bJ-szC" id="FTv-CB-oME"/>
+                        <outlet property="holderTelefone" destination="FQa-Bq-ho7" id="7na-q7-kil"/>
+                        <outlet property="telefone" destination="g0e-eU-jpo" id="yR8-an-22B"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="EsC-6d-E0s" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4069.5652173913045" y="714.50892857142856"/>
+        </scene>
     </scenes>
     <designables>
         <designable name="0uR-wC-5vu">
@@ -4980,6 +5162,9 @@
         </designable>
         <designable name="3hQ-0e-T9V">
             <size key="intrinsicContentSize" width="205" height="36"/>
+        </designable>
+        <designable name="4RQ-u2-NdT">
+            <size key="intrinsicContentSize" width="254" height="36"/>
         </designable>
         <designable name="5TZ-8V-aw1">
             <size key="intrinsicContentSize" width="166" height="36"/>
@@ -5086,6 +5271,9 @@
         <designable name="skC-I3-rDu">
             <size key="intrinsicContentSize" width="186" height="36"/>
         </designable>
+        <designable name="soC-au-UWQ">
+            <size key="intrinsicContentSize" width="257" height="36"/>
+        </designable>
         <designable name="tMM-cR-vV9">
             <size key="intrinsicContentSize" width="249" height="36"/>
         </designable>
@@ -5119,7 +5307,6 @@
         <image name="brazil" width="85.333335876464844" height="85.333335876464844"/>
         <image name="cart" width="42.666667938232422" height="42.666667938232422"/>
         <image name="close" width="42.666667938232422" height="42.666667938232422"/>
-        <image name="close.png" width="48" height="48"/>
         <image name="elo" width="170.66667175292969" height="170.66667175292969"/>
         <image name="email" width="85.333335876464844" height="85.333335876464844"/>
         <image name="empty" width="170.66667175292969" height="170.66667175292969"/>
@@ -5153,6 +5340,7 @@
         <image name="scooter" width="85.333335876464844" height="85.333335876464844"/>
         <image name="search" width="42.666667938232422" height="42.666667938232422"/>
         <image name="semcompras" width="170.66667175292969" height="170.66667175292969"/>
+        <image name="tag" width="85.333335876464844" height="85.333335876464844"/>
         <image name="telefone" width="85.333335876464844" height="85.333335876464844"/>
         <image name="transferencia" width="85.333335876464844" height="85.333335876464844"/>
         <image name="validade" width="85.333335876464844" height="85.333335876464844"/>

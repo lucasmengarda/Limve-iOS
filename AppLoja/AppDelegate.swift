@@ -11,6 +11,7 @@ import Parse
 import PopupDialog
 import AudioToolbox
 import FBSDKCoreKit
+import Branch
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -48,6 +49,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             didFinishLaunchingWithOptions: launchOptions
         )
         
+        BranchScene.shared().initSession(launchOptions: launchOptions, registerDeepLinkHandler: { (params, error, scene) in
+            if let params = params {
+                processarDeeplink(.branch, params: params, nil)
+            }
+        })
         
         //FBAdSettings.setAdvertiserTrackingEnabled(true)
         

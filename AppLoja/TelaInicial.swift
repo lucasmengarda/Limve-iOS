@@ -35,6 +35,8 @@ class TelaInicial: UIViewController, SideMenuItemContent, UICollectionViewDelega
     var exibindoFavoritos = false
     var buscandoProduto = false
     
+    var abrirProdutoId: String!
+    
     var yUtilizar: CGFloat!
     
     override func viewWillAppear(_ animated: Bool) {
@@ -63,6 +65,16 @@ class TelaInicial: UIViewController, SideMenuItemContent, UICollectionViewDelega
         tela.buscandoProduto = true
         tela.tituloStr = "Amaciante"
         tela.categoria = "amaciante"
+        return tela
+    }
+    
+    static func inicializeTelaInicialFromDeepLink(produtoId: String!) -> TelaInicial{
+        let tela = MAIN_STORYBOARD.instantiateViewController(identifier: "TelaInicial") as! TelaInicial
+        tela.exibindoFavoritos = false
+        tela.buscandoProduto = true
+        tela.tituloStr = "Carregando..."
+        tela.categoria = "amaciante"
+        tela.abrirProdutoId = produtoId
         return tela
     }
     
@@ -104,6 +116,12 @@ class TelaInicial: UIViewController, SideMenuItemContent, UICollectionViewDelega
         
         collectionView.isHidden = true
         
+        if (configuration["IS_BLACK_WEEK_ATIVO"] as! Bool){
+            self.view.backgroundColor = UIColor.black
+        } else {
+            self.view.backgroundColor = hexStringToUIColor("0C6CB9")
+        }
+        
         loader.backgroundColor = UIColor.clear
         let nv = NVActivityIndicatorView(frame: CGRect(origin: .zero, size: loader.frame.size), type: NVActivityIndicatorType.ballClipRotateMultiple, color: hexStringToUIColor("#3C65D1"), padding: 15.0)
         loader.backgroundColor = UIColor.clear
@@ -114,6 +132,40 @@ class TelaInicial: UIViewController, SideMenuItemContent, UICollectionViewDelega
             self.searcher.becomeFirstResponder()
         }
         
+        print("Abrindo produtoId: \(self.abrirProdutoId)")
+        
+        if (abrirProdutoId != nil){
+            DispatchQueue.global(qos: .background).async { [self] in
+                do {
+                    let deepLink = try PFQuery(className: "Produtos").getObjectWithId(self.abrirProdutoId!)
+                    
+                    let produtoDeepLink = Produto(produto: deepLink)
+                    self.categoria = produtoDeepLink.categoria
+                    self.tituloStr = "Home"
+                    
+                    self.inicialLoading()
+                    
+                    DispatchQueue.main.async {
+                        self.titulo.text = self.tituloStr
+                        let telaProduto = TelaProduto.inicializeTelaProduto(produto: produtoDeepLink, delegate: self)
+                        self.present(telaProduto, animated: true, completion: nil)
+                        self.abrirProdutoId = nil
+                    }
+                    
+                } catch {
+                    self.inicialLoading()
+                }
+            }
+        } else {
+            inicialLoading()
+        }
+        
+        if (exibindoFavoritos){
+             self.holder.frame = CGRect(x: self.holder.frame.origin.x, y: (self.yUtilizar-66.0), width: self.holder.frame.width, height: (UIScreen.main.bounds.height - (self.yUtilizar-66.0) ))
+        }
+    }
+    
+    func inicialLoading(){
         DispatchQueue.global(qos: .background).async {
             do {
                 
@@ -465,12 +517,18 @@ class TelaInicial: UIViewController, SideMenuItemContent, UICollectionViewDelega
         
         if (produto.precoSemDesconto != 0.0 && produto.precoSemDesconto > produto.precoVenda){
             cell.precoAntesDaPromocao.isHidden = false
+            cell.blackWeekHolder.isHidden = false
             cell.preco.textColor = hexStringToUIColor("#D13C2F")
             cell.precoAntesDaPromocao.text = formatarPreco(preco: produto.precoSemDesconto)
         } else {
             cell.precoAntesDaPromocao.isHidden = true
+            cell.blackWeekHolder.isHidden = true
             cell.preco.textColor = hexStringToUIColor("#116AB6")
             cell.precoAntesDaPromocao.text = formatarPreco(preco: produto.precoSemDesconto)
+        }
+        
+        if !(configuration["IS_BLACK_WEEK_ATIVO"] as! Bool){
+            cell.blackWeekHolder.isHidden = true
         }
         
         if (produto.imagemLoaded){
@@ -515,7 +573,6 @@ class TelaInicial: UIViewController, SideMenuItemContent, UICollectionViewDelega
     }
     
     @objc func botaoAdicionarCarrinhoPressed(sender: TransitionButton){
-        
         
         print("botao apertado")
         let row = sender.tag % 1000
@@ -770,13 +827,16 @@ class CelulaProduto: UICollectionViewCell {
     @IBOutlet weak var holder: UIView!
     @IBOutlet weak var marcaProduto: UILabel!
     @IBOutlet weak var descricaoProduto: UITextView!
-    @IBOutlet weak var subDescricaoProduto: UILabel!
     @IBOutlet weak var preco: UILabel!
     @IBOutlet weak var botaoAdicionarCarrinho: TransitionButton!
     @IBOutlet weak var viewClicavel: UIControl!
     @IBOutlet weak var favorito: UIImageView!
     @IBOutlet weak var estoquezerado: UIView!
     @IBOutlet weak var precoAntesDaPromocao: UILabel!
+    
+    //Black week params
+    @IBOutlet weak var blackWeekHolder: UIView!
+    @IBOutlet weak var blackWeekLabel: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -786,6 +846,22 @@ class CelulaProduto: UICollectionViewCell {
         loader.backgroundColor = UIColor.clear
         loader.addSubview(nv)
         nv.startAnimating()
+        
+        blackWeekHolder.layer.cornerRadius = 4.0
+        blackWeekHolder.layer.borderWidth = 1.0
+        blackWeekHolder.layer.borderColor = hexStringToUIColor("#D13C2F").cgColor
+        
+        let attributedTexto = NSMutableAttributedString(string: "BLACKWEEK")
+        
+        //cores
+        attributedTexto.addAttribute(.foregroundColor, value: UIColor.white, range: NSRange(location: 0, length: 5))
+        attributedTexto.addAttribute(.foregroundColor, value: hexStringToUIColor("#D13C2F"), range: NSRange(location: 5, length: 4))
+        
+        //fontes
+        attributedTexto.addAttribute(.font, value: UIFont(name: "CeraRoundPro-Regular", size: 16.0)!, range: NSRange(location: 0, length: 5))
+        attributedTexto.addAttribute(.font, value: UIFont(name: "CeraRoundPro-Black", size: 16.0)!, range: NSRange(location: 5, length: 4))
+        
+        blackWeekLabel.attributedText = attributedTexto
         
     }
 }
