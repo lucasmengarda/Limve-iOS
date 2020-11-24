@@ -180,11 +180,11 @@
 		12FBD8F8241C3629001C48CF /* Cvv.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cvv.swift; sourceTree = "<group>"; };
 		12FBD9002423E747001C48CF /* Obrigado.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Obrigado.swift; sourceTree = "<group>"; };
 		3735ECDFBCD43DA709543C3A /* Pods-AppLoja.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AppLoja.debug.xcconfig"; path = "Target Support Files/Pods-AppLoja/Pods-AppLoja.debug.xcconfig"; sourceTree = "<group>"; };
+		CB6C4749256C5A180034699E /* AppLojaTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AppLojaTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		CB6C474A256C5A180034699E /* AppLojaUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AppLojaUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		CB77AE71256729B400ECFBC1 /* Podfile.lock */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile.lock; sourceTree = "<group>"; };
 		CB77AE72256729B400ECFBC1 /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		CB77AE83256731BE00ECFBC1 /* Limve.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Limve.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		CB77AE84256731BE00ECFBC1 /* AppLojaTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; name = AppLojaTests.xctest; path = "/Users/gabirutkoski/Downloads/Limve-iOS/build/Debug-iphoneos/AppLojaTests.xctest"; sourceTree = "<absolute>"; };
-		CB77AE85256731BE00ECFBC1 /* AppLojaUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; name = AppLojaUITests.xctest; path = "/Users/gabirutkoski/Downloads/Limve-iOS/build/Debug-iphoneos/AppLojaUITests.xctest"; sourceTree = "<absolute>"; };
 		CB77AEA1256851D100ECFBC1 /* MelhoreSuaExperiencia.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MelhoreSuaExperiencia.swift; sourceTree = "<group>"; };
 		CB77AEAD2569742A00ECFBC1 /* LimveUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LimveUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		CB77AEAF2569742A00ECFBC1 /* LimveUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LimveUITests.swift; sourceTree = "<group>"; };
@@ -290,6 +290,8 @@
 				CB77AE71256729B400ECFBC1 /* Podfile.lock */,
 				CB77AE83256731BE00ECFBC1 /* Limve.app */,
 				CB77AEAD2569742A00ECFBC1 /* LimveUITests.xctest */,
+				CB6C4749256C5A180034699E /* AppLojaTests.xctest */,
+				CB6C474A256C5A180034699E /* AppLojaUITests.xctest */,
 			);
 			sourceTree = "<group>";
 		};
@@ -423,7 +425,7 @@
 			);
 			name = AppLojaTests;
 			productName = AppLojaTests;
-			productReference = CB77AE84256731BE00ECFBC1 /* AppLojaTests.xctest */;
+			productReference = CB6C4749256C5A180034699E /* AppLojaTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 		12113D5623E0B9EB00BA464D /* AppLojaUITests */ = {
@@ -441,7 +443,7 @@
 			);
 			name = AppLojaUITests;
 			productName = AppLojaUITests;
-			productReference = CB77AE85256731BE00ECFBC1 /* AppLojaUITests.xctest */;
+			productReference = CB6C474A256C5A180034699E /* AppLojaUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
 		CB77AEAC2569742A00ECFBC1 /* LimveUITests */ = {
@@ -850,7 +852,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = AppLoja/Limve.entitlements;
-				CURRENT_PROJECT_VERSION = 4;
+				CURRENT_PROJECT_VERSION = 5;
 				DEVELOPMENT_TEAM = KCUHL3HY8Y;
 				INFOPLIST_FILE = AppLoja/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.1;
@@ -858,7 +860,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.3;
+				MARKETING_VERSION = 1.0.4;
 				PRODUCT_BUNDLE_IDENTIFIER = com.limve.limve;
 				PRODUCT_NAME = Limve;
 				SWIFT_VERSION = 5.0;
@@ -872,7 +874,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = AppLoja/Limve.entitlements;
-				CURRENT_PROJECT_VERSION = 4;
+				CURRENT_PROJECT_VERSION = 5;
 				DEVELOPMENT_TEAM = KCUHL3HY8Y;
 				INFOPLIST_FILE = AppLoja/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.1;
@@ -880,7 +882,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.3;
+				MARKETING_VERSION = 1.0.4;
 				PRODUCT_BUNDLE_IDENTIFIER = com.limve.limve;
 				PRODUCT_NAME = Limve;
 				SWIFT_VERSION = 5.0;

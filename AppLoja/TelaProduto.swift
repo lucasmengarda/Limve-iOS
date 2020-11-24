@@ -84,7 +84,7 @@ class TelaProduto: UIViewController, UITableViewDelegate, UITableViewDataSource,
         
         oTable.backgroundColor = UIColor.clear
         
-        descricaoLongaHeight = produto.descricaolonga.height(withConstrainedWidth: oTable.frame.width - 40, font: UIFont(name: "Ubuntu-Regular", size: 15.0)!) + 56.0
+        descricaoLongaHeight = produto.descricaolonga.height(withConstrainedWidth: oTable.frame.width - 40, font: UIFont(name: "Ubuntu-Regular", size: 16.0)!) + 56.0
         
         if (produto.estoque == 0){
             botaoAdicionarAoCarrinho.alpha = 0.6

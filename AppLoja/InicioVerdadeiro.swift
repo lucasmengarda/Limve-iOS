@@ -31,6 +31,14 @@ class InicioVerdadeiro: UIViewController, SideMenuItemContent {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        DispatchQueue.global().async {
+            do {
+                configuration = try PFConfig.getConfig()
+            } catch {
+                
+            }
+        }
+        
         holder.layer.cornerRadius = 16.0
         holder.clipsToBounds = false
         frameOriginalHolderInicio = holderInicioVerdadeiro.frame
@@ -66,7 +74,6 @@ class InicioVerdadeiro: UIViewController, SideMenuItemContent {
                         print("Error: \(error)")
                     }
                 
-                configuration = try PFConfig.getConfig()
                 try PFUser.current()?.fetch()
                 
                 UIApplication.shared.applicationIconBadgeNumber = 0
@@ -81,14 +88,6 @@ class InicioVerdadeiro: UIViewController, SideMenuItemContent {
                 PFUser.logOut()
             }
         }
-        
-        
-        //Deep link mechanism
-        Timer(timeInterval: 1000, repeats: false) { _ in
-            DispatchQueue.main.async {
-                averiguarDeepLinksNaFila()
-            }
-        }.fire()
     }
     
     @IBAction func abrirMenu(){

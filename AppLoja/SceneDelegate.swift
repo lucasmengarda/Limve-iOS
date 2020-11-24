@@ -9,7 +9,7 @@
 import UIKit
 import FBSDKCoreKit
 import Branch
-import PopupDialog
+import Parse
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
@@ -21,8 +21,6 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         if (url == nil){
             return
         }
-        
-        processarDeeplink(.link_appAberto, params: [:], url!)
 
         ApplicationDelegate.shared.application(
             UIApplication.shared,
@@ -39,12 +37,13 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         guard let _ = (scene as? UIWindowScene) else { return }
         
-        if let deeplink = connectionOptions.urlContexts.first?.url {
-            processarDeeplink(.link_appFechado, params: [:], deeplink)
-        }
-        
         if let userActivity = connectionOptions.userActivities.first {
             BranchScene.shared().scene(scene, continue: userActivity)
+        }
+        
+        if let deeplink = connectionOptions.urlContexts.first?.url {
+            Branch.getInstance().handleDeepLink(withNewSession: deeplink)
+            //Fundamental para o Branch funcionar abrindo URLs quando o app ainda está "frio". Cold start
         }
     }
 

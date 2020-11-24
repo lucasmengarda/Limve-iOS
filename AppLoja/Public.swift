@@ -10,6 +10,7 @@ import Foundation
 import UIKit
 import Parse
 import FBSDKCoreKit
+import PopupDialog
 
 public var MAIN_STORYBOARD = UIStoryboard(name: "Main",bundle: nil)
 public var deslogado: Bool = false
@@ -154,8 +155,7 @@ extension UITextField {
 
 public enum TipoDeepLink {
     case branch
-    case link_appAberto
-    case link_appFechado
+    case link
 }
 
 public enum AcaoDeepLink {
@@ -171,7 +171,7 @@ public func processarDeeplink(_ tipo: TipoDeepLink, params: [AnyHashable : Any],
             deepLinkAcaoAbrirProduto(produtoId: params["produtoid"] as! String)
             return
         }
-    } else if (tipo == .link_appAberto || tipo == .link_appFechado){
+    } else if (tipo == .link){
         print("App aberto com o URL (Scheme): \(url)")
         
         if (url!.absoluteString.contains("limve://")){
@@ -181,11 +181,7 @@ public func processarDeeplink(_ tipo: TipoDeepLink, params: [AnyHashable : Any],
                     let produtoId = url!.queryParameters["produtoid"]
                     if (produtoId != nil){
                         
-                        if (tipo == .link_appAberto){
-                            deepLinkAcaoAbrirProduto(produtoId: produtoId!)
-                        } else {
-                            filaDeepLinks.append([AcaoDeepLink.abrirProduto: produtoId!])
-                        }
+                        deepLinkAcaoAbrirProduto(produtoId: produtoId!)
                         
                         return
                     }
@@ -198,19 +194,6 @@ public func processarDeeplink(_ tipo: TipoDeepLink, params: [AnyHashable : Any],
 public func deepLinkAcaoAbrirProduto(produtoId: String){
     NavigationMenuViewController.myVC.menuContainerViewController!.selectContentViewController(TelaInicial.inicializeTelaInicialFromDeepLink(produtoId: produtoId))
     NavigationMenuViewController.myVC.menuContainerViewController!.hideSideMenu()
-}
-
-public func averiguarDeepLinksNaFila(){
-    if (filaDeepLinks.count > 0){
-        for acao in filaDeepLinks {
-            if (acao.keys.first! == .abrirProduto){
-                let produtoId = acao[.abrirProduto]
-                NavigationMenuViewController.myVC.menuContainerViewController!.selectContentViewController(TelaInicial.inicializeTelaInicialFromDeepLink(produtoId: produtoId))
-                NavigationMenuViewController.myVC.menuContainerViewController!.hideSideMenu()
-            }
-        }
-        filaDeepLinks.removeAll()
-    }
 }
 
 //eventos de rastreio do FacebookAds
