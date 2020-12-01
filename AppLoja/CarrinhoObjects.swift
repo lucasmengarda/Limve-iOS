@@ -56,6 +56,15 @@ class CarrinhoObject {
             produtosId.append(produto.produtoId)
             
             produto.valorDesteProdutoNoCarrinho = (Double(produto.quantidade) * produto.precoVenda)
+        } else {
+            print("estoque: \(Int(produto.estoque))) | quantidade: \(produto.quantidade + 1)")
+            
+            if (produto.quantidade + 1 > Int(produto.estoque)){
+                return
+            }
+            
+            produto.quantidade += 1
+            produto.atualizarValorDoProdutoNoCarrinho()
         }
         atualizarValorDoCarrinho()
     }
@@ -65,5 +74,13 @@ class CarrinhoObject {
         for product in produtos {
             valorDoCarrinho += product.valorDesteProdutoNoCarrinho
         }
+    }
+    
+    func quantidadeDeItensNoCarrinho() -> Int{
+        var itens = 0
+        for product in produtos {
+            itens += product.quantidade
+        }
+        return itens
     }
 }

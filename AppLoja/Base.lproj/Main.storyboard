@@ -37,9 +37,6 @@
         <array key="IntroScript-SemiBold.otf">
             <string>IntroScript-SemiBold</string>
         </array>
-        <array key="Phenomena-Black.ttf">
-            <string>Phenomena-Black</string>
-        </array>
         <array key="Phenomena-Bold.ttf">
             <string>Phenomena-Bold</string>
         </array>
@@ -117,7 +114,7 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PpN-db-xAE">
-                                                <rect key="frame" x="361" y="20" width="32" height="32"/>
+                                                <rect key="frame" x="348" y="22" width="32" height="32"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                                 <state key="normal" image="cart"/>
                                                 <connections>
@@ -131,10 +128,10 @@
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GXp-0F-x4d">
-                                                <rect key="frame" x="396" y="6" width="10" height="27"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="1" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsLetterSpacingToFitWidth="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GXp-0F-x4d">
+                                                <rect key="frame" x="381" y="10" width="33" height="22"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
-                                                <fontDescription key="fontDescription" name="Phenomena-Black" family="Phenomena" pointSize="22"/>
+                                                <fontDescription key="fontDescription" name="CeraRoundPro-Bold" family="Cera Round Pro" pointSize="22"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
@@ -743,7 +740,7 @@
                                                                     <color key="backgroundColor" red="0.81568627449999997" green="0.94509803920000002" blue="0.96862745100000003" alpha="1" colorSpace="calibratedRGB"/>
                                                                 </view>
                                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="omo" translatesAutoresizingMaskIntoConstraints="NO" id="sYd-4m-xCr">
-                                                                    <rect key="frame" x="4" y="8" width="85" height="78"/>
+                                                                    <rect key="frame" x="3" y="8" width="85" height="78"/>
                                                                     <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                                 </imageView>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Johnson &amp; Johnson" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xmH-6H-mj1">
@@ -770,7 +767,7 @@
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="R$ 7,90" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WtH-8V-h86">
-                                                                    <rect key="frame" x="191" y="87" width="198" height="31"/>
+                                                                    <rect key="frame" x="189" y="87" width="200" height="31"/>
                                                                     <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMinY="YES"/>
                                                                     <fontDescription key="fontDescription" name="CeraRoundPro-Light" family="Cera Round Pro" pointSize="19"/>
                                                                     <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -843,7 +840,7 @@
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="R$ 476,98" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="B6a-gT-YwW">
-                                                                    <rect key="frame" x="216" y="38" width="174" height="32"/>
+                                                                    <rect key="frame" x="214" y="38" width="176" height="32"/>
                                                                     <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxY="YES"/>
                                                                     <fontDescription key="fontDescription" name="CeraRoundPro-Bold" family="Cera Round Pro" pointSize="29"/>
                                                                     <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -864,7 +861,7 @@
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="R$ 7,90" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="173" translatesAutoresizingMaskIntoConstraints="NO" id="29K-A1-UjD">
-                                                                    <rect key="frame" x="216" y="8" width="174" height="32"/>
+                                                                    <rect key="frame" x="214" y="8" width="176" height="32"/>
                                                                     <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxY="YES"/>
                                                                     <fontDescription key="fontDescription" name="CeraRoundPro-Light" family="Cera Round Pro" pointSize="24"/>
                                                                     <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -903,7 +900,7 @@
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                                 <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ykn-Mq-P0N">
-                                                                    <rect key="frame" x="156" y="140" width="81" height="78"/>
+                                                                    <rect key="frame" x="154" y="140" width="81" height="78"/>
                                                                     <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                                                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                                 </view>
@@ -953,21 +950,21 @@
                                                                             <nil key="highlightedColor"/>
                                                                         </label>
                                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="061.546.759-84" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MP8-N7-su2">
-                                                                            <rect key="frame" x="11" y="210" width="237" height="32"/>
+                                                                            <rect key="frame" x="11" y="210" width="235" height="32"/>
                                                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                                             <fontDescription key="fontDescription" name="CeraRoundPro-Light" family="Cera Round Pro" pointSize="15"/>
                                                                             <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                             <nil key="highlightedColor"/>
                                                                         </label>
                                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Gabrielle Carolina Caporasso Rutkoski Mengarda" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ffv-U0-zxb">
-                                                                            <rect key="frame" x="11" y="233" width="237" height="33"/>
+                                                                            <rect key="frame" x="11" y="233" width="235" height="33"/>
                                                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                                             <fontDescription key="fontDescription" name="CeraRoundPro-Regular" family="Cera Round Pro" pointSize="15"/>
                                                                             <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                             <nil key="highlightedColor"/>
                                                                         </label>
                                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="1x de R$ 476,98" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ggt-8t-50D">
-                                                                            <rect key="frame" x="11" y="120" width="270" height="32"/>
+                                                                            <rect key="frame" x="11" y="120" width="268" height="32"/>
                                                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                                             <fontDescription key="fontDescription" name="CeraRoundPro-Regular" family="Cera Round Pro" pointSize="15"/>
                                                                             <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -1433,7 +1430,7 @@
                                 </connections>
                             </button>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="tag" translatesAutoresizingMaskIntoConstraints="NO" id="JHa-T5-6wr">
-                                <rect key="frame" x="25" y="0.0" width="78" height="128"/>
+                                <rect key="frame" x="25" y="0.0" width="77" height="128"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" heightSizable="YES" flexibleMaxY="YES"/>
                             </imageView>
                         </subviews>
@@ -1715,7 +1712,7 @@
                                         </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Cartões cadastrados" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6V6-bA-1up">
-                                        <rect key="frame" x="7" y="49" width="398" height="55"/>
+                                        <rect key="frame" x="6" y="49" width="397" height="55"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES"/>
                                         <fontDescription key="fontDescription" name="IntroScript-SemiBold" family="Intro Script" pointSize="29"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -1825,7 +1822,7 @@
                                         <color key="backgroundColor" red="0.96470588235294119" green="0.97647058823529409" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                     </view>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="logolimvedeitado" translatesAutoresizingMaskIntoConstraints="NO" id="M1e-ye-JCC">
-                                        <rect key="frame" x="81" y="65" width="239" height="136"/>
+                                        <rect key="frame" x="81" y="65" width="237" height="136"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </imageView>
@@ -1865,14 +1862,14 @@
                                         </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Entrar" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QAp-Ih-xJK">
-                                        <rect key="frame" x="7" y="8" width="296" height="49"/>
+                                        <rect key="frame" x="7" y="8" width="294" height="49"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" name="IntroScript-SemiBold" family="Intro Script" pointSize="37"/>
                                         <color key="textColor" red="0.023529411760000001" green="0.2784313725" blue="0.53725490200000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" alpha="0.15000000596046448" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Entrar" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YlQ-9S-edV">
-                                        <rect key="frame" x="19" y="12" width="296" height="49"/>
+                                        <rect key="frame" x="19" y="12" width="294" height="49"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" name="IntroScript-SemiBold" family="Intro Script" pointSize="38"/>
                                         <color key="textColor" red="0.043137254899999998" green="0.41568627450000001" blue="0.69019607839999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -2020,7 +2017,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" alpha="0.14999999999999999" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Cadastrar-se" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hRQ-fn-Nfl">
-                                        <rect key="frame" x="17" y="13" width="294" height="49"/>
+                                        <rect key="frame" x="17" y="13" width="293" height="49"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" name="IntroScript-SemiBold" family="Intro Script" pointSize="38"/>
                                         <color key="textColor" red="0.043137254899999998" green="0.41568627450000001" blue="0.69019607839999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -2094,14 +2091,14 @@
                                         <color key="backgroundColor" red="0.96470588239999999" green="0.97647058819999999" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                     </view>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Aceita receber em seu E-MAIL nossas promoções, peças promocionais ou newsletter?" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5CK-8h-J6o">
-                                        <rect key="frame" x="74" y="418" width="316" height="37"/>
+                                        <rect key="frame" x="73" y="418" width="317" height="37"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" name="CeraRoundPro-Regular" family="Cera Round Pro" pointSize="13"/>
                                         <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Aceita receber por SMS nossas promoções, peças promocionais ou newsletter?" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tqh-aH-9LR">
-                                        <rect key="frame" x="74" y="465" width="316" height="37"/>
+                                        <rect key="frame" x="73" y="465" width="317" height="37"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" name="CeraRoundPro-Regular" family="Cera Round Pro" pointSize="13"/>
                                         <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -2210,14 +2207,14 @@
                                         </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Adicionar cartão" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2ug-oK-Jby">
-                                        <rect key="frame" x="7" y="8" width="381" height="49"/>
+                                        <rect key="frame" x="7" y="8" width="380" height="49"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" name="IntroScript-SemiBold" family="Intro Script" pointSize="37"/>
                                         <color key="textColor" red="0.023529411760000001" green="0.2784313725" blue="0.53725490200000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" alpha="0.15000000596046448" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Adicionar cartão" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Yix-58-Q5v">
-                                        <rect key="frame" x="24" y="14" width="295" height="49"/>
+                                        <rect key="frame" x="24" y="14" width="293" height="49"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" name="IntroScript-SemiBold" family="Intro Script" pointSize="40"/>
                                         <color key="textColor" red="0.043137254899999998" green="0.41568627450000001" blue="0.69019607839999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -2362,7 +2359,7 @@
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                     </view>
                                     <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="i1a-Xs-lfg" customClass="UIControl">
-                                        <rect key="frame" x="11" y="251" width="267" height="40"/>
+                                        <rect key="frame" x="11" y="251" width="266" height="40"/>
                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <connections>
@@ -2370,7 +2367,7 @@
                                         </connections>
                                     </view>
                                     <view tag="1" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="jIc-uo-tv7" customClass="UIControl">
-                                        <rect key="frame" x="11" y="299" width="267" height="40"/>
+                                        <rect key="frame" x="11" y="299" width="266" height="40"/>
                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <connections>
@@ -2378,7 +2375,7 @@
                                         </connections>
                                     </view>
                                     <view tag="2" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="DFG-Ci-Kaq" customClass="UIControl">
-                                        <rect key="frame" x="11" y="347" width="267" height="40"/>
+                                        <rect key="frame" x="11" y="347" width="266" height="40"/>
                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <connections>
@@ -2386,7 +2383,7 @@
                                         </connections>
                                     </view>
                                     <view tag="3" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="r33-bk-ge6" customClass="UIControl">
-                                        <rect key="frame" x="11" y="394" width="267" height="40"/>
+                                        <rect key="frame" x="11" y="394" width="266" height="40"/>
                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <connections>
@@ -2394,7 +2391,7 @@
                                         </connections>
                                     </view>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Crédito" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3gl-ar-YEe">
-                                        <rect key="frame" x="117" y="478" width="51" height="23"/>
+                                        <rect key="frame" x="116" y="478" width="51" height="23"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" name="IntroScript-Bold" family="Intro Script" pointSize="17"/>
                                         <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -2408,7 +2405,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="UZ0-CB-Ai0">
-                                        <rect key="frame" x="79" y="475" width="30" height="30"/>
+                                        <rect key="frame" x="78" y="475" width="30" height="30"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="M9l-ol-5vm">
@@ -2427,7 +2424,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="EA6-nE-C1r">
-                                        <rect key="frame" x="226" y="474" width="30" height="30"/>
+                                        <rect key="frame" x="225" y="474" width="30" height="30"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="nQA-qe-B4W">
@@ -2650,7 +2647,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eXO-Xf-cLT">
-                                                <rect key="frame" x="3" y="315" width="381" height="95"/>
+                                                <rect key="frame" x="3" y="315" width="379" height="95"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <string key="text">Para administrar e salvar cartões de crédito, histórico de compras, produtos favoritos, ou ter sugestões mais apuradas pelo seu perfil precisamos que você se identifique.</string>
                                                 <fontDescription key="fontDescription" name="CeraRoundPro-Regular" family="Cera Round Pro" pointSize="17"/>
@@ -2729,7 +2726,7 @@
                                         </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Minhas compras" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3oq-c1-I1Y">
-                                        <rect key="frame" x="7" y="49" width="398" height="55"/>
+                                        <rect key="frame" x="6" y="49" width="397" height="55"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES"/>
                                         <fontDescription key="fontDescription" name="IntroScript-SemiBold" family="Intro Script" pointSize="29"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -2861,7 +2858,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" alpha="0.15000000596046448" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Local de entrega" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hUP-9u-E7C">
-                                        <rect key="frame" x="12" y="11" width="362" height="51"/>
+                                        <rect key="frame" x="12" y="11" width="361" height="51"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" name="IntroScript-SemiBold" family="Intro Script" pointSize="38"/>
                                         <color key="textColor" red="0.043137254899999998" green="0.41568627450000001" blue="0.69019607839999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -2894,7 +2891,7 @@
                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Rua ou avenida:" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="djn-3f-Xrn">
-                                                <rect key="frame" x="3" y="8" width="363" height="16"/>
+                                                <rect key="frame" x="3" y="8" width="362" height="16"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <fontDescription key="fontDescription" name="CeraRoundPro-Black" family="Cera Round Pro" pointSize="16"/>
                                                 <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -3048,22 +3045,22 @@
                                         </connections>
                                     </tableView>
                                     <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="E7q-jR-3C4">
-                                        <rect key="frame" x="7" y="71" width="381" height="436"/>
+                                        <rect key="frame" x="7" y="71" width="380" height="436"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <subviews>
                                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" mapType="hybrid" translatesAutoresizingMaskIntoConstraints="NO" id="WiV-k5-cig">
-                                                <rect key="frame" x="8" y="47" width="365" height="259"/>
+                                                <rect key="frame" x="6" y="47" width="365" height="259"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             </mapView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="É aqui?" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6Fq-WL-Ycx">
-                                                <rect key="frame" x="8" y="11" width="365" height="20"/>
+                                                <rect key="frame" x="6" y="11" width="366" height="20"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxY="YES"/>
                                                 <fontDescription key="fontDescription" name="CeraRoundPro-Black" family="Cera Round Pro" pointSize="18"/>
                                                 <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" scrollEnabled="NO" editable="NO" text="Rua Desembargador Isaias Bevilaqua, 378 - Campo Comprido, São Bernardo do Campo, Rio de Janeiro." textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LPX-8m-Vua">
-                                                <rect key="frame" x="13" y="327" width="357" height="79"/>
+                                                <rect key="frame" x="11" y="327" width="358" height="79"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -3149,14 +3146,14 @@
                                         </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Ordernar por:" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gm0-Pj-QmG">
-                                        <rect key="frame" x="7" y="8" width="296" height="49"/>
+                                        <rect key="frame" x="7" y="8" width="294" height="49"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" name="IntroScript-SemiBold" family="Intro Script" pointSize="37"/>
                                         <color key="textColor" red="0.023529411760000001" green="0.2784313725" blue="0.53725490200000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" alpha="0.15000000596046448" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Ordenar por" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bbM-hn-Wsd">
-                                        <rect key="frame" x="12" y="12" width="296" height="51"/>
+                                        <rect key="frame" x="12" y="12" width="294" height="51"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" name="IntroScript-SemiBold" family="Intro Script" pointSize="41"/>
                                         <color key="textColor" red="0.043137254899999998" green="0.41568627450000001" blue="0.69019607839999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -3302,7 +3299,7 @@
                                         </connections>
                                     </view>
                                     <view tag="1" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="4BJ-qh-eO6" customClass="UIControl">
-                                        <rect key="frame" x="12" y="166" width="375" height="40"/>
+                                        <rect key="frame" x="12" y="166" width="373" height="40"/>
                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <connections>
@@ -3381,14 +3378,14 @@
                                         </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Parcelamento" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="y4M-8f-mOR">
-                                        <rect key="frame" x="7" y="8" width="296" height="49"/>
+                                        <rect key="frame" x="7" y="8" width="294" height="49"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" name="IntroScript-SemiBold" family="Intro Script" pointSize="37"/>
                                         <color key="textColor" red="0.023529411760000001" green="0.2784313725" blue="0.53725490200000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" alpha="0.15000000596046448" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Parcelamento" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LQ3-2b-RXu">
-                                        <rect key="frame" x="14" y="11" width="295" height="51"/>
+                                        <rect key="frame" x="14" y="11" width="293" height="51"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" name="IntroScript-SemiBold" family="Intro Script" pointSize="38"/>
                                         <color key="textColor" red="0.043137254899999998" green="0.41568627450000001" blue="0.69019607839999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -3460,7 +3457,7 @@
                                         </connections>
                                     </view>
                                     <view tag="1" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="WXG-0Y-j2h" customClass="UIControl">
-                                        <rect key="frame" x="12" y="166" width="375" height="40"/>
+                                        <rect key="frame" x="12" y="166" width="373" height="40"/>
                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <connections>
@@ -3545,7 +3542,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" alpha="0.15000000596046448" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Forma de pagamento" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="o3o-gd-7N7">
-                                        <rect key="frame" x="15" y="12" width="362" height="51"/>
+                                        <rect key="frame" x="14" y="12" width="361" height="51"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" name="IntroScript-SemiBold" family="Intro Script" pointSize="37"/>
                                         <color key="textColor" red="0.043137254899999998" green="0.41568627450000001" blue="0.69019607839999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -3576,7 +3573,7 @@
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="débito" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="M86-uP-3Jl">
-                                                            <rect key="frame" x="276" y="12" width="114" height="32"/>
+                                                            <rect key="frame" x="274" y="12" width="116" height="32"/>
                                                             <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxY="YES"/>
                                                             <fontDescription key="fontDescription" name="CeraRoundPro-Medium" family="Cera Round Pro" pointSize="15"/>
                                                             <color key="textColor" red="0.66666666666666663" green="0.66666666666666663" blue="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -3693,14 +3690,14 @@
                                         </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Dados fiscais" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8Fy-z7-Agm">
-                                        <rect key="frame" x="7" y="8" width="375" height="49"/>
+                                        <rect key="frame" x="7" y="8" width="374" height="49"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" name="IntroScript-SemiBold" family="Intro Script" pointSize="37"/>
                                         <color key="textColor" red="0.023529411760000001" green="0.2784313725" blue="0.53725490200000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" alpha="0.15000000596046448" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Dados fiscais" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eFK-R9-0n4">
-                                        <rect key="frame" x="19" y="12" width="362" height="51"/>
+                                        <rect key="frame" x="19" y="12" width="361" height="51"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" name="IntroScript-SemiBold" family="Intro Script" pointSize="38"/>
                                         <color key="textColor" red="0.043137254899999998" green="0.41568627450000001" blue="0.69019607839999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -3774,6 +3771,9 @@
                                         <include reference="k6P-K0-iWG"/>
                                     </mask>
                                 </variation>
+                                <connections>
+                                    <action selector="fecharKeyboard" destination="hCS-cR-lMP" eventType="touchDown" id="dpH-F7-XPG"/>
+                                </connections>
                             </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="2Ys-OZ-Hcw"/>
@@ -3828,14 +3828,14 @@
                                         </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Cvv" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yLm-At-Tmr">
-                                        <rect key="frame" x="7" y="8" width="375" height="49"/>
+                                        <rect key="frame" x="7" y="8" width="374" height="49"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" name="IntroScript-SemiBold" family="Intro Script" pointSize="37"/>
                                         <color key="textColor" red="0.023529411760000001" green="0.2784313725" blue="0.53725490200000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" alpha="0.15000000596046448" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Cvv" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="URp-rl-fZT">
-                                        <rect key="frame" x="12" y="11" width="363" height="51"/>
+                                        <rect key="frame" x="12" y="11" width="361" height="51"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" name="IntroScript-SemiBold" family="Intro Script" pointSize="40"/>
                                         <color key="textColor" red="0.043137254899999998" green="0.41568627450000001" blue="0.69019607839999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -3861,6 +3861,9 @@
                                     </textField>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <connections>
+                                    <action selector="fecharKeyboard" destination="xok-KH-X54" eventType="touchDown" id="Atc-5b-tsf"/>
+                                </connections>
                             </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="MC7-Ao-Zke"/>
@@ -3903,28 +3906,28 @@
                                         </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Obrigado!" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="giB-hB-0oz">
-                                        <rect key="frame" x="7" y="8" width="375" height="49"/>
+                                        <rect key="frame" x="7" y="8" width="374" height="49"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" name="IntroScript-SemiBold" family="Intro Script" pointSize="37"/>
                                         <color key="textColor" red="0.023529411760000001" green="0.2784313725" blue="0.53725490200000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Sua nota fiscal está sendo emitida e será enviada digitalmente." lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="12J-36-2UX">
-                                        <rect key="frame" x="14" y="74" width="362" height="71"/>
+                                        <rect key="frame" x="14" y="74" width="361" height="71"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" name="CeraRoundPro-Medium" family="Cera Round Pro" pointSize="16"/>
                                         <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Seus produtos chegarão em breve. Atualizaremos você com novidades." lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="X94-ZV-LTY">
-                                        <rect key="frame" x="14" y="148" width="362" height="71"/>
+                                        <rect key="frame" x="14" y="148" width="361" height="71"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" name="IntroScript-Regular" family="Intro Script" pointSize="22"/>
                                         <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" alpha="0.15000000596046448" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Obrigado!" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cW7-FQ-JN6">
-                                        <rect key="frame" x="14" y="10" width="362" height="51"/>
+                                        <rect key="frame" x="14" y="10" width="361" height="51"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" name="IntroScript-SemiBold" family="Intro Script" pointSize="38"/>
                                         <color key="textColor" red="0.043137254899999998" green="0.41568627450000001" blue="0.69019607839999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -3996,14 +3999,14 @@
                                         </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Detalhes do pedido" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EyP-pk-nqi">
-                                        <rect key="frame" x="7" y="8" width="375" height="49"/>
+                                        <rect key="frame" x="7" y="8" width="374" height="49"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" name="IntroScript-SemiBold" family="Intro Script" pointSize="37"/>
                                         <color key="textColor" red="0.023529411760000001" green="0.2784313725" blue="0.53725490200000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" alpha="0.15000000596046448" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Detalhes do pedido" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vMa-k8-AJg">
-                                        <rect key="frame" x="12" y="11" width="363" height="51"/>
+                                        <rect key="frame" x="12" y="11" width="361" height="51"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" name="IntroScript-SemiBold" family="Intro Script" pointSize="38"/>
                                         <color key="textColor" red="0.043137254899999998" green="0.41568627450000001" blue="0.69019607839999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -4031,7 +4034,7 @@
                                                                     <color key="backgroundColor" red="0.81568627449999997" green="0.94509803920000002" blue="0.96862745100000003" alpha="1" colorSpace="calibratedRGB"/>
                                                                 </view>
                                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="omo" translatesAutoresizingMaskIntoConstraints="NO" id="boS-b2-JCf">
-                                                                    <rect key="frame" x="3" y="4" width="81" height="78"/>
+                                                                    <rect key="frame" x="1" y="4" width="81" height="78"/>
                                                                     <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                                 </imageView>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Johnson &amp; Johnson" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="g9y-bV-za7">
@@ -4051,14 +4054,14 @@
                                                                     <textInputTraits key="textInputTraits"/>
                                                                 </textView>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="R$ 7,90" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gFS-lL-qfE">
-                                                                    <rect key="frame" x="185" y="68" width="192" height="32"/>
+                                                                    <rect key="frame" x="183" y="68" width="194" height="32"/>
                                                                     <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMinY="YES"/>
                                                                     <fontDescription key="fontDescription" name="CeraRoundPro-Light" family="Cera Round Pro" pointSize="19"/>
                                                                     <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="1x" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="20V-AM-x9U">
-                                                                    <rect key="frame" x="7" y="85" width="75" height="19"/>
+                                                                    <rect key="frame" x="7" y="85" width="74" height="19"/>
                                                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES"/>
                                                                     <fontDescription key="fontDescription" name="CeraRoundPro-Bold" family="Cera Round Pro" pointSize="19"/>
                                                                     <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -4100,7 +4103,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="R$ 476,98" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FSd-Zv-3KL">
-                                        <rect key="frame" x="216" y="462" width="174" height="32"/>
+                                        <rect key="frame" x="214" y="462" width="176" height="32"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" name="CeraRoundPro-Bold" family="Cera Round Pro" pointSize="29"/>
                                         <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -4114,14 +4117,14 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="R$ 7,90" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="173" translatesAutoresizingMaskIntoConstraints="NO" id="BVl-CJ-tOB">
-                                        <rect key="frame" x="216" y="432" width="174" height="32"/>
+                                        <rect key="frame" x="214" y="432" width="176" height="32"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" name="CeraRoundPro-Light" family="Cera Round Pro" pointSize="24"/>
                                         <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="(Parcelado em 3x)" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0bV-bN-NgV">
-                                        <rect key="frame" x="122" y="495" width="268" height="18"/>
+                                        <rect key="frame" x="121" y="495" width="268" height="18"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" name="CeraRoundPro-Regular" family="Cera Round Pro" pointSize="15"/>
                                         <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -4212,15 +4215,15 @@
                                                 </variation>
                                             </view>
                                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="OtG-X4-6kT">
-                                                <rect key="frame" x="3" y="30" width="391" height="147"/>
+                                                <rect key="frame" x="3" y="30" width="390" height="147"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                                 <subviews>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="open" translatesAutoresizingMaskIntoConstraints="NO" id="Fbk-Ss-has">
-                                                        <rect key="frame" x="156" y="11" width="79" height="70"/>
+                                                        <rect key="frame" x="155" y="11" width="79" height="70"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     </imageView>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Bem-vindo!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WGs-fx-gwk">
-                                                        <rect key="frame" x="8" y="77" width="383" height="60"/>
+                                                        <rect key="frame" x="7" y="77" width="383" height="60"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                         <fontDescription key="fontDescription" name="IntroScript-SemiBold" family="Intro Script" pointSize="42"/>
                                                         <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -4242,11 +4245,11 @@
                                                 </variation>
                                             </view>
                                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="NRs-T2-nwO">
-                                                <rect key="frame" x="7" y="208" width="382" height="205"/>
+                                                <rect key="frame" x="6" y="208" width="381" height="205"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="• Parcele suas compras em até 3x | Frete grátis*" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="46c-sl-IKf">
-                                                        <rect key="frame" x="3" y="109" width="368" height="39"/>
+                                                        <rect key="frame" x="2" y="109" width="368" height="39"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                         <fontDescription key="fontDescription" name="CeraRoundPro-Bold" family="Cera Round Pro" pointSize="15"/>
                                                         <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -4260,14 +4263,14 @@
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Aqui você encontra a melhor linha de produtos de limpeza e higiene para sua casa." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TF7-ja-BO4">
-                                                        <rect key="frame" x="3" y="14" width="368" height="53"/>
+                                                        <rect key="frame" x="2" y="14" width="368" height="53"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                         <fontDescription key="fontDescription" name="CeraRoundPro-Medium" family="Cera Round Pro" pointSize="15"/>
                                                         <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Escolha produtos de qualidade para deixar a sua casa ainda mais aconchegante e receba-os em até 3h." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nyb-ud-3cQ">
-                                                        <rect key="frame" x="3" y="60" width="368" height="55"/>
+                                                        <rect key="frame" x="2" y="60" width="368" height="55"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                         <fontDescription key="fontDescription" name="CeraRoundPro-Regular" family="Cera Round Pro" pointSize="15"/>
                                                         <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -4417,14 +4420,14 @@
                                         </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Nota fiscal" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TDS-Va-FyB">
-                                        <rect key="frame" x="7" y="8" width="300" height="49"/>
+                                        <rect key="frame" x="7" y="8" width="299" height="49"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" name="IntroScript-SemiBold" family="Intro Script" pointSize="37"/>
                                         <color key="textColor" red="0.023529411760000001" green="0.2784313725" blue="0.53725490200000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" alpha="0.15000000596046448" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Nota fiscal" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uPP-NN-QNf">
-                                        <rect key="frame" x="14" y="12" width="300" height="51"/>
+                                        <rect key="frame" x="14" y="12" width="299" height="51"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" name="IntroScript-SemiBold" family="Intro Script" pointSize="38"/>
                                         <color key="textColor" red="0.043137254899999998" green="0.41568627450000001" blue="0.69019607839999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -4449,42 +4452,42 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="IDENTIFICAÇÃO DO CLIENTE:" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dCc-jK-pDc">
-                                        <rect key="frame" x="9" y="147" width="217" height="13"/>
+                                        <rect key="frame" x="7" y="147" width="219" height="13"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" name="CeraRoundPro-Regular" family="Cera Round Pro" pointSize="11"/>
                                         <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="09/10/2020 às 20:23" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ho5-Km-qXj">
-                                        <rect key="frame" x="10" y="121" width="215" height="17"/>
+                                        <rect key="frame" x="10" y="121" width="213" height="17"/>
                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" name="CeraRoundPro-Medium" family="Cera Round Pro" pointSize="14"/>
                                         <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="NOME DO CLIENTE NÃO INDICADO" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Pc8-yT-fMg">
-                                        <rect key="frame" x="9" y="163" width="376" height="13"/>
+                                        <rect key="frame" x="7" y="163" width="376" height="13"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" name="CeraRoundPro-Bold" family="Cera Round Pro" pointSize="13"/>
                                         <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="CÁLCULO DO IMPOSTO:" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bE0-J7-wLR">
-                                        <rect key="frame" x="9" y="202" width="217" height="13"/>
+                                        <rect key="frame" x="7" y="202" width="219" height="13"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" name="CeraRoundPro-Regular" family="Cera Round Pro" pointSize="11"/>
                                         <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Trib. aprox. R$: 3,32 Federal e 14,22 Estadual Fonte: IBPT/empresometro.com.br D26078" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Paa-GY-JCm">
-                                        <rect key="frame" x="9" y="218" width="376" height="30"/>
+                                        <rect key="frame" x="7" y="218" width="376" height="30"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" name="CeraRoundPro-Regular" family="Cera Round Pro" pointSize="12"/>
                                         <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="CHAVE DA NF-e:" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ad1-th-UYY">
-                                        <rect key="frame" x="12" y="256" width="214" height="13"/>
+                                        <rect key="frame" x="12" y="256" width="212" height="13"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" name="CeraRoundPro-Regular" family="Cera Round Pro" pointSize="11"/>
                                         <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -4505,7 +4508,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="VALOR DESTA NF-e:" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fII-pz-Bj8">
-                                        <rect key="frame" x="12" y="309" width="214" height="13"/>
+                                        <rect key="frame" x="12" y="309" width="212" height="13"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" name="CeraRoundPro-Regular" family="Cera Round Pro" pointSize="11"/>
                                         <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -4519,7 +4522,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="000.000.000-00" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iGJ-tA-K0Z">
-                                        <rect key="frame" x="9" y="180" width="376" height="13"/>
+                                        <rect key="frame" x="7" y="180" width="376" height="13"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" name="CeraRoundPro-Medium" family="Cera Round Pro" pointSize="13"/>
                                         <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -4598,21 +4601,21 @@
                                         </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Obrigado!" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="g78-Nn-KcT">
-                                        <rect key="frame" x="7" y="8" width="375" height="49"/>
+                                        <rect key="frame" x="7" y="8" width="374" height="49"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" name="IntroScript-SemiBold" family="Intro Script" pointSize="37"/>
                                         <color key="textColor" red="0.023529411760000001" green="0.2784313725" blue="0.53725490200000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Seu boleto está pronto!" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Pa5-ae-7mX">
-                                        <rect key="frame" x="9" y="71" width="383" height="40"/>
+                                        <rect key="frame" x="7" y="71" width="383" height="40"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" name="CeraRoundPro-Medium" family="Cera Round Pro" pointSize="17"/>
                                         <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Utilize este código de barras para realizar seu pagamento. Enviamos uma cópia para seu e-mail também." lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CFg-d0-3XF">
-                                        <rect key="frame" x="9" y="102" width="383" height="63"/>
+                                        <rect key="frame" x="7" y="102" width="383" height="63"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" name="CeraRoundPro-Regular" family="Cera Round Pro" pointSize="16"/>
                                         <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -4626,21 +4629,21 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Seus produtos serão entregues após a confirmação do pagamento" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ABF-Kb-yPL">
-                                        <rect key="frame" x="9" y="288" width="383" height="40"/>
+                                        <rect key="frame" x="7" y="288" width="383" height="40"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" name="CeraRoundPro-Regular" family="Cera Round Pro" pointSize="16"/>
                                         <color key="textColor" red="0.35686274509803922" green="0.35686274509803922" blue="0.35686274509803922" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Lembre-se: a confirmação de pagamento do boleto pode levar até 02 dias úteis." lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="s99-uP-91a">
-                                        <rect key="frame" x="9" y="325" width="383" height="40"/>
+                                        <rect key="frame" x="7" y="325" width="383" height="40"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" name="CeraRoundPro-Light" family="Cera Round Pro" pointSize="16"/>
                                         <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" alpha="0.15000000596046448" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Obrigado!" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="foJ-lT-4VG">
-                                        <rect key="frame" x="10" y="11" width="363" height="51"/>
+                                        <rect key="frame" x="8" y="11" width="363" height="51"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" name="IntroScript-SemiBold" family="Intro Script" pointSize="39"/>
                                         <color key="textColor" red="0.043137254899999998" green="0.41568627450000001" blue="0.69019607839999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -4705,105 +4708,105 @@
                                         </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Estamos quase lá!" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Irj-ib-tca">
-                                        <rect key="frame" x="7" y="8" width="375" height="49"/>
+                                        <rect key="frame" x="7" y="8" width="374" height="49"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" name="IntroScript-SemiBold" family="Intro Script" pointSize="37"/>
                                         <color key="textColor" red="0.023529411760000001" green="0.2784313725" blue="0.53725490200000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Para finalizar sua compra, faça uma transferência bancária (TED ou PIX) para:" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3dA-oh-Kh6">
-                                        <rect key="frame" x="9" y="65" width="383" height="40"/>
+                                        <rect key="frame" x="7" y="65" width="383" height="40"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" name="CeraRoundPro-Medium" family="Cera Round Pro" pointSize="16"/>
                                         <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Com o exato valor de:" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rwe-fq-h4e">
-                                        <rect key="frame" x="9" y="239" width="383" height="21"/>
+                                        <rect key="frame" x="7" y="239" width="383" height="21"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" name="CeraRoundPro-Light" family="Cera Round Pro" pointSize="13"/>
                                         <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="R$ 256,97" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OTO-Sq-NvU">
-                                        <rect key="frame" x="9" y="260" width="383" height="21"/>
+                                        <rect key="frame" x="7" y="260" width="383" height="21"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" name="CeraRoundPro-Bold" family="Cera Round Pro" pointSize="22"/>
                                         <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Envie seu comprovante de pagamento junto ao seu endereço de entrega para nosso atendimento via WhatsApp:" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="h1H-Sv-SSR">
-                                        <rect key="frame" x="10" y="289" width="382" height="42"/>
+                                        <rect key="frame" x="8" y="289" width="382" height="42"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" name="CeraRoundPro-Regular" family="Cera Round Pro" pointSize="13"/>
                                         <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="(41) 99111-4455" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0zM-xD-MTq">
-                                        <rect key="frame" x="42" y="335" width="351" height="21"/>
+                                        <rect key="frame" x="42" y="335" width="349" height="21"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" name="CeraRoundPro-Bold" family="Cera Round Pro" pointSize="22"/>
                                         <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="LIMVE COMERCIO DE PRODUTOS LTDA" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aJC-FW-N0M">
-                                        <rect key="frame" x="9" y="113" width="383" height="23"/>
+                                        <rect key="frame" x="7" y="113" width="383" height="23"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" name="CeraRoundPro-Regular" family="Cera Round Pro" pointSize="16"/>
                                         <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="CNPJ: 38.216.762/0001-00" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AdI-9r-F8b">
-                                        <rect key="frame" x="9" y="133" width="383" height="23"/>
+                                        <rect key="frame" x="7" y="133" width="383" height="23"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" name="CeraRoundPro-Bold" family="Cera Round Pro" pointSize="15"/>
                                         <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Utilizar somente o CNPJ como chave do PIX" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8sR-HF-Gsw">
-                                        <rect key="frame" x="9" y="148" width="383" height="23"/>
+                                        <rect key="frame" x="7" y="148" width="383" height="23"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" name="CeraRoundPro-Regular" family="Cera Round Pro" pointSize="14"/>
                                         <color key="textColor" red="0.66666666666666663" green="0.66666666666666663" blue="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Banco Santander (033)" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rnI-h2-4WX">
-                                        <rect key="frame" x="67" y="171" width="318" height="23"/>
+                                        <rect key="frame" x="67" y="171" width="317" height="23"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" name="CeraRoundPro-Medium" family="Cera Round Pro" pointSize="16"/>
                                         <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Agência: 3731" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rJ8-Ib-Etu">
-                                        <rect key="frame" x="67" y="190" width="318" height="23"/>
+                                        <rect key="frame" x="67" y="190" width="317" height="23"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" name="CeraRoundPro-Regular" family="Cera Round Pro" pointSize="16"/>
                                         <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Conta-corrente: 13004374-2" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MRe-EV-aii">
-                                        <rect key="frame" x="67" y="208" width="318" height="23"/>
+                                        <rect key="frame" x="67" y="208" width="317" height="23"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" name="CeraRoundPro-Regular" family="Cera Round Pro" pointSize="16"/>
                                         <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Seus produtos serão entregues após a confirmação do pagamento" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ujc-AL-WE4">
-                                        <rect key="frame" x="9" y="369" width="383" height="40"/>
+                                        <rect key="frame" x="7" y="369" width="383" height="40"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" name="CeraRoundPro-Regular" family="Cera Round Pro" pointSize="16"/>
                                         <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Lembre-se: a compensação da TED pode levar até 1 hora. A compensação do PIX é imediata" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DCJ-PM-VZN">
-                                        <rect key="frame" x="9" y="406" width="383" height="40"/>
+                                        <rect key="frame" x="7" y="406" width="383" height="40"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" name="CeraRoundPro-Light" family="Cera Round Pro" pointSize="15"/>
                                         <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" alpha="0.15000000596046448" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Estamos quase lá!" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jb8-th-pBU">
-                                        <rect key="frame" x="10" y="11" width="363" height="51"/>
+                                        <rect key="frame" x="8" y="11" width="363" height="51"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" name="IntroScript-SemiBold" family="Intro Script" pointSize="39"/>
                                         <color key="textColor" red="0.043137254899999998" green="0.41568627450000001" blue="0.69019607839999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -4955,7 +4958,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" alpha="0.15000000596046448" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Recuperação de senha" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EqA-xr-vgA">
-                                        <rect key="frame" x="15" y="13" width="373" height="49"/>
+                                        <rect key="frame" x="14" y="13" width="374" height="49"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" name="IntroScript-SemiBold" family="Intro Script" pointSize="32"/>
                                         <color key="textColor" red="0.043137254899999998" green="0.41568627450000001" blue="0.69019607839999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -5053,14 +5056,14 @@
                                         </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Melhore sua experiência" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="w8E-zM-qVM">
-                                        <rect key="frame" x="7" y="8" width="381" height="49"/>
+                                        <rect key="frame" x="7" y="8" width="380" height="49"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" name="IntroScript-SemiBold" family="Intro Script" pointSize="29"/>
                                         <color key="textColor" red="0.023529411760000001" green="0.2784313725" blue="0.53725490200000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" alpha="0.15000000596046448" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Melhore sua experiência" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="E04-b6-E6Q">
-                                        <rect key="frame" x="12" y="13" width="375" height="49"/>
+                                        <rect key="frame" x="12" y="13" width="374" height="49"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" name="IntroScript-SemiBold" family="Intro Script" pointSize="30"/>
                                         <color key="textColor" red="0.043137254899999998" green="0.41568627450000001" blue="0.69019607839999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -5149,157 +5152,157 @@
     </scenes>
     <designables>
         <designable name="0uR-wC-5vu">
-            <size key="intrinsicContentSize" width="62" height="36"/>
+            <size key="intrinsicContentSize" width="56" height="38"/>
         </designable>
         <designable name="0yL-85-tqs">
-            <size key="intrinsicContentSize" width="62" height="36"/>
+            <size key="intrinsicContentSize" width="56" height="38"/>
         </designable>
         <designable name="11H-SD-V0t">
-            <size key="intrinsicContentSize" width="83" height="30"/>
+            <size key="intrinsicContentSize" width="73" height="32"/>
         </designable>
         <designable name="1oj-Z1-hbb">
             <size key="intrinsicContentSize" width="177" height="38"/>
         </designable>
         <designable name="2jG-hz-hfx">
-            <size key="intrinsicContentSize" width="92" height="30"/>
+            <size key="intrinsicContentSize" width="85" height="32"/>
         </designable>
         <designable name="3hQ-0e-T9V">
-            <size key="intrinsicContentSize" width="205" height="36"/>
+            <size key="intrinsicContentSize" width="191" height="38"/>
         </designable>
         <designable name="4RQ-u2-NdT">
-            <size key="intrinsicContentSize" width="254" height="36"/>
+            <size key="intrinsicContentSize" width="196" height="38"/>
         </designable>
         <designable name="5TZ-8V-aw1">
-            <size key="intrinsicContentSize" width="166" height="36"/>
+            <size key="intrinsicContentSize" width="145" height="38"/>
         </designable>
         <designable name="8eO-6v-SAV">
             <size key="intrinsicContentSize" width="56" height="38"/>
         </designable>
         <designable name="Di0-nn-KAQ">
-            <size key="intrinsicContentSize" width="62" height="36"/>
+            <size key="intrinsicContentSize" width="56" height="38"/>
         </designable>
         <designable name="Dqq-7K-dvS">
-            <size key="intrinsicContentSize" width="224" height="36"/>
+            <size key="intrinsicContentSize" width="188" height="38"/>
         </designable>
         <designable name="EPK-00-a69">
             <size key="intrinsicContentSize" width="56" height="38"/>
         </designable>
         <designable name="EV7-Nm-tMX">
-            <size key="intrinsicContentSize" width="53" height="35"/>
+            <size key="intrinsicContentSize" width="51" height="37"/>
         </designable>
         <designable name="Hsd-G6-TWh">
-            <size key="intrinsicContentSize" width="179" height="36"/>
+            <size key="intrinsicContentSize" width="158" height="38"/>
         </designable>
         <designable name="KFy-pL-i7x">
-            <size key="intrinsicContentSize" width="299" height="35"/>
+            <size key="intrinsicContentSize" width="274" height="37"/>
         </designable>
         <designable name="LFF-sN-idC">
             <size key="intrinsicContentSize" width="56" height="38"/>
         </designable>
         <designable name="NC5-Ub-jYr">
-            <size key="intrinsicContentSize" width="62" height="36"/>
+            <size key="intrinsicContentSize" width="56" height="38"/>
         </designable>
         <designable name="Na9-hO-xAr">
-            <size key="intrinsicContentSize" width="48" height="35"/>
+            <size key="intrinsicContentSize" width="43" height="37"/>
         </designable>
         <designable name="RXK-Ak-ARk">
-            <size key="intrinsicContentSize" width="62" height="36"/>
+            <size key="intrinsicContentSize" width="56" height="38"/>
         </designable>
         <designable name="RnO-hE-qUX">
-            <size key="intrinsicContentSize" width="117" height="35"/>
+            <size key="intrinsicContentSize" width="107" height="37"/>
         </designable>
         <designable name="RyT-oQ-oJz">
-            <size key="intrinsicContentSize" width="232" height="35"/>
+            <size key="intrinsicContentSize" width="209" height="37"/>
         </designable>
         <designable name="Skr-Cm-Dqt">
-            <size key="intrinsicContentSize" width="195" height="36"/>
+            <size key="intrinsicContentSize" width="172" height="38"/>
         </designable>
         <designable name="TAo-hu-jEs">
-            <size key="intrinsicContentSize" width="187" height="36"/>
+            <size key="intrinsicContentSize" width="160" height="38"/>
         </designable>
         <designable name="UbP-4x-xvX">
-            <size key="intrinsicContentSize" width="62" height="36"/>
+            <size key="intrinsicContentSize" width="56" height="38"/>
         </designable>
         <designable name="Ud9-Ck-eQ7">
             <size key="intrinsicContentSize" width="191" height="38"/>
         </designable>
         <designable name="V9w-iF-B8s">
-            <size key="intrinsicContentSize" width="159" height="36"/>
+            <size key="intrinsicContentSize" width="141" height="38"/>
         </designable>
         <designable name="VUf-1Q-euG">
-            <size key="intrinsicContentSize" width="178" height="36"/>
+            <size key="intrinsicContentSize" width="167" height="38"/>
         </designable>
         <designable name="WaX-GZ-4GE">
-            <size key="intrinsicContentSize" width="179" height="36"/>
+            <size key="intrinsicContentSize" width="158" height="38"/>
         </designable>
         <designable name="XYc-G6-iDW">
-            <size key="intrinsicContentSize" width="54" height="36"/>
+            <size key="intrinsicContentSize" width="53" height="38"/>
         </designable>
         <designable name="XzF-Xo-b6d">
-            <size key="intrinsicContentSize" width="191" height="36"/>
+            <size key="intrinsicContentSize" width="174" height="38"/>
         </designable>
         <designable name="aXr-kD-z6s">
-            <size key="intrinsicContentSize" width="62" height="36"/>
+            <size key="intrinsicContentSize" width="56" height="38"/>
         </designable>
         <designable name="bj0-mS-wt7">
             <size key="intrinsicContentSize" width="130" height="38"/>
         </designable>
         <designable name="cwW-Nl-1W7">
-            <size key="intrinsicContentSize" width="62" height="36"/>
+            <size key="intrinsicContentSize" width="56" height="38"/>
         </designable>
         <designable name="fWY-vm-kZI">
-            <size key="intrinsicContentSize" width="270" height="36"/>
+            <size key="intrinsicContentSize" width="243" height="38"/>
         </designable>
         <designable name="ffP-8r-uJk">
-            <size key="intrinsicContentSize" width="53" height="35"/>
+            <size key="intrinsicContentSize" width="51" height="37"/>
         </designable>
         <designable name="hfE-ov-5Xw">
-            <size key="intrinsicContentSize" width="62" height="36"/>
+            <size key="intrinsicContentSize" width="56" height="38"/>
         </designable>
         <designable name="icc-8n-c0H">
-            <size key="intrinsicContentSize" width="62" height="36"/>
+            <size key="intrinsicContentSize" width="56" height="38"/>
         </designable>
         <designable name="kgf-FR-Kbr">
-            <size key="intrinsicContentSize" width="62" height="36"/>
+            <size key="intrinsicContentSize" width="56" height="38"/>
         </designable>
         <designable name="loR-EZ-URR">
-            <size key="intrinsicContentSize" width="96" height="36"/>
+            <size key="intrinsicContentSize" width="85" height="38"/>
         </designable>
         <designable name="nGi-kS-zEo">
-            <size key="intrinsicContentSize" width="78" height="36"/>
+            <size key="intrinsicContentSize" width="68" height="38"/>
         </designable>
         <designable name="s4r-g1-y8Q">
-            <size key="intrinsicContentSize" width="119" height="36"/>
+            <size key="intrinsicContentSize" width="115" height="38"/>
         </designable>
         <designable name="skC-I3-rDu">
-            <size key="intrinsicContentSize" width="186" height="36"/>
+            <size key="intrinsicContentSize" width="170" height="38"/>
         </designable>
         <designable name="soC-au-UWQ">
-            <size key="intrinsicContentSize" width="257" height="36"/>
+            <size key="intrinsicContentSize" width="236" height="38"/>
         </designable>
         <designable name="tMM-cR-vV9">
-            <size key="intrinsicContentSize" width="249" height="36"/>
+            <size key="intrinsicContentSize" width="225" height="38"/>
         </designable>
         <designable name="tN1-3Q-7qc">
-            <size key="intrinsicContentSize" width="62" height="36"/>
+            <size key="intrinsicContentSize" width="56" height="38"/>
         </designable>
         <designable name="ugJ-MO-rBT">
-            <size key="intrinsicContentSize" width="53" height="35"/>
+            <size key="intrinsicContentSize" width="51" height="37"/>
         </designable>
         <designable name="w5f-XD-PJZ">
-            <size key="intrinsicContentSize" width="148" height="30"/>
+            <size key="intrinsicContentSize" width="132" height="32"/>
         </designable>
         <designable name="wP7-UO-9if">
-            <size key="intrinsicContentSize" width="79" height="36"/>
+            <size key="intrinsicContentSize" width="77" height="38"/>
         </designable>
         <designable name="yHJ-62-oom">
-            <size key="intrinsicContentSize" width="166" height="36"/>
+            <size key="intrinsicContentSize" width="145" height="38"/>
         </designable>
         <designable name="zIp-L1-LJ5">
-            <size key="intrinsicContentSize" width="165" height="35"/>
+            <size key="intrinsicContentSize" width="143" height="37"/>
         </designable>
         <designable name="zRH-xP-Zu2">
-            <size key="intrinsicContentSize" width="144" height="30"/>
+            <size key="intrinsicContentSize" width="131" height="32"/>
         </designable>
     </designables>
     <resources>

@@ -41,7 +41,7 @@ class TelaInicial: UIViewController, SideMenuItemContent, UICollectionViewDelega
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
-        self.quantidadeCarrinho.text = "\(CarrinhoObject.get().produtos.count)"
+        self.quantidadeCarrinho.text = "\(CarrinhoObject.get().quantidadeDeItensNoCarrinho())"
     }
     
     static func inicializeTelaInicial(categoria: String, titulo: String) -> TelaInicial{
@@ -227,7 +227,7 @@ class TelaInicial: UIViewController, SideMenuItemContent, UICollectionViewDelega
                     }
                     self.loader.isHidden = true
                     
-                    self.quantidadeCarrinho.text = "\(CarrinhoObject.get().produtos.count)"
+                    self.quantidadeCarrinho.text = "\(CarrinhoObject.get().quantidadeDeItensNoCarrinho())"
                 }
             } catch {
                 
@@ -240,7 +240,7 @@ class TelaInicial: UIViewController, SideMenuItemContent, UICollectionViewDelega
     }
     
     func chamadaFromCarrinho(){
-        self.quantidadeCarrinho.text = "\(CarrinhoObject.get().produtos.count)"
+        self.quantidadeCarrinho.text = "\(CarrinhoObject.get().quantidadeDeItensNoCarrinho())"
         self.collectionView.reloadData()
     }
     
@@ -348,7 +348,7 @@ class TelaInicial: UIViewController, SideMenuItemContent, UICollectionViewDelega
     }
     
     @IBAction func abrirCarrinho(){
-        self.quantidadeCarrinho.text = "\(CarrinhoObject.get().produtos.count)"
+        self.quantidadeCarrinho.text = "\(CarrinhoObject.get().quantidadeDeItensNoCarrinho())"
         if (CarrinhoObject.get().produtos.count > 0){
             let carrinho = Carrinho.inicializeCarrinho(delegate: self)
             self.present(carrinho, animated: true, completion: nil)
@@ -594,7 +594,7 @@ class TelaInicial: UIViewController, SideMenuItemContent, UICollectionViewDelega
         }
         
         CarrinhoObject.get().adicionarAoCarrinho(produto: produto)
-        quantidadeCarrinho.text = "\(CarrinhoObject.get().produtos.count)"
+        self.quantidadeCarrinho.text = "\(CarrinhoObject.get().quantidadeDeItensNoCarrinho())"
     }
     
     func scrollViewDidScrollToTop(_ scrollView: UIScrollView) {
