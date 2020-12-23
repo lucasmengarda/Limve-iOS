@@ -73,10 +73,10 @@ class NavigationMenuViewController: MenuViewController, UITableViewDelegate, UIT
         let gradient: CAGradientLayer = CAGradientLayer()
         
         gradient.colors = [hexStringToUIColor("#042C71").cgColor, hexStringToUIColor("#084387").cgColor]
-        gradient.locations = [0.0 , 1.0]
+        gradient.locations = [0.0, 1.0]
         gradient.startPoint = CGPoint(x: 0.0, y: 0.0)
-        gradient.endPoint = CGPoint(x: 0.0, y: 1.0)
-        gradient.frame = CGRect(x: 0.0, y: 0.0, width: self.view.frame.size.width, height: self.view.frame.size.height)
+        gradient.endPoint = CGPoint(x: 1.0, y: 1.0)
+        gradient.frame = CGRect(x: 0.0, y: 0.0, width: UIScreen.main.bounds.size.width, height: UIScreen.main.bounds.size.height)
         
         self.view.layer.insertSublayer(gradient, at: 0)
         
@@ -84,6 +84,7 @@ class NavigationMenuViewController: MenuViewController, UITableViewDelegate, UIT
         tableView.tableHeaderView = logoHolder
         tableView.tableFooterView = footerHolder
         
+        let section0: SectionInfo = SectionInfo(itemsInSection: [], sectionTitle: "Início")
         let section1: SectionInfo = SectionInfo(itemsInSection: [], sectionTitle: "Produtos favoritos")
         let section2: SectionInfo = SectionInfo(itemsInSection: ["Amaciante", "Facilitador para passar roupas", "Neutralizador de Odores", "Tira Manchas", "Sabão em pó", "Sabão líquido"], sectionTitle: "Cuidados para sua roupa")
         let section3: SectionInfo = SectionInfo(itemsInSection: ["Alvejantes e Cloros", "Banheiro", "Cozinha", "Desengordurante", "Desinfetantes", "Lava Louça", "Limpa Vidro", "Limpador e Saponáceo", "Lustra móveis"], sectionTitle: "Cuidados para sua casa")
@@ -95,6 +96,7 @@ class NavigationMenuViewController: MenuViewController, UITableViewDelegate, UIT
         let section9: SectionInfo = SectionInfo(itemsInSection: [], sectionTitle: "Meus cartões")
         let section10: SectionInfo = SectionInfo(itemsInSection: [], sectionTitle: "whatsapp")
         
+        NavigationMenuViewController.sectionInfoArray.append(section0)
         NavigationMenuViewController.sectionInfoArray.append(section1)
         NavigationMenuViewController.sectionInfoArray.append(section2)
         NavigationMenuViewController.sectionInfoArray.append(section3)
@@ -129,38 +131,9 @@ class NavigationMenuViewController: MenuViewController, UITableViewDelegate, UIT
     var blurEffectView: UIView!
     
     @IBAction func login(){
-        
-        let blurView = DynamicBlurView(frame: self.view.bounds)
-        blurView.blurRadius = 4
-        blurView.trackingMode = .tracking
-        blurView.isDeepRendering = true
-        blurView.tintColor = .clear
-        blurView.autoresizingMask = [.flexibleHeight, .flexibleWidth]
-        
-        let overlay = UIView(frame: self.view.bounds)
-        overlay.backgroundColor = .black
-        overlay.alpha = 0.4
-        overlay.autoresizingMask = [.flexibleHeight, .flexibleWidth]
-        
-        blurEffectView = UIView(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.size.width, height: UIScreen.main.bounds.size.height))
-        blurEffectView.backgroundColor = UIColor.clear
-        
-        blurEffectView.addSubview(blurView)
-        blurEffectView.addSubview(overlay)
-        
-        menuContainerViewController!.view.addSubview(blurEffectView) //if you have more UIViews, use an insertSubview API to place it where needed
-        
-        UIView.animate(withDuration: 0.25, animations: {
-            self.blurEffectView.alpha = 1
-        }) { _ in
-            
-        }
-        
         let login = LoginController.inicializeLoginController(delegate: self)
         menuContainerViewController!.hideSideMenu()
-        menuContainerViewController?.present(login, animated: true, completion: {
-            blurView.trackingMode = .none
-        })
+        menuContainerViewController?.present(login, animated: true, completion: nil)
     }
     
     @IBAction func cadastrarse(){
@@ -198,10 +171,12 @@ class NavigationMenuViewController: MenuViewController, UITableViewDelegate, UIT
     }
     
     func onExit(sussecefull: Bool) {
-        UIView.animate(withDuration: 0.25, animations: {
-            self.blurEffectView.alpha = 0
-        }) { _ in
-            self.blurEffectView.removeFromSuperview()
+        if (self.blurEffectView != nil){
+            UIView.animate(withDuration: 0.25, animations: {
+                self.blurEffectView.alpha = 0
+            }) { _ in
+                self.blurEffectView.removeFromSuperview()
+            }
         }
         
         if (sussecefull){
@@ -268,7 +243,7 @@ class NavigationMenuViewController: MenuViewController, UITableViewDelegate, UIT
         
         tableView.deselectRow(at: indexPath, animated: true)
         
-        if (indexPath.section == 1 || indexPath.section == 2 || indexPath.section == 3 || indexPath.section == 4 || indexPath.section == 5 || indexPath.section == 6 || indexPath.section == 7){
+        if (indexPath.section == 2 || indexPath.section == 3 || indexPath.section == 4 || indexPath.section == 5 || indexPath.section == 6 || indexPath.section == 7 || indexPath.section == 8){
             let info = NavigationMenuViewController.sectionInfoArray[indexPath.section].itemsInSection[indexPath.row]
             
             var categoria = ""
@@ -421,7 +396,7 @@ class NavigationMenuViewController: MenuViewController, UITableViewDelegate, UIT
         
         //--//
         
-        if (sectionOpened == 10){
+        if (sectionOpened == 11){
             //whatsapp
             AppEvents.logEvent(AppEvents.Name.contact)
             print("whatsapp")
@@ -438,7 +413,7 @@ class NavigationMenuViewController: MenuViewController, UITableViewDelegate, UIT
             NavigationMenuViewController.abertosFechados[sectionInfo.sectionTitle!] = false
         }
         
-        if (sectionOpened == 9){
+        if (sectionOpened == 10){
             
             if (sectionInfo.sectionTitle == "whatsapp"){
                 //whatsapp
@@ -468,14 +443,14 @@ class NavigationMenuViewController: MenuViewController, UITableViewDelegate, UIT
                 currentInstallation?["userId"] = ""
                 currentInstallation?.saveInBackground()
                 
-                NavigationMenuViewController.sectionInfoArray.remove(at: 9)
+                NavigationMenuViewController.sectionInfoArray.remove(at: 10)
                 tableView.reloadData()
                 
             }
             NavigationMenuViewController.abertosFechados[sectionInfo.sectionTitle!] = false
         }
         
-        if (sectionOpened == 8){
+        if (sectionOpened == 9){
             menuContainerViewController!.selectContentViewController(MeusCartoes.inicializeMeusCartoes())
             menuContainerViewController!.hideSideMenu()
             
@@ -488,7 +463,7 @@ class NavigationMenuViewController: MenuViewController, UITableViewDelegate, UIT
             NavigationMenuViewController.abertosFechados[sectionInfo.sectionTitle!] = false
         }
         
-        if (sectionOpened == 7){
+        if (sectionOpened == 8){
             menuContainerViewController!.selectContentViewController(MinhasCompras.inicializeMinhasCompras())
             menuContainerViewController!.hideSideMenu()
             
@@ -501,8 +476,21 @@ class NavigationMenuViewController: MenuViewController, UITableViewDelegate, UIT
             NavigationMenuViewController.abertosFechados[sectionInfo.sectionTitle!] = false
         }
         
-        if (sectionOpened == 0){
+        if (sectionOpened == 1){
             menuContainerViewController!.selectContentViewController(TelaInicial.inicializeTelaInicialAsProdutosFavoritos())
+            menuContainerViewController!.hideSideMenu()
+            
+            for x in 0 ... NavigationMenuViewController.sectionInfoArray.count - 1 {
+                if (NavigationMenuViewController.sectionInfoArray[x].open){
+                    self.sectionHeaderView(sectionHeaderView: sectionHeaderView, sectionClosed: x)
+                }
+            }
+            self.tableView.reloadData()
+            NavigationMenuViewController.abertosFechados[sectionInfo.sectionTitle!] = false
+        }
+        
+        if (sectionOpened == 0){
+            menuContainerViewController!.selectContentViewController(InicioVerdadeiro.inicializeInicioVerdadeiro())
             menuContainerViewController!.hideSideMenu()
             
             for x in 0 ... NavigationMenuViewController.sectionInfoArray.count - 1 {
@@ -516,7 +504,7 @@ class NavigationMenuViewController: MenuViewController, UITableViewDelegate, UIT
     }
 
     func sectionHeaderView(sectionHeaderView: SectionHeaderView, sectionClosed: Int) {
-        if (sectionClosed != 8 && sectionClosed != 7 && sectionClosed != 0){
+        if (sectionClosed != 9 && sectionClosed != 8 && sectionClosed != 1 && sectionClosed != 0){
             let sectionInfo: SectionInfo = NavigationMenuViewController.sectionInfoArray[sectionClosed]
             let countOfRowsToDelete = sectionInfo.itemsInSection.count
             sectionInfo.open = false

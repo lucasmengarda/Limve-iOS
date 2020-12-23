@@ -7,5 +7,8 @@ target 'AppLoja' do
     pod 'InteractiveSideMenu'
     pod 'PopupDialog'
     pod 'Branch'
+    pod 'GhostTypewriter'
+    pod 'ListPlaceholder'
+    
   
 end

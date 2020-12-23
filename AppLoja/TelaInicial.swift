@@ -14,7 +14,7 @@ import NVActivityIndicatorView
 import DynamicBlurView
 import PopupDialog
 
-class TelaInicial: UIViewController, SideMenuItemContent, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, OrdenarPorDelegate {
+class TelaInicial: UIViewController, SideMenuItemContent, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, OrdenarPorDelegate, CarrinhoDelegate {
     
     @IBOutlet weak var holder: UIView!
     @IBOutlet weak var loader: UIView!
@@ -32,6 +32,7 @@ class TelaInicial: UIViewController, SideMenuItemContent, UICollectionViewDelega
     var tituloStr = "Amaciante"
     var produtos = [Produto]()
     var ordenacao: String! = "popularidade"
+    var marca = ""
     var exibindoFavoritos = false
     var buscandoProduto = false
     
@@ -56,6 +57,14 @@ class TelaInicial: UIViewController, SideMenuItemContent, UICollectionViewDelega
         let tela = MAIN_STORYBOARD.instantiateViewController(identifier: "TelaInicial") as! TelaInicial
         tela.exibindoFavoritos = true
         tela.tituloStr = "Favoritos"
+        return tela
+    }
+    
+    static func inicializeTelaInicialAsMarca(marca: String) -> TelaInicial{
+        let tela = MAIN_STORYBOARD.instantiateViewController(identifier: "TelaInicial") as! TelaInicial
+        tela.exibindoFavoritos = false
+        tela.tituloStr = marca
+        tela.marca = marca
         return tela
     }
     
@@ -98,12 +107,7 @@ class TelaInicial: UIViewController, SideMenuItemContent, UICollectionViewDelega
         yUtilizar = self.holder.frame.origin.y
         
         var placeHolder = NSMutableAttributedString()
-        var name  = ""
-        if (buscandoProduto){
-            name  = "Digite um produto/marca..."
-        } else {
-            name  = "Pesquisar por produtos..."
-        }
+        let name  = "O que você procura hoje?"
         placeHolder = NSMutableAttributedString(string: name, attributes: [NSAttributedString.Key.font: UIFont(name: "CeraRoundPro-Light", size: 16.0)!])
         placeHolder.addAttribute(NSAttributedString.Key.foregroundColor, value: hexStringToUIColor("#82E9FF"), range: NSRange(location:0, length: name.count))
 
@@ -115,12 +119,6 @@ class TelaInicial: UIViewController, SideMenuItemContent, UICollectionViewDelega
         widthCell = Double((UIScreen.main.bounds.size.width - 16.0)/2)
         
         collectionView.isHidden = true
-        
-        if (configuration["IS_BLACK_WEEK_ATIVO"] as! Bool){
-            self.view.backgroundColor = UIColor.black
-        } else {
-            self.view.backgroundColor = hexStringToUIColor("0C6CB9")
-        }
         
         loader.backgroundColor = UIColor.clear
         let nv = NVActivityIndicatorView(frame: CGRect(origin: .zero, size: loader.frame.size), type: NVActivityIndicatorType.ballClipRotateMultiple, color: hexStringToUIColor("#3C65D1"), padding: 15.0)
@@ -147,7 +145,7 @@ class TelaInicial: UIViewController, SideMenuItemContent, UICollectionViewDelega
                     
                     DispatchQueue.main.async {
                         self.titulo.text = self.tituloStr
-                        let telaProduto = TelaProduto.inicializeTelaProduto(produto: produtoDeepLink, delegate: self)
+                        let telaProduto = TelaProduto.inicializeTelaProduto(produto: produtoDeepLink, delegate: self, delegate2: nil)
                         self.present(telaProduto, animated: true, completion: nil)
                         self.abrirProdutoId = nil
                     }
@@ -166,7 +164,7 @@ class TelaInicial: UIViewController, SideMenuItemContent, UICollectionViewDelega
     }
     
     func inicialLoading(){
-        DispatchQueue.global(qos: .background).async {
+        DispatchQueue.global(qos: .background).async { [self] in
             do {
                 
                 if (self.exibindoFavoritos){
@@ -177,7 +175,11 @@ class TelaInicial: UIViewController, SideMenuItemContent, UICollectionViewDelega
                         self.query = PFQuery(className: "Produtos").whereKey("objectId", containedIn: [String]())
                     }
                 } else {
-                    self.query = PFQuery(className: "Produtos").whereKey("categoria", equalTo: self.categoria)
+                    if (self.marca.count > 0){
+                        self.query = PFQuery(className: "Produtos").whereKey("marca", equalTo: self.marca)
+                    } else {
+                        self.query = PFQuery(className: "Produtos").whereKey("categoria", equalTo: self.categoria)
+                    }
                 }
                 if (self.ordenacao == "popularidade"){
                     self.query.order(byDescending: "estoque")
@@ -517,18 +519,12 @@ class TelaInicial: UIViewController, SideMenuItemContent, UICollectionViewDelega
         
         if (produto.precoSemDesconto != 0.0 && produto.precoSemDesconto > produto.precoVenda){
             cell.precoAntesDaPromocao.isHidden = false
-            cell.blackWeekHolder.isHidden = false
             cell.preco.textColor = hexStringToUIColor("#D13C2F")
             cell.precoAntesDaPromocao.text = formatarPreco(preco: produto.precoSemDesconto)
         } else {
             cell.precoAntesDaPromocao.isHidden = true
-            cell.blackWeekHolder.isHidden = true
             cell.preco.textColor = hexStringToUIColor("#116AB6")
             cell.precoAntesDaPromocao.text = formatarPreco(preco: produto.precoSemDesconto)
-        }
-        
-        if !(configuration["IS_BLACK_WEEK_ATIVO"] as! Bool){
-            cell.blackWeekHolder.isHidden = true
         }
         
         if (produto.imagemLoaded){
@@ -564,10 +560,10 @@ class TelaInicial: UIViewController, SideMenuItemContent, UICollectionViewDelega
             
             logSearchEvent(produto: produtosPesquisados[sender.tag], searchString: searcher.text!)
             
-            let telaProduto = TelaProduto.inicializeTelaProduto(produto: produtosPesquisados[sender.tag], delegate: self)
+            let telaProduto = TelaProduto.inicializeTelaProduto(produto: produtosPesquisados[sender.tag], delegate: self, delegate2: nil)
             self.present(telaProduto, animated: true, completion: nil)
         } else {
-            let telaProduto = TelaProduto.inicializeTelaProduto(produto: produtos[sender.tag], delegate: self)
+            let telaProduto = TelaProduto.inicializeTelaProduto(produto: produtos[sender.tag], delegate: self, delegate2: nil)
             self.present(telaProduto, animated: true, completion: nil)
         }
     }
@@ -802,16 +798,31 @@ class TelaInicial: UIViewController, SideMenuItemContent, UICollectionViewDelega
     }
     
     func normalizarRegex(texto: String) -> String {
+        
         var textoNormalizado = texto.folding(options: .diacriticInsensitive, locale: Locale.current)
-        var regex = "^(?i)\\b.*(?="
-        textoNormalizado = textoNormalizado.replacingOccurrences(of: "e", with: "[éeèêë]")
-        textoNormalizado = textoNormalizado.replacingOccurrences(of: "a", with: "[áaâàã]")
-        textoNormalizado = textoNormalizado.replacingOccurrences(of: "i", with: "[iíìî]")
-        textoNormalizado = textoNormalizado.replacingOccurrences(of: "u", with: "[úuùûü]")
-        textoNormalizado = textoNormalizado.replacingOccurrences(of: "o", with: "[óoòôöõ]")
-        textoNormalizado = textoNormalizado.replacingOccurrences(of: "c", with: "[cç]")
-        regex.append(textoNormalizado)
-        regex.append(").*\\b")
+                    
+        var regex = ""
+        let splitted = textoNormalizado.split(separator: " ")
+        for x in 0 ... splitted.count - 1{
+            var splittado = splitted[x].lowercased();
+
+            splittado = splittado.replacingOccurrences(of: "e", with: "[éeèêë]");
+            splittado = splittado.replacingOccurrences(of: "a", with: "[áaâàã]");
+            splittado = splittado.replacingOccurrences(of: "i", with: "[iíìî]");
+            splittado = splittado.replacingOccurrences(of: "u", with: "[úuùûü]");
+            splittado = splittado.replacingOccurrences(of: "o", with: "[óoòôöõ]");
+            splittado = splittado.replacingOccurrences(of: "c", with: "[cç]");
+
+            if (x == 0){
+                regex.append("^(?i)(");
+            } else {
+                regex.append(" (.*");
+            }
+
+            regex.append(splittado);
+            regex.append(".*)");
+        }
+        
         print("regex: \(regex)")
         return regex
     }
@@ -834,10 +845,6 @@ class CelulaProduto: UICollectionViewCell {
     @IBOutlet weak var estoquezerado: UIView!
     @IBOutlet weak var precoAntesDaPromocao: UILabel!
     
-    //Black week params
-    @IBOutlet weak var blackWeekHolder: UIView!
-    @IBOutlet weak var blackWeekLabel: UILabel!
-    
     override func awakeFromNib() {
         super.awakeFromNib()
         
@@ -846,22 +853,6 @@ class CelulaProduto: UICollectionViewCell {
         loader.backgroundColor = UIColor.clear
         loader.addSubview(nv)
         nv.startAnimating()
-        
-        blackWeekHolder.layer.cornerRadius = 4.0
-        blackWeekHolder.layer.borderWidth = 1.0
-        blackWeekHolder.layer.borderColor = hexStringToUIColor("#D13C2F").cgColor
-        
-        let attributedTexto = NSMutableAttributedString(string: "BLACKWEEK")
-        
-        //cores
-        attributedTexto.addAttribute(.foregroundColor, value: UIColor.white, range: NSRange(location: 0, length: 5))
-        attributedTexto.addAttribute(.foregroundColor, value: hexStringToUIColor("#D13C2F"), range: NSRange(location: 5, length: 4))
-        
-        //fontes
-        attributedTexto.addAttribute(.font, value: UIFont(name: "CeraRoundPro-Regular", size: 16.0)!, range: NSRange(location: 0, length: 5))
-        attributedTexto.addAttribute(.font, value: UIFont(name: "CeraRoundPro-Black", size: 16.0)!, range: NSRange(location: 5, length: 4))
-        
-        blackWeekLabel.attributedText = attributedTexto
         
     }
 }

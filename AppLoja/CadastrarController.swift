@@ -45,6 +45,19 @@ class CadastrarController: UIViewController, UITextFieldDelegate {
         return tela
     }
     
+    var identificador: String!
+    var emailStr: String?
+    var nomeStr: String?
+    
+    static func inicializeCadastrarControllerAsLoginApple(identificador: String, email: String?, nome: String?, delegate: LoginCadastrarDelegate) -> CadastrarController{
+        let tela = MAIN_STORYBOARD.instantiateViewController(withIdentifier: "CadastrarController") as! CadastrarController
+        tela.delegate = delegate
+        tela.identificador = identificador
+        tela.emailStr = email
+        tela.nomeStr = nome
+        return tela
+    }
+    
     @IBAction func fechar(){
         self.dismiss(animated: true, completion: nil)
         self.delegate.onExit(sussecefull: false)
@@ -92,6 +105,25 @@ class CadastrarController: UIViewController, UITextFieldDelegate {
         
         senha.disableAutoFill()
         repeteSenha.disableAutoFill()
+        
+        if (identificador != nil){
+            //administrando login apple
+            atribuirPlaceholder(textField: senha, name: "Administrado pela Apple")
+            atribuirPlaceholder(textField: repeteSenha, name: "Administrado pela Apple")
+            senha.isEnabled = false
+            repeteSenha.isEnabled = false
+            
+            holderSenha.alpha = 0.5
+            holderRepeteSenha.alpha = 0.5
+            
+            if (emailStr != nil){
+                atribuirPlaceholder(textField: email, name: "Administrado pela Apple")
+                email.isEnabled = false
+                holderEmail.alpha = 0.5
+            }
+            
+            nome.text = nomeStr
+        }
         
     }
     
@@ -153,38 +185,42 @@ class CadastrarController: UIViewController, UITextFieldDelegate {
             self.present(popup, animated: true, completion: nil)
             return
         }
-        if (email.text!.count < 3 || !email.text!.contains("@")){
-            let popup = PopupDialog(title: "Ops!", message: "E-mail inválido. Confira se você digitou-o corretamente!")
-            popup.buttonAlignment = .horizontal
-            popup.transitionStyle = .bounceUp
-            let button = CancelButton(title: "Ok", action: {
-            })
-            popup.addButton(button)
-            // Present dialog
-            self.present(popup, animated: true, completion: nil)
-            return
+        if (emailStr == nil){
+            if (email.text!.count < 3 || !email.text!.contains("@")){
+                let popup = PopupDialog(title: "Ops!", message: "E-mail inválido. Confira se você digitou-o corretamente!")
+                popup.buttonAlignment = .horizontal
+                popup.transitionStyle = .bounceUp
+                let button = CancelButton(title: "Ok", action: {
+                })
+                popup.addButton(button)
+                // Present dialog
+                self.present(popup, animated: true, completion: nil)
+                return
+            }
         }
-        if (senha.text!.count < 8){
-            let popup = PopupDialog(title: "Ops!", message: "A sua senha deve conter pelo menos 8 caracteres")
-            popup.buttonAlignment = .horizontal
-            popup.transitionStyle = .bounceUp
-            let button = CancelButton(title: "Ok", action: {
-            })
-            popup.addButton(button)
-            // Present dialog
-            self.present(popup, animated: true, completion: nil)
-            return
-        }
-        if (senha.text! != repeteSenha.text!){
-            let popup = PopupDialog(title: "Ops!", message: "As senhas não coincidem! Confira se você repetiu a sua senha corretamente")
-            popup.buttonAlignment = .horizontal
-            popup.transitionStyle = .bounceUp
-            let button = CancelButton(title: "Ok", action: {
-            })
-            popup.addButton(button)
-            // Present dialog
-            self.present(popup, animated: true, completion: nil)
-            return
+        if (identificador == nil){
+            if (senha.text!.count < 8){
+                let popup = PopupDialog(title: "Ops!", message: "A sua senha deve conter pelo menos 8 caracteres")
+                popup.buttonAlignment = .horizontal
+                popup.transitionStyle = .bounceUp
+                let button = CancelButton(title: "Ok", action: {
+                })
+                popup.addButton(button)
+                // Present dialog
+                self.present(popup, animated: true, completion: nil)
+                return
+            }
+            if (senha.text! != repeteSenha.text!){
+                let popup = PopupDialog(title: "Ops!", message: "As senhas não coincidem! Confira se você repetiu a sua senha corretamente")
+                popup.buttonAlignment = .horizontal
+                popup.transitionStyle = .bounceUp
+                let button = CancelButton(title: "Ok", action: {
+                })
+                popup.addButton(button)
+                // Present dialog
+                self.present(popup, animated: true, completion: nil)
+                return
+            }
         }
         
         botaoCadastrar.startAnimation()
@@ -193,10 +229,20 @@ class CadastrarController: UIViewController, UITextFieldDelegate {
         PFUser.current()!.username = cpf.text!
         PFUser.current()!["cpf"] = cpf.text!
         PFUser.current()!["telefone"] = telefone.text!
-        PFUser.current()!.email = email.text!
-        PFUser.current()!.password = senha.text!
         PFUser.current()!["aceitarReceberSMS"] = aceitaSMS.isOn
         PFUser.current()!["aceitarReceberEmail"] = aceitaEMAIL.isOn
+        if (identificador != nil){
+            PFUser.current()!["identificadorUnico"] = identificador
+            PFUser.current()!.password = "%aosidjf#"
+            if (emailStr != nil){
+                PFUser.current()!.email = emailStr
+            } else {
+                PFUser.current()!.email = email.text!
+            }
+        } else {
+            PFUser.current()!.password = senha.text!
+            PFUser.current()!.email = email.text!
+        }
         
         PFUser.current()!.saveInBackground { (certo, erro) in
             
@@ -557,7 +603,7 @@ class CadastrarController: UIViewController, UITextFieldDelegate {
         if let userInfo = (sender as NSNotification).userInfo {
             if let _ = (userInfo[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue.size.height {
                 UIView.animate(withDuration: 0.25, animations: {
-                    self.holder.frame = self.frameInicialViewHolder!
+                    self.holder.frame = CGRect(x: (self.frameInicialViewHolder?.origin.x)!, y: (self.frameInicialViewHolder?.origin.y)! - 35.0, width: (self.frameInicialViewHolder?.width)!, height: (self.frameInicialViewHolder?.height)!)
                 })
             }
         }

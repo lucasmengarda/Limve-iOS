@@ -22,7 +22,6 @@
 		12199369240E027500983D47 /* MinhasCompras.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12199368240E027500983D47 /* MinhasCompras.swift */; };
 		1219936B240E033A00983D47 /* Compra.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1219936A240E033A00983D47 /* Compra.swift */; };
 		12210D632551E597003CCF41 /* RecuperacaoSenha.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12210D622551E597003CCF41 /* RecuperacaoSenha.swift */; };
-		1235AB26255228650018B887 /* FacebookCore in Frameworks */ = {isa = PBXBuildFile; productRef = 1235AB25255228650018B887 /* FacebookCore */; };
 		124C58C923F34BAC002B52C2 /* Carrinho.swift in Sources */ = {isa = PBXBuildFile; fileRef = 124C58C823F34BAC002B52C2 /* Carrinho.swift */; };
 		125B85E6253E690400320BF2 /* ObrigadoBoleto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 125B85E5253E690300320BF2 /* ObrigadoBoleto.swift */; };
 		1262613F24DF44C2006FFA96 /* InicioVerdadeiro.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1262613E24DF44C2006FFA96 /* InicioVerdadeiro.swift */; };
@@ -65,13 +64,29 @@
 		12B548A82548FACC00396524 /* Ubuntu-MediumItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 12B548A02548FACB00396524 /* Ubuntu-MediumItalic.ttf */; };
 		12B548A92548FACC00396524 /* Ubuntu-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 12B548A12548FACB00396524 /* Ubuntu-Regular.ttf */; };
 		12B548AA2548FACC00396524 /* Ubuntu-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 12B548A22548FACC00396524 /* Ubuntu-Italic.ttf */; };
+		12BB48B5257FEFCB00AEE8C8 /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = 12BB48B4257FEFCB00AEE8C8 /* Lottie */; };
+		12BB48C7257FF94000AEE8C8 /* maquinadelavar.json in Resources */ = {isa = PBXBuildFile; fileRef = 12BB48C6257FF94000AEE8C8 /* maquinadelavar.json */; };
+		12BB48CD25817DBC00AEE8C8 /* seeall.json in Resources */ = {isa = PBXBuildFile; fileRef = 12BB48CC25817DBC00AEE8C8 /* seeall.json */; };
+		12BB48D32582594200AEE8C8 /* check.json in Resources */ = {isa = PBXBuildFile; fileRef = 12BB48D22582594100AEE8C8 /* check.json */; };
+		12BB48E325825BA900AEE8C8 /* qrcode.json in Resources */ = {isa = PBXBuildFile; fileRef = 12BB48E225825BA900AEE8C8 /* qrcode.json */; };
+		12BB48E9258275AF00AEE8C8 /* LimveCreditos.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12BB48E8258275AF00AEE8C8 /* LimveCreditos.swift */; };
+		12BB48EF258285F400AEE8C8 /* whatsapp.json in Resources */ = {isa = PBXBuildFile; fileRef = 12BB48EE258285F300AEE8C8 /* whatsapp.json */; };
+		12BB48F52582860500AEE8C8 /* facebook.json in Resources */ = {isa = PBXBuildFile; fileRef = 12BB48F42582860300AEE8C8 /* facebook.json */; };
+		12BB48FF2582871000AEE8C8 /* more.json in Resources */ = {isa = PBXBuildFile; fileRef = 12BB48FE2582871000AEE8C8 /* more.json */; };
+		12BB49052582AD8C00AEE8C8 /* qrcode2.json in Resources */ = {isa = PBXBuildFile; fileRef = 12BB49042582AD8B00AEE8C8 /* qrcode2.json */; };
+		12BB490B2583E50900AEE8C8 /* LimveQR.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12BB490A2583E50900AEE8C8 /* LimveQR.swift */; };
+		12BB49172583F19300AEE8C8 /* qrcodeinstruction.json in Resources */ = {isa = PBXBuildFile; fileRef = 12BB49162583F19300AEE8C8 /* qrcodeinstruction.json */; };
 		12BDE3D323F498060046A016 /* TelaProduto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12BDE3D223F498060046A016 /* TelaProduto.swift */; };
 		12BDE3D723FB19DD0046A016 /* Produto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12BDE3D623FB19DD0046A016 /* Produto.swift */; };
+		12C5470925841B9F00BB53D3 /* qrcodescan.json in Resources */ = {isa = PBXBuildFile; fileRef = 12C5470825841B9F00BB53D3 /* qrcodescan.json */; };
 		12CCE25623EA01F400F7F5BE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 12113D4223E0B9EB00BA464D /* Assets.xcassets */; };
 		12DA1557253919EC00AA5B25 /* NotaFiscal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12DA1556253919EB00AA5B25 /* NotaFiscal.swift */; };
 		12E2B3DE241058E300F27854 /* Endereco.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12E2B3DD241058E300F27854 /* Endereco.swift */; };
 		12E7121D23FB5253007A3CD6 /* CarrinhoObjects.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12E7121C23FB5253007A3CD6 /* CarrinhoObjects.swift */; };
 		12EC8B3424292A8200B66710 /* ComprasVerDetalhes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12EC8B3324292A8200B66710 /* ComprasVerDetalhes.swift */; };
+		12F01FF02587BE1E00378473 /* FacebookCore in Frameworks */ = {isa = PBXBuildFile; productRef = 12F01FEF2587BE1E00378473 /* FacebookCore */; };
+		12F01FF22587BE1E00378473 /* FacebookShare in Frameworks */ = {isa = PBXBuildFile; productRef = 12F01FF12587BE1E00378473 /* FacebookShare */; };
+		12F01FF8258B9C9400378473 /* PagueNaEntrega.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12F01FF7258B9C9300378473 /* PagueNaEntrega.swift */; };
 		12FBD8F9241C3629001C48CF /* Cvv.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12FBD8F8241C3629001C48CF /* Cvv.swift */; };
 		12FBD9012423E747001C48CF /* Obrigado.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12FBD9002423E747001C48CF /* Obrigado.swift */; };
 		43682D6CF4D6CFEB35CC6604 /* Pods_AppLoja.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E18F300EA5BAC7FB45ABAF13 /* Pods_AppLoja.framework */; };
@@ -170,13 +185,26 @@
 		12B548A02548FACB00396524 /* Ubuntu-MediumItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Ubuntu-MediumItalic.ttf"; sourceTree = "<group>"; };
 		12B548A12548FACB00396524 /* Ubuntu-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Ubuntu-Regular.ttf"; sourceTree = "<group>"; };
 		12B548A22548FACC00396524 /* Ubuntu-Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Ubuntu-Italic.ttf"; sourceTree = "<group>"; };
+		12BB48C6257FF94000AEE8C8 /* maquinadelavar.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = maquinadelavar.json; sourceTree = "<group>"; };
+		12BB48CC25817DBC00AEE8C8 /* seeall.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = seeall.json; sourceTree = "<group>"; };
+		12BB48D22582594100AEE8C8 /* check.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = check.json; sourceTree = "<group>"; };
+		12BB48E225825BA900AEE8C8 /* qrcode.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = qrcode.json; sourceTree = "<group>"; };
+		12BB48E8258275AF00AEE8C8 /* LimveCreditos.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LimveCreditos.swift; sourceTree = "<group>"; };
+		12BB48EE258285F300AEE8C8 /* whatsapp.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = whatsapp.json; sourceTree = "<group>"; };
+		12BB48F42582860300AEE8C8 /* facebook.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = facebook.json; sourceTree = "<group>"; };
+		12BB48FE2582871000AEE8C8 /* more.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = more.json; sourceTree = "<group>"; };
+		12BB49042582AD8B00AEE8C8 /* qrcode2.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = qrcode2.json; sourceTree = "<group>"; };
+		12BB490A2583E50900AEE8C8 /* LimveQR.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LimveQR.swift; sourceTree = "<group>"; };
+		12BB49162583F19300AEE8C8 /* qrcodeinstruction.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = qrcodeinstruction.json; sourceTree = "<group>"; };
 		12BDE3D223F498060046A016 /* TelaProduto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TelaProduto.swift; sourceTree = "<group>"; };
 		12BDE3D623FB19DD0046A016 /* Produto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Produto.swift; sourceTree = "<group>"; };
+		12C5470825841B9F00BB53D3 /* qrcodescan.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = qrcodescan.json; path = ../../../../Downloads/qrcodescan.json; sourceTree = "<group>"; };
 		12C5BAB62537481800CC8BCA /* Limve.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Limve.entitlements; sourceTree = "<group>"; };
 		12DA1556253919EB00AA5B25 /* NotaFiscal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotaFiscal.swift; sourceTree = "<group>"; };
 		12E2B3DD241058E300F27854 /* Endereco.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Endereco.swift; sourceTree = "<group>"; };
 		12E7121C23FB5253007A3CD6 /* CarrinhoObjects.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarrinhoObjects.swift; sourceTree = "<group>"; };
 		12EC8B3324292A8200B66710 /* ComprasVerDetalhes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComprasVerDetalhes.swift; sourceTree = "<group>"; };
+		12F01FF7258B9C9300378473 /* PagueNaEntrega.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PagueNaEntrega.swift; sourceTree = "<group>"; };
 		12FBD8F8241C3629001C48CF /* Cvv.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cvv.swift; sourceTree = "<group>"; };
 		12FBD9002423E747001C48CF /* Obrigado.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Obrigado.swift; sourceTree = "<group>"; };
 		3735ECDFBCD43DA709543C3A /* Pods-AppLoja.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AppLoja.debug.xcconfig"; path = "Target Support Files/Pods-AppLoja/Pods-AppLoja.debug.xcconfig"; sourceTree = "<group>"; };
@@ -199,10 +227,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				CBFB12B625671E9600E225FD /* DynamicBlurView in Frameworks */,
+				12F01FF02587BE1E00378473 /* FacebookCore in Frameworks */,
 				CBFB12AA25671B1100E225FD /* NVActivityIndicatorView in Frameworks */,
-				1235AB26255228650018B887 /* FacebookCore in Frameworks */,
 				CBFB12BC25671ED800E225FD /* SHSearchBar in Frameworks */,
 				43682D6CF4D6CFEB35CC6604 /* Pods_AppLoja.framework in Frameworks */,
+				12BB48B5257FEFCB00AEE8C8 /* Lottie in Frameworks */,
+				12F01FF22587BE1E00378473 /* FacebookShare in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -304,6 +334,8 @@
 				1210BAD723E3889100C57C5A /* Public.swift */,
 				12113D3D23E0B9E800BA464D /* TelaInicial.swift */,
 				1262613E24DF44C2006FFA96 /* InicioVerdadeiro.swift */,
+				12BB48E8258275AF00AEE8C8 /* LimveCreditos.swift */,
+				12BB490A2583E50900AEE8C8 /* LimveQR.swift */,
 				12783CCA24126A09000DBF88 /* OrdenarPor.swift */,
 				12783CD224168AA0000DBF88 /* Parcelamento.swift */,
 				127CEC182409593100F421B5 /* MeusCartoes.swift */,
@@ -317,6 +349,7 @@
 				127CEC1A2409598200F421B5 /* Cartao.swift */,
 				124C58C823F34BAC002B52C2 /* Carrinho.swift */,
 				12783CD42416E8B0000DBF88 /* FormasPagamento.swift */,
+				12F01FF7258B9C9300378473 /* PagueNaEntrega.swift */,
 				12691A3024188552008BBFD6 /* DocumentoFiscal.swift */,
 				12FBD8F8241C3629001C48CF /* Cvv.swift */,
 				12FBD9002423E747001C48CF /* Obrigado.swift */,
@@ -333,6 +366,7 @@
 				12113D4223E0B9EB00BA464D /* Assets.xcassets */,
 				12113D4423E0B9EB00BA464D /* LaunchScreen.storyboard */,
 				12113D4723E0B9EB00BA464D /* Info.plist */,
+				12BB48C5257FF93100AEE8C8 /* Animações */,
 				1210BAD023E2331000C57C5A /* Fontes */,
 			);
 			path = AppLoja;
@@ -354,6 +388,24 @@
 				12113D5D23E0B9EB00BA464D /* Info.plist */,
 			);
 			path = AppLojaUITests;
+			sourceTree = "<group>";
+		};
+		12BB48C5257FF93100AEE8C8 /* Animações */ = {
+			isa = PBXGroup;
+			children = (
+				12C5470825841B9F00BB53D3 /* qrcodescan.json */,
+				12BB49162583F19300AEE8C8 /* qrcodeinstruction.json */,
+				12BB49042582AD8B00AEE8C8 /* qrcode2.json */,
+				12BB48FE2582871000AEE8C8 /* more.json */,
+				12BB48F42582860300AEE8C8 /* facebook.json */,
+				12BB48EE258285F300AEE8C8 /* whatsapp.json */,
+				12BB48E225825BA900AEE8C8 /* qrcode.json */,
+				12BB48D22582594100AEE8C8 /* check.json */,
+				12BB48CC25817DBC00AEE8C8 /* seeall.json */,
+				12BB48C6257FF94000AEE8C8 /* maquinadelavar.json */,
+			);
+			name = "Animações";
+			path = "Animações";
 			sourceTree = "<group>";
 		};
 		3D7CEB780586238FD13EF7AE /* Frameworks */ = {
@@ -401,10 +453,12 @@
 			);
 			name = AppLoja;
 			packageProductDependencies = (
-				1235AB25255228650018B887 /* FacebookCore */,
 				CBFB12A925671B1100E225FD /* NVActivityIndicatorView */,
 				CBFB12B525671E9600E225FD /* DynamicBlurView */,
 				CBFB12BB25671ED800E225FD /* SHSearchBar */,
+				12BB48B4257FEFCB00AEE8C8 /* Lottie */,
+				12F01FEF2587BE1E00378473 /* FacebookCore */,
+				12F01FF12587BE1E00378473 /* FacebookShare */,
 			);
 			productName = AppLoja;
 			productReference = CB77AE83256731BE00ECFBC1 /* Limve.app */;
@@ -501,10 +555,11 @@
 			);
 			mainGroup = 12113D2D23E0B9E800BA464D;
 			packageReferences = (
-				1235AB24255228650018B887 /* XCRemoteSwiftPackageReference "facebook-ios-sdk" */,
 				CBFB12A825671B1100E225FD /* XCRemoteSwiftPackageReference "NVActivityIndicatorView" */,
 				CBFB12B425671E9600E225FD /* XCRemoteSwiftPackageReference "DynamicBlurView" */,
 				CBFB12BA25671ED800E225FD /* XCRemoteSwiftPackageReference "SHSearchBar" */,
+				12BB48B3257FEFCB00AEE8C8 /* XCRemoteSwiftPackageReference "lottie-ios" */,
+				12F01FEE2587BE1E00378473 /* XCRemoteSwiftPackageReference "facebook-ios-sdk" */,
 			);
 			productRefGroup = 12113D2D23E0B9E800BA464D;
 			projectDirPath = "";
@@ -525,6 +580,7 @@
 			files = (
 				12B548A82548FACC00396524 /* Ubuntu-MediumItalic.ttf in Resources */,
 				126DA93523EB486A00055783 /* CeraRoundProThin.otf in Resources */,
+				12BB48C7257FF94000AEE8C8 /* maquinadelavar.json in Resources */,
 				CB77AE73256729B500ECFBC1 /* Podfile.lock in Resources */,
 				126DA93423EB486900055783 /* CeraRoundProRegular.otf in Resources */,
 				12B548A52548FACC00396524 /* Ubuntu-Medium.ttf in Resources */,
@@ -537,11 +593,16 @@
 				126DA93223EB486600055783 /* CeraRoundProLight.otf in Resources */,
 				12113D4123E0B9E800BA464D /* Main.storyboard in Resources */,
 				126DA93123EB486400055783 /* CeraRoundProBold.otf in Resources */,
+				12BB48E325825BA900AEE8C8 /* qrcode.json in Resources */,
 				126DA93023EB486300055783 /* CeraRoundProBlack.otf in Resources */,
+				12BB49172583F19300AEE8C8 /* qrcodeinstruction.json in Resources */,
+				12BB48F52582860500AEE8C8 /* facebook.json in Resources */,
 				1210BACF23E232FC00C57C5A /* SectionHeaderView.xib in Resources */,
 				126DA94723EB587700055783 /* Phenomena-Regular.ttf in Resources */,
+				12BB48FF2582871000AEE8C8 /* more.json in Resources */,
 				126DA94223EB586F00055783 /* Phenomena-Black.ttf in Resources */,
 				12B548A92548FACC00396524 /* Ubuntu-Regular.ttf in Resources */,
+				12BB48EF258285F400AEE8C8 /* whatsapp.json in Resources */,
 				126DA94623EB587500055783 /* Phenomena-Light.ttf in Resources */,
 				126DA94523EB587400055783 /* Phenomena-ExtraLight.ttf in Resources */,
 				126DA95923EC8DA900055783 /* IntroScript-Bold.otf in Resources */,
@@ -549,10 +610,14 @@
 				12B548A32548FACC00396524 /* Ubuntu-Bold.ttf in Resources */,
 				12B548AA2548FACC00396524 /* Ubuntu-Italic.ttf in Resources */,
 				126DA95A23EC8DAB00055783 /* IntroScript-Black.ttf in Resources */,
+				12BB48CD25817DBC00AEE8C8 /* seeall.json in Resources */,
+				12BB48D32582594200AEE8C8 /* check.json in Resources */,
 				126DA95823EC8DA800055783 /* IntroScript-Heavy.otf in Resources */,
 				126DA95723EC8DA600055783 /* IntroScript-Light.otf in Resources */,
 				126DA95623EC8DA500055783 /* IntroScript-Medium.otf in Resources */,
+				12BB49052582AD8C00AEE8C8 /* qrcode2.json in Resources */,
 				126DA94323EB587100055783 /* Phenomena-Bold.ttf in Resources */,
+				12C5470925841B9F00BB53D3 /* qrcodescan.json in Resources */,
 				126DA95523EC8DA300055783 /* IntroScript-Regular.otf in Resources */,
 				12B548A72548FACC00396524 /* Ubuntu-BoldItalic.ttf in Resources */,
 				126DA95423EC8DA200055783 /* IntroScript-SemiBold.otf in Resources */,
@@ -649,6 +714,8 @@
 				1210BAD823E3889100C57C5A /* Public.swift in Sources */,
 				12E2B3DE241058E300F27854 /* Endereco.swift in Sources */,
 				125B85E6253E690400320BF2 /* ObrigadoBoleto.swift in Sources */,
+				12BB48E9258275AF00AEE8C8 /* LimveCreditos.swift in Sources */,
+				12F01FF8258B9C9400378473 /* PagueNaEntrega.swift in Sources */,
 				12113D3A23E0B9E800BA464D /* AppDelegate.swift in Sources */,
 				12BDE3D323F498060046A016 /* TelaProduto.swift in Sources */,
 				1262613F24DF44C2006FFA96 /* InicioVerdadeiro.swift in Sources */,
@@ -660,6 +727,7 @@
 				12FBD8F9241C3629001C48CF /* Cvv.swift in Sources */,
 				12113D3C23E0B9E800BA464D /* SceneDelegate.swift in Sources */,
 				124C58C923F34BAC002B52C2 /* Carrinho.swift in Sources */,
+				12BB490B2583E50900AEE8C8 /* LimveQR.swift in Sources */,
 				12691A3124188552008BBFD6 /* DocumentoFiscal.swift in Sources */,
 				1273166E2409EBE000CE07CD /* LoginController.swift in Sources */,
 				12DA1557253919EC00AA5B25 /* NotaFiscal.swift in Sources */,
@@ -852,7 +920,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = AppLoja/Limve.entitlements;
-				CURRENT_PROJECT_VERSION = 5;
+				CURRENT_PROJECT_VERSION = 8;
 				DEVELOPMENT_TEAM = KCUHL3HY8Y;
 				INFOPLIST_FILE = AppLoja/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.1;
@@ -860,7 +928,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.4;
+				MARKETING_VERSION = 1.1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.limve.limve;
 				PRODUCT_NAME = Limve;
 				SWIFT_VERSION = 5.0;
@@ -874,7 +942,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = AppLoja/Limve.entitlements;
-				CURRENT_PROJECT_VERSION = 5;
+				CURRENT_PROJECT_VERSION = 8;
 				DEVELOPMENT_TEAM = KCUHL3HY8Y;
 				INFOPLIST_FILE = AppLoja/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.1;
@@ -882,7 +950,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.4;
+				MARKETING_VERSION = 1.1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.limve.limve;
 				PRODUCT_NAME = Limve;
 				SWIFT_VERSION = 5.0;
@@ -1061,12 +1129,20 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		1235AB24255228650018B887 /* XCRemoteSwiftPackageReference "facebook-ios-sdk" */ = {
+		12BB48B3257FEFCB00AEE8C8 /* XCRemoteSwiftPackageReference "lottie-ios" */ = {
 			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/facebook/facebook-ios-sdk";
+			repositoryURL = "https://github.com/airbnb/lottie-ios";
 			requirement = {
-				kind = exactVersion;
-				version = 8.1.0;
+				kind = upToNextMajorVersion;
+				minimumVersion = 3.1.9;
+			};
+		};
+		12F01FEE2587BE1E00378473 /* XCRemoteSwiftPackageReference "facebook-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/facebook/facebook-ios-sdk.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 8.2.0;
 			};
 		};
 		CBFB12A825671B1100E225FD /* XCRemoteSwiftPackageReference "NVActivityIndicatorView" */ = {
@@ -1096,10 +1172,20 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		1235AB25255228650018B887 /* FacebookCore */ = {
+		12BB48B4257FEFCB00AEE8C8 /* Lottie */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 1235AB24255228650018B887 /* XCRemoteSwiftPackageReference "facebook-ios-sdk" */;
+			package = 12BB48B3257FEFCB00AEE8C8 /* XCRemoteSwiftPackageReference "lottie-ios" */;
+			productName = Lottie;
+		};
+		12F01FEF2587BE1E00378473 /* FacebookCore */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 12F01FEE2587BE1E00378473 /* XCRemoteSwiftPackageReference "facebook-ios-sdk" */;
 			productName = FacebookCore;
+		};
+		12F01FF12587BE1E00378473 /* FacebookShare */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 12F01FEE2587BE1E00378473 /* XCRemoteSwiftPackageReference "facebook-ios-sdk" */;
+			productName = FacebookShare;
 		};
 		CBFB12A925671B1100E225FD /* NVActivityIndicatorView */ = {
 			isa = XCSwiftPackageProductDependency;

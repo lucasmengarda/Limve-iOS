@@ -13,7 +13,7 @@ import TransitionButton
 import PopupDialog
 
 protocol RecuperacaoSenhaDelegate {
-    func onExit(sussecefull: Bool)
+    func onExitRecupSenha(sussecefull: Bool)
 }
 
 class RecuperacaoSenhaController: UIViewController {
@@ -41,7 +41,7 @@ class RecuperacaoSenhaController: UIViewController {
     
     @IBAction func fechar(){
         self.dismiss(animated: true, completion: nil)
-        self.delegate.onExit(sussecefull: false)
+        self.delegate.onExitRecupSenha(sussecefull: false)
     }
     
     override func viewDidLoad() {
@@ -151,7 +151,7 @@ class RecuperacaoSenhaController: UIViewController {
             
             self.botaoCadastrar.stopAnimation(animationStyle: .normal, revertAfterDelay: 0.25) {
                 self.dismiss(animated: true, completion: nil)
-                self.delegate.onExit(sussecefull: true)
+                self.delegate.onExitRecupSenha(sussecefull: true)
             }
         }
     }

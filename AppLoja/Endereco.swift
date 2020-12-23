@@ -210,6 +210,7 @@ class Endereco: UIViewController, UITableViewDelegate, UITableViewDataSource, UI
                                 DispatchQueue.main.async(execute: {
                                     
                                     self.botaoAdicionar.stopAnimation(animationStyle: .normal, revertAfterDelay: 0.35, completion: nil)
+                                    self.botaoAdicionar.setTitle("Confirmar endereço", for: [])
                                     self.endereco.text = ""
                                     self.endereco2.text = logradouro
                                     self.bairro.text = bairro
