@@ -28,6 +28,7 @@ class TelaProduto: UIViewController, UITableViewDelegate, UITableViewDataSource,
     @IBOutlet weak var imagemSobreposta: UIImageView!
     
     var delegate: TelaInicial!
+    var delegate2: InicioVerdadeiro!
     var descricaoLongaHeight: CGFloat!
     var produto: Produto!
     var produtosSimilares = [Produto]()
@@ -36,10 +37,11 @@ class TelaProduto: UIViewController, UITableViewDelegate, UITableViewDataSource,
     
     var yUtilizar: CGFloat!
     
-    static func inicializeTelaProduto(produto: Produto, delegate: TelaInicial) -> TelaProduto {
+    static func inicializeTelaProduto(produto: Produto, delegate: TelaInicial?, delegate2: InicioVerdadeiro?) -> TelaProduto {
         let tela = MAIN_STORYBOARD.instantiateViewController(identifier: "TelaProduto") as! TelaProduto
         tela.produto = produto
         tela.delegate = delegate
+        tela.delegate2 = delegate2
         return tela
     }
     
@@ -84,7 +86,7 @@ class TelaProduto: UIViewController, UITableViewDelegate, UITableViewDataSource,
         
         oTable.backgroundColor = UIColor.clear
         
-        descricaoLongaHeight = produto.descricaolonga.height(withConstrainedWidth: oTable.frame.width - 40, font: UIFont(name: "Ubuntu-Regular", size: 15.0)!) + 56.0
+        descricaoLongaHeight = produto.descricaolonga.height(withConstrainedWidth: oTable.frame.width - 40, font: UIFont(name: "Ubuntu-Regular", size: 16.0)!) + 56.0
         
         if (produto.estoque == 0){
             botaoAdicionarAoCarrinho.alpha = 0.6
@@ -172,7 +174,7 @@ class TelaProduto: UIViewController, UITableViewDelegate, UITableViewDataSource,
                 cell.dePreco.isHidden = true
                 cell.porPreco.isHidden = true
                 cell.precoAntigo.isHidden = true
-                cell.preco.textColor = hexStringToUIColor("#116AB6")
+                cell.preco.textColor = hexStringToUIColor("#57005B")
                 imagemPromocaoAtiva.isHidden = true
             }
             
@@ -332,8 +334,8 @@ class TelaProduto: UIViewController, UITableViewDelegate, UITableViewDataSource,
         }
         
         self.dismiss(animated: false, completion: nil)
-        let telaProduto = TelaProduto.inicializeTelaProduto(produto: produtosSimilares[sender.tag], delegate: delegate)
-        delegate.present(telaProduto, animated: true, completion: nil)
+        let telaProduto = TelaProduto.inicializeTelaProduto(produto: produtosSimilares[sender.tag], delegate: delegate, delegate2: delegate2)
+        self.presentingViewController!.present(telaProduto, animated: true, completion: nil)
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -416,8 +418,13 @@ class TelaProduto: UIViewController, UITableViewDelegate, UITableViewDataSource,
             self.fechar()
         }
         CarrinhoObject.get().adicionarAoCarrinho(produto: produto)
-        delegate.quantidadeCarrinho.text = "\(CarrinhoObject.get().produtos.count)"
-        delegate.collectionView.reloadData()
+        if (delegate != nil){
+            delegate.quantidadeCarrinho.text = "\(CarrinhoObject.get().produtos.count)"
+            delegate.collectionView.reloadData()
+        } else {
+            delegate2.quantidadeCarrinho.text = "\(CarrinhoObject.get().produtos.count)"
+            delegate2.oTable.reloadData()
+        }
     }
     
     @IBAction func favoritar(){
@@ -449,7 +456,11 @@ class TelaProduto: UIViewController, UITableViewDelegate, UITableViewDataSource,
                         PFUser.current()!["favoritos"] = favoritos
                         try PFUser.current()?.save()
                         DispatchQueue.main.async {
-                            self.delegate.collectionView.reloadData()
+                            if (self.delegate != nil){
+                                self.delegate.collectionView.reloadData()
+                            } else {
+                                self.delegate2.oTable.reloadData()
+                            }
                             self.botaoFavorito.stopAnimation(animationStyle: .normal, revertAfterDelay: 0.0) {
                                 self.botaoFavorito.setTitle("Desfavoritar", for: [])
                                 self.botaoFavorito.backgroundColor = hexStringToUIColor("#FF344E")
@@ -501,7 +512,7 @@ class CelulaSimilares: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         loader.backgroundColor = UIColor.clear
-        let nv = NVActivityIndicatorView(frame: CGRect(origin: .zero, size: loader.frame.size), type: NVActivityIndicatorType.ballClipRotateMultiple, color: hexStringToUIColor("#3C65D1"), padding: 15.0)
+        let nv = NVActivityIndicatorView(frame: CGRect(origin: .zero, size: loader.frame.size), type: NVActivityIndicatorType.ballClipRotateMultiple, color: hexStringToUIColor("#57005B"), padding: 15.0)
         loader.backgroundColor = UIColor.clear
         loader.addSubview(nv)
         nv.startAnimating()
@@ -521,7 +532,7 @@ class CelulaProdutoSimilar: UICollectionViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         loader.backgroundColor = UIColor.clear
-        let nv = NVActivityIndicatorView(frame: CGRect(origin: .zero, size: loader.frame.size), type: NVActivityIndicatorType.ballClipRotateMultiple, color: hexStringToUIColor("#3C65D1"), padding: 15.0)
+        let nv = NVActivityIndicatorView(frame: CGRect(origin: .zero, size: loader.frame.size), type: NVActivityIndicatorType.ballClipRotateMultiple, color: hexStringToUIColor("#57005B"), padding: 15.0)
         loader.backgroundColor = UIColor.clear
         loader.addSubview(nv)
         nv.startAnimating()

@@ -10,11 +10,14 @@ import Foundation
 import UIKit
 import Parse
 import FBSDKCoreKit
+import PopupDialog
 
 public var MAIN_STORYBOARD = UIStoryboard(name: "Main",bundle: nil)
 public var deslogado: Bool = false
 public var configuration: PFConfig!
 public var IP_EXTERNO: String! = ""
+
+public var CUPOM_SALVO = ""
 
 public func hexStringToUIColor (_ hex:String) -> UIColor {
     var cString:String = hex.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines as CharacterSet as CharacterSet).uppercased()
@@ -154,8 +157,7 @@ extension UITextField {
 
 public enum TipoDeepLink {
     case branch
-    case link_appAberto
-    case link_appFechado
+    case link
 }
 
 public enum AcaoDeepLink {
@@ -171,7 +173,22 @@ public func processarDeeplink(_ tipo: TipoDeepLink, params: [AnyHashable : Any],
             deepLinkAcaoAbrirProduto(produtoId: params["produtoid"] as! String)
             return
         }
-    } else if (tipo == .link_appAberto || tipo == .link_appFechado){
+        if (params["cupom"] != nil){
+            CUPOM_SALVO = (params["cupom"] as! String)
+            print("CUPOM SALVO: \(CUPOM_SALVO)")
+            var limveApp : UIWindow?
+            limveApp = UIApplication.shared.keyWindow
+            
+            var appTopController = limveApp?.rootViewController
+            
+            if (appTopController?.presentedViewController != nil){
+                appTopController = limveApp?.rootViewController?.presentedViewController
+            }
+            
+            appTopController?.showToast(message: "Cupom '\(CUPOM_SALVO)' adicionado!", font: UIFont(name: "Ubuntu-Regular", size: 13.0)!)
+            return
+        }
+    } else if (tipo == .link){
         print("App aberto com o URL (Scheme): \(url)")
         
         if (url!.absoluteString.contains("limve://")){
@@ -181,14 +198,27 @@ public func processarDeeplink(_ tipo: TipoDeepLink, params: [AnyHashable : Any],
                     let produtoId = url!.queryParameters["produtoid"]
                     if (produtoId != nil){
                         
-                        if (tipo == .link_appAberto){
-                            deepLinkAcaoAbrirProduto(produtoId: produtoId!)
-                        } else {
-                            filaDeepLinks.append([AcaoDeepLink.abrirProduto: produtoId!])
-                        }
+                        deepLinkAcaoAbrirProduto(produtoId: produtoId!)
                         
                         return
                     }
+                }
+                
+                let cupom = url!.queryParameters["cupom"]
+                if (cupom != nil){
+                    CUPOM_SALVO = (params["cupom"] as! String)
+                    print("CUPOM SALVO: \(CUPOM_SALVO)")
+                    var limveApp : UIWindow?
+                    limveApp = UIApplication.shared.keyWindow
+                    
+                    var appTopController = limveApp?.rootViewController
+                    
+                    if (appTopController?.presentedViewController != nil){
+                        appTopController = limveApp?.rootViewController?.presentedViewController
+                    }
+                    
+                    appTopController?.showToast(message: "Cupom '\(CUPOM_SALVO)' adicionado!", font: UIFont(name: "Ubuntu-Regular", size: 13.0)!)
+                    return
                 }
             }
         }
@@ -198,19 +228,6 @@ public func processarDeeplink(_ tipo: TipoDeepLink, params: [AnyHashable : Any],
 public func deepLinkAcaoAbrirProduto(produtoId: String){
     NavigationMenuViewController.myVC.menuContainerViewController!.selectContentViewController(TelaInicial.inicializeTelaInicialFromDeepLink(produtoId: produtoId))
     NavigationMenuViewController.myVC.menuContainerViewController!.hideSideMenu()
-}
-
-public func averiguarDeepLinksNaFila(){
-    if (filaDeepLinks.count > 0){
-        for acao in filaDeepLinks {
-            if (acao.keys.first! == .abrirProduto){
-                let produtoId = acao[.abrirProduto]
-                NavigationMenuViewController.myVC.menuContainerViewController!.selectContentViewController(TelaInicial.inicializeTelaInicialFromDeepLink(produtoId: produtoId))
-                NavigationMenuViewController.myVC.menuContainerViewController!.hideSideMenu()
-            }
-        }
-        filaDeepLinks.removeAll()
-    }
 }
 
 //eventos de rastreio do FacebookAds
@@ -283,5 +300,41 @@ class QueryParameters {
     }
     subscript(name: String) -> String? {
         return queryItems.first(where: { $0.name == name })?.value
+    }
+}
+
+extension UIViewController {
+
+    func showToast(message : String, font: UIFont) {
+
+        let toastLabel = UILabel(frame: CGRect(x: self.view.frame.size.width/2 - 145, y: self.view.frame.size.height-150, width: 290, height: 42))
+        toastLabel.backgroundColor = UIColor.white
+        
+        toastLabel.layer.shadowColor = hexStringToUIColor("#00224B").withAlphaComponent(0.5).cgColor
+        toastLabel.layer.shadowOpacity = 2
+        toastLabel.layer.shadowOffset = .zero
+        toastLabel.layer.shadowRadius = 3
+        
+        toastLabel.textColor = UIColor.black
+        toastLabel.font = font
+        toastLabel.textAlignment = .center;
+        toastLabel.text = message
+        toastLabel.alpha = 1.0
+        toastLabel.layer.cornerRadius = 10.0;
+        self.view.addSubview(toastLabel)
+        UIView.animate(withDuration: 2.0, delay: 3.0, options: .curveEaseOut, animations: {
+             toastLabel.alpha = 0.0
+        }, completion: {(isCompleted) in
+            toastLabel.removeFromSuperview()
+        })
+    }
+}
+
+extension UIView {
+   func roundCorners(corners: UIRectCorner, radius: CGFloat) {
+        let path = UIBezierPath(roundedRect: bounds, byRoundingCorners: corners, cornerRadii: CGSize(width: radius, height: radius))
+        let mask = CAShapeLayer()
+        mask.path = path.cgPath
+        layer.mask = mask
     }
 }

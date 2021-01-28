@@ -57,10 +57,10 @@ class MeusCartoes: UIViewController, SideMenuItemContent, UICollectionViewDelega
         
         botaoJaSouCadastrado.spinnerColor = UIColor.white
         botaoJaSouCadastrado.cornerRadius = botaoJaSouCadastrado.frame.height/2
-        botaoJaSouCadastrado.backgroundColor = hexStringToUIColor("#406EBD")
+        botaoJaSouCadastrado.backgroundColor = hexStringToUIColor("#CD5D7D")
         botaoCadastrarme.spinnerColor = UIColor.white
         botaoCadastrarme.cornerRadius = botaoCadastrarme.frame.height/2
-        botaoCadastrarme.backgroundColor = hexStringToUIColor("#2E4F88")
+        botaoCadastrarme.backgroundColor = hexStringToUIColor("#a01d5d")
         
         widthCell = Double((UIScreen.main.bounds.size.width - 16.0)/2)
         

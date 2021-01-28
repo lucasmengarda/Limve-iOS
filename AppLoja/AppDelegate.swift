@@ -51,6 +51,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         BranchScene.shared().initSession(launchOptions: launchOptions, registerDeepLinkHandler: { (params, error, scene) in
             if let params = params {
+                if let nonBranchLink = params["+non_branch_link"]{
+                    processarDeeplink(.link, params: params, URL(string: nonBranchLink as! String))
+                    return
+                }
                 processarDeeplink(.branch, params: params, nil)
             }
         })

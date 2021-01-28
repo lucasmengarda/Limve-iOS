@@ -26,23 +26,40 @@ class FormasPagamento: UIViewController, UITableViewDelegate, UITableViewDataSou
     var delegate: Carrinho!
     var cartaoSelecionado: Cartao?
     var formasPgto = [Cartao]()
+    var raioPagueNaEntrega: Double!
+    var deixarPagueNaEntrega = false
+    var valorAPagar: Double!
     
-    static func inicializeFormasPagamento(cartaoSelecionado: Cartao?, formaDePagamentoTipo: String, delegate: Carrinho) -> FormasPagamento{
+    var precisaTroco = false
+    var trocoPara = 0.0
+    var pagueNaEntregaTipo = ""
+    
+    static func inicializeFormasPagamento(valorAPagar: Double, cartaoSelecionado: Cartao?, formaDePagamentoTipo: String, delegate: Carrinho) -> FormasPagamento{
         let tela = MAIN_STORYBOARD.instantiateViewController(withIdentifier: "FormasPagamento") as! FormasPagamento
         tela.delegate = delegate
         tela.formaDePagamentoTipo = formaDePagamentoTipo
         tela.cartaoSelecionado = cartaoSelecionado
+        tela.valorAPagar = valorAPagar
         return tela
     }
     
     @IBAction func fechar(){
         self.dismiss(animated: true, completion: nil)
-        self.delegate.onExitFormasPagamento(sussecefull: false, formaDePagamentoTipo: "", cartao: nil)
+        self.delegate.onExitFormasPagamento(sussecefull: false, formaDePagamentoTipo: "", cartao: nil, pagarEntregaTipo: nil, pagarEntregaStr: nil, trocoPara: 0.0)
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        raioPagueNaEntrega = (configuration.object(forKey: "RAIO_PAGUENAENTREGA") as! Double)
+        if (PFUser.current()!["enderecoPoint"] != nil){
+            let enderecoPoint = PFUser.current()!["enderecoPoint"] as! PFGeoPoint
+            if (enderecoPoint.distanceInKilometers(to: delegate.pontoOrigemLimve) > raioPagueNaEntrega){
+                deixarPagueNaEntrega = false
+            } else {
+                deixarPagueNaEntrega = true
+            }
+        }
         
         holder.layer.cornerRadius = 16.0
         holder.clipsToBounds = true
@@ -97,10 +114,45 @@ class FormasPagamento: UIViewController, UITableViewDelegate, UITableViewDataSou
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return formasPgto.count + 3
+        if (deixarPagueNaEntrega){
+            return formasPgto.count + 4
+        } else {
+            return formasPgto.count + 3
+        }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+        var base = 1
+        if (deixarPagueNaEntrega){
+            base = 2
+            if (indexPath.row == (tableView.numberOfRows(inSection: 0)-base)){
+                let cell = tableView.dequeueReusableCell(withIdentifier: "CelulaItemFormasPagamento") as! CelulaItemFormasPagamento
+                
+                cell.upper.layer.cornerRadius = cell.upper.frame.height/2
+                cell.upper.layer.borderWidth = 2.0
+                cell.upper.backgroundColor = UIColor.clear
+                cell.upper.layer.borderColor = hexStringToUIColor("#0B6AB0").cgColor
+                
+                cell.inside.layer.cornerRadius = cell.inside.frame.height/2
+                
+                if (formaDePagamentoTipo.contains("entrega")){
+                    cell.inside.backgroundColor = hexStringToUIColor("#0B6AB0")
+                } else {
+                    cell.inside.backgroundColor = UIColor.white
+                }
+                
+                cell.imagem.image = UIImage(named: "delivery.png")
+                cell.texto.text = "Pague na entrega \(adicionalPagueNaEntrega)"
+                cell.texto.textColor = UIColor.red
+                cell.tipoCartao.isHidden = true
+                cell.texto.font = UIFont(name: "IntroScript-SemiBold", size: 18.0)
+                
+                return cell
+            }
+        } else {
+            base = 1
+        }
         
         if (indexPath.row == (tableView.numberOfRows(inSection: 0)-1)){
             
@@ -117,10 +169,12 @@ class FormasPagamento: UIViewController, UITableViewDelegate, UITableViewDataSou
         cell.upper.layer.borderWidth = 2.0
         cell.upper.backgroundColor = UIColor.clear
         cell.upper.layer.borderColor = hexStringToUIColor("#0B6AB0").cgColor
+        cell.texto.textColor = UIColor.black
+        cell.texto.font = UIFont(name: "IntroScript-Regular", size: 18.0)
         
         cell.inside.layer.cornerRadius = cell.inside.frame.height/2
         
-        if (indexPath.row == (tableView.numberOfRows(inSection: 0)-2)){
+        if (indexPath.row == (tableView.numberOfRows(inSection: 0)-base-1)){
             //boleto
             
             if (formaDePagamentoTipo == "boleto"){
@@ -132,7 +186,7 @@ class FormasPagamento: UIViewController, UITableViewDelegate, UITableViewDataSou
             cell.imagem.image = UIImage(named: "barcode.png")
             cell.texto.text = "Boleto bancário"
             cell.tipoCartao.isHidden = true
-        } else if (indexPath.row == (tableView.numberOfRows(inSection: 0)-3)) {
+        } else if (indexPath.row == (tableView.numberOfRows(inSection: 0)-base-2)) {
             //transferencia bancária
             
             if (formaDePagamentoTipo == "transferencia"){
@@ -186,8 +240,55 @@ class FormasPagamento: UIViewController, UITableViewDelegate, UITableViewDataSou
         return cell
     }
     
+    var adicionalPagueNaEntrega = ""
     var blurEffectView: UIView!
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        var base = 1
+        if (deixarPagueNaEntrega){
+            base = 2
+            if (indexPath.row == (tableView.numberOfRows(inSection: 0)-base)){
+                cartaoSelecionado = nil
+                formaDePagamentoTipo = "entrega"
+                oTable.reloadData()
+                
+                let blurView = DynamicBlurView(frame: self.view.bounds)
+                blurView.blurRadius = 4
+                blurView.trackingMode = .tracking
+                blurView.isDeepRendering = true
+                blurView.tintColor = .clear
+                blurView.autoresizingMask = [.flexibleHeight, .flexibleWidth]
+                
+                let overlay = UIView(frame: self.view.bounds)
+                overlay.backgroundColor = .black
+                overlay.alpha = 0.4
+                overlay.autoresizingMask = [.flexibleHeight, .flexibleWidth]
+                
+                blurEffectView = UIView(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.size.width, height: UIScreen.main.bounds.size.height))
+                blurEffectView.backgroundColor = UIColor.clear
+                
+                blurEffectView.addSubview(blurView)
+                blurEffectView.addSubview(overlay)
+                
+                self.view.addSubview(blurEffectView) //if you have more UIViews, use an insertSubview API to place it where needed
+                
+                UIView.animate(withDuration: 0.25, animations: {
+                    self.blurEffectView.alpha = 1
+                }) { _ in
+                    
+                }
+                
+                let pgto = PagueNaEntrega.inicializePagueNaEntrega(valorAPagar: valorAPagar, delegate: self)
+                self.present(pgto, animated: true, completion: {
+                    blurView.trackingMode = .none
+                })
+                
+                
+                return
+            }
+        } else {
+            base = 1
+        }
         
         if (indexPath.row == (tableView.numberOfRows(inSection: 0)-1)){
             
@@ -227,10 +328,10 @@ class FormasPagamento: UIViewController, UITableViewDelegate, UITableViewDataSou
             return
         }
         
-        if (indexPath.row == (tableView.numberOfRows(inSection: 0)-2)){
+        if (indexPath.row == (tableView.numberOfRows(inSection: 0)-base-1)){
             cartaoSelecionado = nil
             formaDePagamentoTipo = "boleto"
-        } else if (indexPath.row == (tableView.numberOfRows(inSection: 0)-3)){
+        } else if (indexPath.row == (tableView.numberOfRows(inSection: 0)-base-2)){
             cartaoSelecionado = nil
             formaDePagamentoTipo = "transferencia"
         } else {
@@ -253,9 +354,65 @@ class FormasPagamento: UIViewController, UITableViewDelegate, UITableViewDataSou
         }
     }
     
+    func retornaPagueNaEntrega(adicionalPagueNaEntrega: String?, tipo: String?, precisaTroco: Bool, trocoPara: Double?){
+        UIView.animate(withDuration: 0.25, animations: {
+            self.blurEffectView.alpha = 0
+        }) { _ in
+            self.blurEffectView.removeFromSuperview()
+        }
+        
+        if (adicionalPagueNaEntrega != nil){
+            self.adicionalPagueNaEntrega = adicionalPagueNaEntrega!
+            if (trocoPara != nil){
+                self.trocoPara = trocoPara!
+            } else {
+                self.trocoPara = -1.0
+            }
+            self.precisaTroco = precisaTroco
+            self.formaDePagamentoTipo = "entrega"
+            self.pagueNaEntregaTipo = tipo!
+        } else {
+            self.formaDePagamentoTipo = ""
+            self.pagueNaEntregaTipo = ""
+        }
+        
+        oTable.reloadData()
+    }
+    
     @IBAction func prosseguir(){
         self.dismiss(animated: true, completion: nil)
-        self.delegate.onExitFormasPagamento(sussecefull: true, formaDePagamentoTipo: formaDePagamentoTipo, cartao: cartaoSelecionado)
+        
+        if (formaDePagamentoTipo == "entrega"){
+            
+            var pagueNaEntregaStr = ""
+            if (pagueNaEntregaTipo.contains("mastercard")){
+                pagueNaEntregaStr = "Mastercard "
+            } else if (pagueNaEntregaTipo.contains("visa")){
+                pagueNaEntregaStr = "Visa "
+            } else if (pagueNaEntregaTipo.contains("elo")){
+                pagueNaEntregaStr = "Elo "
+            } else {
+                pagueNaEntregaStr = "Amex "
+            }
+            
+            if (pagueNaEntregaTipo.contains("credito")){
+                pagueNaEntregaStr = "\(pagueNaEntregaStr)(Crédito)"
+            } else {
+                pagueNaEntregaStr = "\(pagueNaEntregaStr)(Débito)"
+            }
+            
+            if (pagueNaEntregaTipo.contains("dinheiro")){
+                if (trocoPara > 0.0){
+                    pagueNaEntregaStr = "Dinheiro - troco para \(formatarPreco(preco: trocoPara))"
+                } else if (trocoPara == -1.0){
+                    pagueNaEntregaStr = "Dinheiro - sem troco"
+                }
+            }
+            
+            self.delegate.onExitFormasPagamento(sussecefull: true, formaDePagamentoTipo: formaDePagamentoTipo, cartao: nil, pagarEntregaTipo: pagueNaEntregaTipo, pagarEntregaStr: pagueNaEntregaStr, trocoPara: trocoPara)
+        } else {
+            self.delegate.onExitFormasPagamento(sussecefull: true, formaDePagamentoTipo: formaDePagamentoTipo, cartao: cartaoSelecionado, pagarEntregaTipo: nil, pagarEntregaStr: nil, trocoPara: 0.0)
+        }
     }
 }
 
@@ -268,4 +425,8 @@ class CelulaItemFormasPagamento: UITableViewCell {
 }
 
 class CelulaItemNovaFormaPgto: UITableViewCell {
+}
+
+class CelulaItemPagueNaEntrega: UITableViewCell {
+    
 }

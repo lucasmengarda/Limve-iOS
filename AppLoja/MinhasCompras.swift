@@ -284,6 +284,10 @@ class MinhasCompras: UIViewController, SideMenuItemContent, UICollectionViewDele
             cell.bandeiraCartao.image = UIImage(named: "auxilioemergencial.png")
             cell.finalCartao.text = "aprovado"
             cell.finalCartao.textColor = .green
+        } else if (compra.formaDePagamento.contains("entrega")){
+            cell.bandeiraCartao.image = UIImage(named: "delivery.png")
+            cell.finalCartao.text = "pgto entrega"
+            cell.finalCartao.textColor = .black
         } else {
             if (compra.cartaoCobradoBandeira == "Master"){
                 cell.bandeiraCartao.image = UIImage(named: "mastercard.png")

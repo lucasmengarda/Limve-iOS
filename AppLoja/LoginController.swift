@@ -12,17 +12,24 @@ import UIKit
 import TransitionButton
 import PopupDialog
 import DynamicBlurView
+import GhostTypewriter
+import AuthenticationServices
 
 
-class LoginController: UIViewController, UITextFieldDelegate, RecuperacaoSenhaDelegate {
+class LoginController: UIViewController, UITextFieldDelegate, RecuperacaoSenhaDelegate, LoginCadastrarDelegate, ASAuthorizationControllerDelegate, ASAuthorizationControllerPresentationContextProviding {
     
-    @IBOutlet weak var holder: UIView!
-    @IBOutlet weak var botaoEntrar: TransitionButton!
-    @IBOutlet weak var botaoFechar: TransitionButton!
+    @IBOutlet weak var limveLabel: UILabel!
+    @IBOutlet weak var botaoApple: TransitionButton!
+    @IBOutlet weak var blurCPF: UIVisualEffectView!
+    @IBOutlet weak var blurSenha: UIVisualEffectView!
     @IBOutlet weak var holderCPF: UIView!
+    @IBOutlet weak var loaderTexto: TypewriterLabel!
     @IBOutlet weak var holderSenha: UIView!
+    @IBOutlet weak var blurExplorarApp: UIVisualEffectView!
     @IBOutlet weak var cpf: UITextField!
     @IBOutlet weak var senha: UITextField!
+    @IBOutlet weak var holder: UIView!
+    @IBOutlet weak var botaoEntrar: TransitionButton!
     
     var frameInicialViewHolder: CGRect!
     var delegate: LoginCadastrarDelegate!
@@ -35,6 +42,10 @@ class LoginController: UIViewController, UITextFieldDelegate, RecuperacaoSenhaDe
     }
     
     @IBAction func fechar(){
+        if (!keyboardHidden){
+            self.view.endEditing(true)
+            return
+        }
         self.dismiss(animated: true, completion: nil)
         self.delegate.onExit(sussecefull: false)
     }
@@ -42,38 +53,58 @@ class LoginController: UIViewController, UITextFieldDelegate, RecuperacaoSenhaDe
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        holder.layer.cornerRadius = 16.0
-        holder.clipsToBounds = true
-        self.view.backgroundColor = UIColor.clear
-        holder.layer.shadowColor = hexStringToUIColor("#00224B").cgColor
-        holder.layer.shadowOpacity = 6
-        holder.layer.shadowOffset = .zero
-        holder.layer.shadowRadius = 10
+        let texto = "Limve.com"
+        let attributedTexto = NSMutableAttributedString(string: texto)
+        attributedTexto.addAttribute(.font, value: UIFont(name: "Ubuntu-Bold", size: 32.0)!, range: NSRange(location: 0, length: 5))
+        attributedTexto.addAttribute(.font, value: UIFont(name: "Ubuntu-Light", size: 24.0)!, range: NSRange(location: 5, length: 4))
+        
+        limveLabel.attributedText = attributedTexto
         
         frameInicialViewHolder = holder.frame
         
         botaoEntrar.spinnerColor = UIColor.white
         botaoEntrar.cornerRadius = botaoEntrar.frame.height/2
-        botaoEntrar.backgroundColor = hexStringToUIColor("#4BC562")
-        botaoFechar.spinnerColor = UIColor.white
-        botaoFechar.cornerRadius = botaoFechar.frame.height/2
-        botaoFechar.backgroundColor = hexStringToUIColor("#EF343A")
+        botaoEntrar.backgroundColor = hexStringToUIColor("#57005B")
         
         cpf.delegate = self
         
+        botaoApple.spinnerColor = UIColor.black
+        botaoApple.cornerRadius = 16.0
+        
         holderCPF.layer.cornerRadius = 8.0
         holderSenha.layer.cornerRadius = 8.0
+        blurCPF.layer.cornerRadius = 8.0
+        blurSenha.layer.cornerRadius = 8.0
+        blurCPF.clipsToBounds = true
+        blurSenha.clipsToBounds = true
+        
+        blurExplorarApp.layer.cornerRadius = 16.0
+        blurExplorarApp.clipsToBounds = true
+        
+        holderCPF.layer.shadowColor = hexStringToUIColor("#666666").withAlphaComponent(0.5).cgColor
+        holderCPF.layer.shadowOpacity = 2
+        holderCPF.layer.shadowOffset = .zero
+        holderCPF.layer.shadowRadius = 4
+        
+        holderSenha.layer.shadowColor = hexStringToUIColor("#666666").withAlphaComponent(0.5).cgColor
+        holderSenha.layer.shadowOpacity = 2
+        holderSenha.layer.shadowOffset = .zero
+        holderSenha.layer.shadowRadius = 4
+        
+        loaderTexto.typingTimeInterval = 0.05
+        loaderTexto.animationStyle = .reveal
+        loaderTexto.startTypewritingAnimation()
         
         var placeHolder = NSMutableAttributedString()
         let name  = "Digite seu CPF"
         placeHolder = NSMutableAttributedString(string: name, attributes: [NSAttributedString.Key.font: UIFont(name: "CeraRoundPro-Regular", size: 18.0)!])
-        placeHolder.addAttribute(NSAttributedString.Key.foregroundColor, value: hexStringToUIColor("#939393"), range: NSRange(location:0, length: name.count))
+        placeHolder.addAttribute(NSAttributedString.Key.foregroundColor, value: hexStringToUIColor("#e5e5e5"), range: NSRange(location:0, length: name.count))
         cpf.attributedPlaceholder = placeHolder
         
         var placeHolder2 = NSMutableAttributedString()
         let name2  = "Digite sua senha"
         placeHolder2 = NSMutableAttributedString(string: name2, attributes: [NSAttributedString.Key.font: UIFont(name: "CeraRoundPro-Regular", size: 18.0)!])
-        placeHolder2.addAttribute(NSAttributedString.Key.foregroundColor, value: hexStringToUIColor("#939393"), range: NSRange(location:0, length: name2.count))
+        placeHolder2.addAttribute(NSAttributedString.Key.foregroundColor, value: hexStringToUIColor("#e5e5e5"), range: NSRange(location:0, length: name2.count))
         senha.attributedPlaceholder = placeHolder2
         
         NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillShow(_:)), name: UIResponder.keyboardWillShowNotification, object: nil)
@@ -145,7 +176,7 @@ class LoginController: UIViewController, UITextFieldDelegate, RecuperacaoSenhaDe
         }
     }
     
-    func onExit(sussecefull: Bool) {
+    func onExitRecupSenha(sussecefull: Bool) {
         UIView.animate(withDuration: 0.25, animations: {
             self.blurEffectView.alpha = 0
         }) { _ in
@@ -163,6 +194,139 @@ class LoginController: UIViewController, UITextFieldDelegate, RecuperacaoSenhaDe
             self.present(popup, animated: true, completion: nil)
             return
         }
+    }
+    
+    func onExit(sussecefull: Bool) {
+        UIView.animate(withDuration: 0.25, animations: {
+            self.blurEffectView.alpha = 0
+        }) { _ in
+            self.blurEffectView.removeFromSuperview()
+        }
+        
+        if (sussecefull){
+            botaoApple.stopAnimation()
+            self.delegate.onExit(sussecefull: true)
+            self.dismiss(animated: true, completion: nil)
+            return
+        }
+    }
+    
+    @IBAction func loginComAApple(){
+        let appleIDProvider = ASAuthorizationAppleIDProvider()
+        let request = appleIDProvider.createRequest()
+        request.requestedScopes = [.fullName, .email]
+        
+        let authorizationController = ASAuthorizationController(authorizationRequests: [request])
+        authorizationController.delegate = self
+        authorizationController.presentationContextProvider = self
+        authorizationController.performRequests()
+    }
+    
+    func presentationAnchor(for controller: ASAuthorizationController) -> ASPresentationAnchor {
+        return self.view.window!
+    }
+    
+    func authorizationController(controller: ASAuthorizationController, didCompleteWithError error: Error) {
+        
+        print("ERRO NO LOGIN COM A APPLE")
+    }
+    
+    func authorizationController(controller: ASAuthorizationController, didCompleteWithAuthorization authorization: ASAuthorization) {
+        
+        switch authorization.credential {
+            case let appleIDCredential as ASAuthorizationAppleIDCredential:
+                
+                // Create an account in your system.
+                let userIdentifier = appleIDCredential.user
+                let fullName = appleIDCredential.fullName
+                let email = appleIDCredential.email
+                
+                print("userIdentifier: \(userIdentifier) | fullName: \(fullName) | email: \(email)")
+                
+                botaoApple.startAnimation()
+                
+                PFCloud.callFunction(inBackground: "buscarUsuarioPorIdentificadorUnico", withParameters: ["identificador": userIdentifier]) { (resultado, erro) in
+                    
+                    if (erro != nil){
+                        //usuario não existe
+                        print("usuario nao existe")
+                        
+                        let formatter = PersonNameComponentsFormatter()
+                        formatter.style = PersonNameComponentsFormatter.Style.long
+                        
+                        var nomeStr: String?
+                        if (fullName != nil){
+                            nomeStr = formatter.string(from: fullName!)
+                        }
+                        
+                        self.abrirCadastrarAsLoginApple(identificador: userIdentifier, email: email, nome: nomeStr)
+                        
+                    } else {
+                        //usuário existe
+                        let username = ((resultado as! [String : Any])["username"] as! String)
+                        let senhaUnica = ((resultado as! [String : Any])["senhaUnica"] as! String)
+                        
+                        print("username: \(username) | senhaUnica: \(senhaUnica)")
+                        
+                        self.cpf.text = username
+                        self.senha.text = senhaUnica
+                        
+                        self.botaoApple.stopAnimation()
+                        self.entrar()
+                        
+                    }
+                    
+                }
+            default:
+                break
+            }
+    }
+    
+    var blurView: DynamicBlurView!
+    func inicializarEfeitosDeBlur(){
+        blurView = DynamicBlurView(frame: self.view.bounds)
+        blurView.blurRadius = 4
+        blurView.trackingMode = .tracking
+        blurView.isDeepRendering = true
+        blurView.tintColor = .clear
+        blurView.autoresizingMask = [.flexibleHeight, .flexibleWidth]
+        
+        let overlay = UIView(frame: self.view.bounds)
+        overlay.backgroundColor = .black
+        overlay.alpha = 0.4
+        overlay.autoresizingMask = [.flexibleHeight, .flexibleWidth]
+        
+        blurEffectView = UIView(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.size.width, height: UIScreen.main.bounds.size.height))
+        blurEffectView.backgroundColor = UIColor.clear
+        
+        blurEffectView.addSubview(blurView)
+        blurEffectView.addSubview(overlay)
+        
+        self.view.addSubview(blurEffectView) //if you have more UIViews, use an insertSubview API to place it where needed
+        
+        UIView.animate(withDuration: 0.25, animations: {
+            self.blurEffectView.alpha = 1
+        }) { _ in
+            
+        }
+    }
+    
+    @IBAction func abrirCadastrar(){
+        
+        inicializarEfeitosDeBlur()
+        let cadastrar = CadastrarController.inicializeCadastrarController(delegate: self)
+        self.present(cadastrar, animated: true, completion: {
+            self.blurView.trackingMode = .none
+        })
+    }
+    
+    func abrirCadastrarAsLoginApple(identificador: String, email: String?, nome: String?){
+        
+        inicializarEfeitosDeBlur()
+        let cadastrar = CadastrarController.inicializeCadastrarControllerAsLoginApple(identificador: identificador, email: email, nome: nome, delegate: self)
+        self.present(cadastrar, animated: true, completion: {
+            self.blurView.trackingMode = .none
+        })
     }
     
     @IBAction func returnClickedFromCPF(){
@@ -394,10 +558,12 @@ class LoginController: UIViewController, UITextFieldDelegate, RecuperacaoSenhaDe
         return true
     }
     
+    var keyboardHidden = true
     //KEYBOARD OBSERVERS
     @objc func keyboardWillHide(_ sender: Notification) {
         if let userInfo = (sender as NSNotification).userInfo {
             if let _ = (userInfo[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue.size.height {
+                keyboardHidden = true
                 UIView.animate(withDuration: 0.25, animations: {
                     self.holder.frame = self.frameInicialViewHolder!
                 })
@@ -408,6 +574,7 @@ class LoginController: UIViewController, UITextFieldDelegate, RecuperacaoSenhaDe
         if let userInfo = (sender as NSNotification).userInfo {
             if let keyboardHeight2 = (userInfo[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue.size.height {
                 //This is keyboard Height
+                keyboardHidden = false
                 UIView.animate(withDuration: 0.25, animations: {
                     self.holder.frame = CGRect(x: (self.frameInicialViewHolder?.origin.x)!, y: (self.frameInicialViewHolder?.origin.y)! - (keyboardHeight2/3), width: (self.frameInicialViewHolder?.width)!, height: (self.frameInicialViewHolder?.height)!)
                 })

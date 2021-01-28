@@ -45,6 +45,10 @@ class DocumentoFiscal: UIViewController {
         self.delegate.onExitDocumentoFiscal(sucesseful: false, cpfCnpj: nil, nome: nil, isFinalizacao: false)
     }
     
+    @IBAction func fecharKeyboard(){
+        self.view.endEditing(true)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         

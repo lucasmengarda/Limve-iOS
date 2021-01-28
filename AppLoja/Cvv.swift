@@ -39,6 +39,10 @@ class Cvv: UIViewController {
         return tela
     }
     
+    @IBAction func fecharKeyboard(){
+        self.view.endEditing(true)
+    }
+    
     @IBAction func fechar(){
         self.dismiss(animated: true, completion: nil)
         self.delegate.onExitCvv(sucesseful: false, botao: botao, cvv: nil)

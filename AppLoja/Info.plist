@@ -76,6 +76,8 @@
 		<key>NSAllowsArbitraryLoads</key>
 		<true/>
 	</dict>
+	<key>NSCameraUsageDescription</key>
+	<string>Usamos sua câmera para escanear códigos QRCode e presentear LimveCréditos</string>
 	<key>UIAppFonts</key>
 	<array>
 		<string>CeraRoundProBlack.otf</string>

@@ -210,6 +210,7 @@ class Endereco: UIViewController, UITableViewDelegate, UITableViewDataSource, UI
                                 DispatchQueue.main.async(execute: {
                                     
                                     self.botaoAdicionar.stopAnimation(animationStyle: .normal, revertAfterDelay: 0.35, completion: nil)
+                                    self.botaoAdicionar.setTitle("Confirmar endereço", for: [])
                                     self.endereco.text = ""
                                     self.endereco2.text = logradouro
                                     self.bairro.text = bairro
@@ -620,22 +621,6 @@ class Endereco: UIViewController, UITableViewDelegate, UITableViewDataSource, UI
     func terminarBuscaDoEndereco(strBuilder: String!, latitude: Double!, longitude: Double!, postalCode: String!, state: String!){
         
         self.geoPoint = PFGeoPoint(latitude: latitude, longitude: longitude)
-        print("distancia calculada: \(pontoDeOrigem.distanceInKilometers(to: self.geoPoint))")
-        if (pontoDeOrigem.distanceInKilometers(to: self.geoPoint) > 28.0){
-            self.botaoAdicionar.stopAnimation(animationStyle: .shake, revertAfterDelay: 0.35) {
-                
-                let popup = PopupDialog(title: "Ops!", message: "Infelizmente sua região está fora da nossa área de cobertura. Mas não se preocupe, chegaremos ai em breve!")
-                popup.buttonAlignment = .horizontal
-                popup.transitionStyle = .bounceUp
-                let button = CancelButton(title: "Ok", action: {
-                })
-                popup.addButton(button)
-                // Present dialog
-                self.present(popup, animated: true, completion: nil)
-                
-            }
-            return
-        }
         
         self.enderecoConfirmado.text = strBuilder
         self.confirmandoEndereco = true

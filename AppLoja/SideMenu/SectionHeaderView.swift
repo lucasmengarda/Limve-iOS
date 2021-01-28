@@ -15,13 +15,26 @@ protocol SectionHeaderViewDelegate {
 
 class SectionInfo {
     var open: Bool = false
-    var itemsInSection = [String]()
+    var itemsInSection = [[String : String]]()
     var sectionTitle: String?
+    var sectionId: String?
 
-    init(itemsInSection: [String], sectionTitle: String) {
+    init(itemsInSection: [[String : String]], sectionTitle: String, sectionId: String) {
         self.itemsInSection = itemsInSection
         self.sectionTitle = sectionTitle
+        self.sectionId = sectionId
         NavigationMenuViewController.abertosFechados[sectionTitle] = false
+        
+        if (self.itemsInSection.count > 0){
+            self.itemsInSection.sort { (o1, o2) -> Bool in
+            
+                let valor1 = o1.values.first!.folding(options: .diacriticInsensitive, locale: .current)
+                let valor2 = o2.values.first!.folding(options: .diacriticInsensitive, locale: .current)
+                return valor1 < valor2
+            }
+        
+            self.itemsInSection.append(["mostrar-todos": "Mostrar todos +"])
+        }
     }
 }
 
@@ -32,6 +45,7 @@ class SectionHeaderView: UITableViewHeaderFooterView {
     @IBOutlet weak var disclosureButton: UIButton!
     @IBOutlet weak var linha: UIView!
     @IBOutlet weak var dot: UIImageView!
+    @IBOutlet weak var back: UIView!
     
     @IBAction func toggleOpen() {
         self.toggleOpenWithUserAction(userAction: true)
@@ -49,26 +63,8 @@ class SectionHeaderView: UITableViewHeaderFooterView {
                 
                 if (NavigationMenuViewController.abertosFechados[titulo!]!) {
                     self.delegate?.sectionHeaderView(sectionHeaderView: self, sectionClosed: self.section)
-                    UIView.animate(withDuration: 0.35) {
-                        if (self.linha != nil){
-                            if (NavigationMenuViewController.abertosFechados[titulo!]!){
-                                self.linha.backgroundColor = hexStringToUIColor("#064789")
-                            } else {
-                                self.linha.backgroundColor = hexStringToUIColor("#0B6AB0")
-                            }
-                        }
-                    }
                 } else {
                     self.delegate?.sectionHeaderView(sectionHeaderView: self, sectionOpened: self.section)
-                    UIView.animate(withDuration: 0.35) {
-                        if (self.linha != nil){
-                            if (NavigationMenuViewController.abertosFechados[titulo!]!){
-                                self.linha.backgroundColor = hexStringToUIColor("#064789")
-                            } else {
-                                self.linha.backgroundColor = hexStringToUIColor("#0B6AB0")
-                            }
-                        }
-                    }
                 }
             }
         } else {
@@ -85,7 +81,9 @@ class SectionHeaderView: UITableViewHeaderFooterView {
         self.addGestureRecognizer(tapGesture)
         // change the button image here, you can also set image via IB.
         
-        self.linha.backgroundColor = hexStringToUIColor("#0B6AB0")
+        if (self.back != nil){
+            self.back.backgroundColor = hexStringToUIColor("#944e6c")
+        }
     }
 
 }
