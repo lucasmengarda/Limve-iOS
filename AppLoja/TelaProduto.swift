@@ -174,7 +174,7 @@ class TelaProduto: UIViewController, UITableViewDelegate, UITableViewDataSource,
                 cell.dePreco.isHidden = true
                 cell.porPreco.isHidden = true
                 cell.precoAntigo.isHidden = true
-                cell.preco.textColor = hexStringToUIColor("#116AB6")
+                cell.preco.textColor = hexStringToUIColor("#57005B")
                 imagemPromocaoAtiva.isHidden = true
             }
             
@@ -512,7 +512,7 @@ class CelulaSimilares: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         loader.backgroundColor = UIColor.clear
-        let nv = NVActivityIndicatorView(frame: CGRect(origin: .zero, size: loader.frame.size), type: NVActivityIndicatorType.ballClipRotateMultiple, color: hexStringToUIColor("#3C65D1"), padding: 15.0)
+        let nv = NVActivityIndicatorView(frame: CGRect(origin: .zero, size: loader.frame.size), type: NVActivityIndicatorType.ballClipRotateMultiple, color: hexStringToUIColor("#57005B"), padding: 15.0)
         loader.backgroundColor = UIColor.clear
         loader.addSubview(nv)
         nv.startAnimating()
@@ -532,7 +532,7 @@ class CelulaProdutoSimilar: UICollectionViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         loader.backgroundColor = UIColor.clear
-        let nv = NVActivityIndicatorView(frame: CGRect(origin: .zero, size: loader.frame.size), type: NVActivityIndicatorType.ballClipRotateMultiple, color: hexStringToUIColor("#3C65D1"), padding: 15.0)
+        let nv = NVActivityIndicatorView(frame: CGRect(origin: .zero, size: loader.frame.size), type: NVActivityIndicatorType.ballClipRotateMultiple, color: hexStringToUIColor("#57005B"), padding: 15.0)
         loader.backgroundColor = UIColor.clear
         loader.addSubview(nv)
         nv.startAnimating()

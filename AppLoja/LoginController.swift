@@ -64,7 +64,7 @@ class LoginController: UIViewController, UITextFieldDelegate, RecuperacaoSenhaDe
         
         botaoEntrar.spinnerColor = UIColor.white
         botaoEntrar.cornerRadius = botaoEntrar.frame.height/2
-        botaoEntrar.backgroundColor = hexStringToUIColor("#3C65D1")
+        botaoEntrar.backgroundColor = hexStringToUIColor("#57005B")
         
         cpf.delegate = self
         

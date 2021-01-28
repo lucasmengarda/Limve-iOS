@@ -1,17 +1,15 @@
 {
   "images" : [
     {
-      "filename" : "logolimve.png",
+      "filename" : "risque.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "logolimve@2x.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
-      "filename" : "logolimve@3x.png",
       "idiom" : "universal",
       "scale" : "3x"
     }

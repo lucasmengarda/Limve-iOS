@@ -63,38 +63,39 @@ class NavigationMenuViewController: MenuViewController, UITableViewDelegate, UIT
         
         loginButton.spinnerColor = UIColor.white
         loginButton.cornerRadius = loginButton.frame.height/2
-        loginButton.backgroundColor = hexStringToUIColor("#406EBD")
+        loginButton.backgroundColor = hexStringToUIColor("#CD5D7D")
         
         cadastrarButton.spinnerColor = UIColor.white
         cadastrarButton.cornerRadius = cadastrarButton.frame.height/2
-        cadastrarButton.backgroundColor = hexStringToUIColor("#2E4F88")
+        cadastrarButton.backgroundColor = hexStringToUIColor("#a01d5d")
+        
         
         //
-        let gradient: CAGradientLayer = CAGradientLayer()
-        
-        gradient.colors = [hexStringToUIColor("#042C71").cgColor, hexStringToUIColor("#084387").cgColor]
-        gradient.locations = [0.0, 1.0]
-        gradient.startPoint = CGPoint(x: 0.0, y: 0.0)
-        gradient.endPoint = CGPoint(x: 1.0, y: 1.0)
-        gradient.frame = CGRect(x: 0.0, y: 0.0, width: UIScreen.main.bounds.size.width, height: UIScreen.main.bounds.size.height)
-        
-        self.view.layer.insertSublayer(gradient, at: 0)
-        
+        self.view.backgroundColor = hexStringToUIColor("#944e6c")
         tableView.backgroundColor = UIColor.clear
         tableView.tableHeaderView = logoHolder
         tableView.tableFooterView = footerHolder
         
-        let section0: SectionInfo = SectionInfo(itemsInSection: [], sectionTitle: "Início")
-        let section1: SectionInfo = SectionInfo(itemsInSection: [], sectionTitle: "Produtos favoritos")
-        let section2: SectionInfo = SectionInfo(itemsInSection: ["Amaciante", "Facilitador para passar roupas", "Neutralizador de Odores", "Tira Manchas", "Sabão em pó", "Sabão líquido"], sectionTitle: "Cuidados para sua roupa")
-        let section3: SectionInfo = SectionInfo(itemsInSection: ["Alvejantes e Cloros", "Banheiro", "Cozinha", "Desengordurante", "Desinfetantes", "Lava Louça", "Limpa Vidro", "Limpador e Saponáceo", "Lustra móveis"], sectionTitle: "Cuidados para sua casa")
-        let section4: SectionInfo = SectionInfo(itemsInSection: ["Condicionador", "Creme Para Tratamento", "Creme e spray de pentear", "Shampoo"], sectionTitle: "Cuidados para os cabelos")
-        let section5: SectionInfo = SectionInfo(itemsInSection: ["Demaquilantes", "Desodorantes", "Loção hidratante", "Sabonetes", "Lenços"], sectionTitle: "Cuidados com corpo e rosto")
-        let section6: SectionInfo = SectionInfo(itemsInSection: ["Creme dental", "Escova dental", "Enxaguante bucal", "Fio dental"], sectionTitle: "Higiene bucal")
-        let section7: SectionInfo = SectionInfo(itemsInSection: ["Shampoo infantil", "Condicionador infantil", "Sabonete infantil", "Lenços infantis", "Creme Assadura"], sectionTitle: "Bebê e crianças")
-        let section8: SectionInfo = SectionInfo(itemsInSection: [], sectionTitle: "Minhas compras")
-        let section9: SectionInfo = SectionInfo(itemsInSection: [], sectionTitle: "Meus cartões")
-        let section10: SectionInfo = SectionInfo(itemsInSection: [], sectionTitle: "whatsapp")
+        let section0: SectionInfo = SectionInfo(itemsInSection: [], sectionTitle: "Início", sectionId: "inicio")
+        let section1: SectionInfo = SectionInfo(itemsInSection: [], sectionTitle: "Produtos favoritos", sectionId: "produtos_favoritos")
+        let section2: SectionInfo = SectionInfo(itemsInSection: [["shampoos": "Shampoos"], ["condicionadores": "Condicionadores"], ["shampoos-premium": "Shampoos Premium"], ["cabelos-kits": "Kits"], ["condicionadores-premium": "Condicionadores Premium"], ["hidratacao": "Hidratação"], ["colorantes": "Colorantes"], ["descolorantes": "Descolorantes"], ["cabelos-linha-infantil": "Linha infantil"]], sectionTitle: "Cabelos", sectionId: "cabelos")
+        
+        let section3: SectionInfo = SectionInfo(itemsInSection: [["lapis-delineador": "Lápis e delineador"], ["maquiagem-acessorios": "Acessórios"], ["sobrancelhas": "Sobrancelhas"], ["bases-corretivos": "Bases e Corretivos"], ["contornos-blush-po": "Contornos, Blush e Pó"], ["kits-paletas": "Kits e Paletas"], ["olhos": "Olhos"], ["primer": "Primer"]], sectionTitle: "Maquiagem", sectionId: "maquiagem")
+        
+        let section4: SectionInfo = SectionInfo(itemsInSection: [["esmaltes": "Esmaltes"], ["unhas-posticas": "Unhas Postiças"], ["removedores-esmalte": "Removedores de esmalte"], ["unhas-acessorios": "Acessórios"]], sectionTitle: "Unhas", sectionId: "unhas")
+        
+        let section5: SectionInfo = SectionInfo(itemsInSection: [["mascaras-faciais": "Máscaras Faciais"], ["hidratantes": "Hidratantes"], ["demaquilantes": "Demaquilantes"], ["esfoliantes": "Esfoliantes"], ["sabonetes-faciais": "Sabonetes faciais"], ["tonicos-adstringentes": "Tônicos e Adstringentes"], ["anti-idade": "Anti-idade"], ["anti-acne": "Antiacne"], ["protetor-solar-facial": "Protetor solar facial"]], sectionTitle: "Skincare", sectionId: "skincare")
+        
+
+        let section6: SectionInfo = SectionInfo(itemsInSection: [["desodorantes-femininos": "Desodorantes femininos"], ["desodorantes-masculinos": "Desodorantes masculinos"], ["sabonetes-em-barra": "Sabonete em barra"], ["sabonetes-liquido": "Sabonete líquido"], ["sabonetes-intimos": "Sabonete íntimo"], ["lenços-umedecidos": "Lenços umedecidos"], ["bronzeador-solar": "Bronzeador solar"], ["protetor-solar": "Protetor solar"], ["produtos-barba": "Produtos para a barba"], ["escova-dental": "Escova dental"], ["creme-dental": "Creme dental"], ["antissepticos": "Antissépticos"]], sectionTitle: "Cuidados pessoais", sectionId: "cuidados-pessoais")
+        
+
+        let section7: SectionInfo = SectionInfo(itemsInSection: [["amaciante": "Amaciante"], ["tira-manchas": "Tira Manchas"], ["sabao-em-po": "Sabão em pó"], ["sabao-liquido": "Sabão líquido"], ["alvejantes-e-cloros": "Alvejantes e Cloros"], ["desengordurante": "Desengordurantes"], ["desinfetantes": "Desinfetantes"], ["lava-louça": "Lava Louças"], ["limpa-vidro": "Limpa Vidros"], ["limpador-saponaceo": "Limpadores e Saponáceos"], ["lustra-moveis-ceras": "Lustra móveis e Ceras"], ["agua-sanitaria": "Água sanitária"], ["alcool": "Álcool"], ["lenços-limpeza": "Lenços de limpeza"]], sectionTitle: "Produtos de limpeza", sectionId: "produtos-limpeza")
+        
+        
+        let section8: SectionInfo = SectionInfo(itemsInSection: [], sectionTitle: "Minhas compras", sectionId: "minhas_compras")
+        let section9: SectionInfo = SectionInfo(itemsInSection: [], sectionTitle: "Meus cartões", sectionId: "meus_cartoes")
+        let section10: SectionInfo = SectionInfo(itemsInSection: [], sectionTitle: "whatsapp", sectionId: "whatsapp")
         
         NavigationMenuViewController.sectionInfoArray.append(section0)
         NavigationMenuViewController.sectionInfoArray.append(section1)
@@ -114,7 +115,7 @@ class NavigationMenuViewController: MenuViewController, UITableViewDelegate, UIT
             nomeLabel.text = formatarNomeDoUsuario()
             segundoNomeLabel.text = formatarNomeDoUsuario()
 
-            let section11: SectionInfo = SectionInfo(itemsInSection: [], sectionTitle: "Sair")
+            let section11: SectionInfo = SectionInfo(itemsInSection: [], sectionTitle: "Sair", sectionId: "sair")
             NavigationMenuViewController.sectionInfoArray.append(section11)
             NavigationMenuViewController.sectionInfoArray.append(section10)
         } else {
@@ -187,7 +188,7 @@ class NavigationMenuViewController: MenuViewController, UITableViewDelegate, UIT
                 nomeLabel.text = formatarNomeDoUsuario()
                 segundoNomeLabel.text = formatarNomeDoUsuario()
                 
-                let section10: SectionInfo = SectionInfo(itemsInSection: [], sectionTitle: "Sair")
+                let section10: SectionInfo = SectionInfo(itemsInSection: [], sectionTitle: "Sair", sectionId: "sair")
                 NavigationMenuViewController.sectionInfoArray.append(section10)
                 tableView.reloadData()
             } else {
@@ -219,19 +220,15 @@ class NavigationMenuViewController: MenuViewController, UITableViewDelegate, UIT
         let sectionInfo: SectionInfo = NavigationMenuViewController.sectionInfoArray[indexPath.section]
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "CelulaMenu", for: indexPath) as! CelulaMenu
-        cell.texto.text = sectionInfo.itemsInSection[indexPath.row]
+        cell.texto.text = sectionInfo.itemsInSection[indexPath.row].values.first!
         
-        if (selectedMenuItem == indexPath.row){
-            //cell.backgroundColor = hexStringToUIColor("#00b5be")
-            //cell.texto.textColor = hexStringToUIColor("#56556E")
-            //cell.linha.isHidden = false
-            cell.backgroundColor = UIColor.clear
-            //cell.texto.textColor = UIColor.white
+        if (sectionInfo.itemsInSection[indexPath.row].keys.first! == "mostrar-todos"){
+            cell.texto.font = UIFont(name: "Ubuntu-Bold", size: 17.0)
         } else {
-            cell.backgroundColor = UIColor.clear
-            //cell.texto.textColor = UIColor.white
+            cell.texto.font = UIFont(name: "Ubuntu-Regular", size: 16.0)
         }
         
+        cell.backgroundColor = UIColor.clear
         cell.selectionStyle = .none
         
         return cell
@@ -243,87 +240,14 @@ class NavigationMenuViewController: MenuViewController, UITableViewDelegate, UIT
         
         tableView.deselectRow(at: indexPath, animated: true)
         
-        if (indexPath.section == 2 || indexPath.section == 3 || indexPath.section == 4 || indexPath.section == 5 || indexPath.section == 6 || indexPath.section == 7 || indexPath.section == 8){
+        if (indexPath.section == 2 || indexPath.section == 3 || indexPath.section == 4 || indexPath.section == 5 || indexPath.section == 6 || indexPath.section == 7){
             let info = NavigationMenuViewController.sectionInfoArray[indexPath.section].itemsInSection[indexPath.row]
             
-            var categoria = ""
-            switch info {
-            case "Amaciante":
-                categoria = "amaciante"
-            case "Facilitador para passar roupas":
-                    categoria = "facilitador-para-passar-roupa"
-            case "Neutralizador de Odores":
-                    categoria = "neutralizador-de-odores"
-            case "Tira Manchas":
-                    categoria = "tira-manchas"
-            case "Sabão em pó":
-                    categoria = "sabao-em-po"
-            case "Sabão líquido":
-                    categoria = "sabao-liquido"
-            case "Alvejantes e Cloros":
-                    categoria = "alvejantes-e-cloros"
-            case "Banheiro":
-                    categoria = "banheiro"
-            case "Cozinha":
-                    categoria = "cozinha"
-            case "Desengordurante":
-                    categoria = "desengordurante"
-            case "Desinfetantes":
-                    categoria = "desinfetantes"
-            case "Lava Louça":
-                    categoria = "lava-louça"
-            case "Limpa Vidro":
-                    categoria = "limpa-vidro"
-            case "Limpador e Saponáceo":
-                    categoria = "limpador-saponaceo"
-            case "Condicionador":
-                    categoria = "condicionador"
-            case "Creme Para Tratamento":
-                    categoria = "creme-para-tratamento"
-            case "Creme e spray de pentear":
-                    categoria = "creme-spray-pentear"
-            case "Shampoo":
-                    categoria = "shampoo"
-            case "Demaquilantes":
-                    categoria = "demaquilantes"
-            case "Desodorantes":
-                    categoria = "desodorantes"
-            case "Loção hidratante":
-                    categoria = "loção-hidratante"
-            case "Sabonetes":
-                    categoria = "sabonetes"
-            case "Lenços":
-                    categoria = "lenços"
-            case "Creme dental":
-                    categoria = "creme-dental"
-            case "Escova dental":
-                    categoria = "escova-dental"
-            case "Enxaguante bucal":
-                    categoria = "enxaguante-bucal"
-            case "Fio dental":
-                categoria = "fio-dental"
-            case "Shampoo infantil":
-                    categoria = "shampoo-infantil"
-            case "Condicionador infantil":
-                    categoria = "condicionador-infantil"
-            case "Sabonete infantil":
-                    categoria = "sabonete-infantil"
-            case "Lenços infantis":
-                    categoria = "lenços-infantis"
-            case "Creme Assadura":
-                    categoria = "creme-assadura"
-            case "Lustra móveis":
-                    categoria = "lustra-moveis"
-            default:
-                categoria = ""
-            }
+            let categoria = info.keys.first!
+            print("categoriaClicada: \(categoria)")
             
-            print("categoria: \(categoria)")
-            
-            menuContainerViewController!.selectContentViewController(TelaInicial.inicializeTelaInicial(categoria: categoria, titulo: info))
+            menuContainerViewController!.selectContentViewController(TelaInicial.inicializeTelaInicial(categoria: categoria, titulo: info.values.first!))
             menuContainerViewController!.hideSideMenu()
-            
-            
         }
         
         /*
@@ -347,6 +271,7 @@ class NavigationMenuViewController: MenuViewController, UITableViewDelegate, UIT
 
             sectionHeaderView.section = section
             sectionHeaderView.delegate = self
+            sectionHeaderView.linha.backgroundColor = hexStringToUIColor("#CD5D7D")
             
             let backGroundView = UIView()
             backGroundView.backgroundColor = UIColor.clear
@@ -365,6 +290,15 @@ class NavigationMenuViewController: MenuViewController, UITableViewDelegate, UIT
             } else {
                 sectionHeaderView.dot.isHidden = true
                 sectionHeaderView.disclosureButton.isHidden = false
+            }
+            
+            if (sectionInfo.sectionId == "minhas_compras" || sectionInfo.sectionId == "meus_cartoes" || sectionInfo.sectionId == "produtos_favoritos" || sectionInfo.sectionId == "sair" || sectionInfo.sectionId == "inicio"){
+                
+                sectionHeaderView.linha.backgroundColor = hexStringToUIColor("#CD5D7D")
+                sectionHeaderView.titleLabel.font = UIFont(name: "CeraRoundPro-Light", size: 16.5)
+            } else {
+                sectionHeaderView.linha.backgroundColor = hexStringToUIColor("#a01d5d")
+                sectionHeaderView.titleLabel.font = UIFont(name: "CeraRoundPro-Bold", size: 16.5)
             }
             
             let backGroundView = UIView()
@@ -443,7 +377,7 @@ class NavigationMenuViewController: MenuViewController, UITableViewDelegate, UIT
                 currentInstallation?["userId"] = ""
                 currentInstallation?.saveInBackground()
                 
-                NavigationMenuViewController.sectionInfoArray.remove(at: 10)
+                NavigationMenuViewController.sectionInfoArray.remove(at: 11)
                 tableView.reloadData()
                 
             }

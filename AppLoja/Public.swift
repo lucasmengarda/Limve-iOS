@@ -202,22 +202,23 @@ public func processarDeeplink(_ tipo: TipoDeepLink, params: [AnyHashable : Any],
                         
                         return
                     }
-                    let cupom = url!.queryParameters["cupom"]
-                    if (cupom != nil){
-                        CUPOM_SALVO = (params["cupom"] as! String)
-                        print("CUPOM SALVO: \(CUPOM_SALVO)")
-                        var limveApp : UIWindow?
-                        limveApp = UIApplication.shared.keyWindow
-                        
-                        var appTopController = limveApp?.rootViewController
-                        
-                        if (appTopController?.presentedViewController != nil){
-                            appTopController = limveApp?.rootViewController?.presentedViewController
-                        }
-                        
-                        appTopController?.showToast(message: "Cupom '\(CUPOM_SALVO)' adicionado!", font: UIFont(name: "Ubuntu-Regular", size: 13.0)!)
-                        return
+                }
+                
+                let cupom = url!.queryParameters["cupom"]
+                if (cupom != nil){
+                    CUPOM_SALVO = (params["cupom"] as! String)
+                    print("CUPOM SALVO: \(CUPOM_SALVO)")
+                    var limveApp : UIWindow?
+                    limveApp = UIApplication.shared.keyWindow
+                    
+                    var appTopController = limveApp?.rootViewController
+                    
+                    if (appTopController?.presentedViewController != nil){
+                        appTopController = limveApp?.rootViewController?.presentedViewController
                     }
+                    
+                    appTopController?.showToast(message: "Cupom '\(CUPOM_SALVO)' adicionado!", font: UIFont(name: "Ubuntu-Regular", size: 13.0)!)
+                    return
                 }
             }
         }

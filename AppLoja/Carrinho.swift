@@ -25,8 +25,7 @@ class Carrinho: UIViewController, UITableViewDelegate, UITableViewDataSource, En
     @IBOutlet weak var holder: UIView!
     @IBOutlet weak var oTable: UITableView!
     
-    
-    var taxaDeEntregaDouble: Double!
+    var taxaDeEntregaCupom: Double!
     var minimoParcelamento: Double!
     var raioEntregaGratis: Double!
     var minimoTaxaDeEntregaGratis: Double!
@@ -60,18 +59,20 @@ class Carrinho: UIViewController, UITableViewDelegate, UITableViewDataSource, En
         let _ = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) { [self] timer in
             print("Timer fired - Carrinho!")
             
-            if (CUPOM_SALVO.count > 0){
-                if (self.oTable.cellForRow(at: IndexPath(row: 0, section: 3)) != nil){
+            if (self.oTable.cellForRow(at: IndexPath(row: 0, section: 3)) != nil){
+                
+                if (CUPOM_SALVO.count > 0){
                     let sender = (self.oTable.cellForRow(at: IndexPath(row: 0, section: 3)) as! CelulaCupomOferta).botaoCupom
                     self.validarCupomDeDesconto(sender: sender!)
-                    timer.invalidate()
                 }
-            } else {
+            }
+            
+            if (self.oTable.cellForRow(at: IndexPath(row: 0, section: 0)) != nil){
+                atualizarEntrega(celula1: nil, celula2: nil)
                 timer.invalidate()
             }
         }
         
-        taxaDeEntregaDouble = (configuration.object(forKey: "taxaDeEntrega") as! Double)
         minimoParcelamento = (configuration.object(forKey: "minimoParcelamento") as! Double)
         minimoTaxaDeEntregaGratis = (configuration.object(forKey: "minimoTaxaDeEntregaGratis") as! Double)
         raioEntregaGratis = (configuration.object(forKey: "RAIO_ENTREGAGRATIS") as! Double)
@@ -137,6 +138,104 @@ class Carrinho: UIViewController, UITableViewDelegate, UITableViewDataSource, En
         }
     }
     
+    func atualizarEntrega(celula1: CelulaFinal?, celula2: CelulaEntrega?) -> Double{
+        let taxaEntregaAdicional = (configuration.object(forKey: "ADICIONAL_POR_10KM") as! Double)/10
+        let taxaEntregaBase = (configuration.object(forKey: "BASE_TAXAENTREGA") as! Double)
+        
+        
+        var taxaEntregaDou = -1.0
+        var diasEntrega = "S/N"
+        
+        var celulaUsarEntrega: CelulaEntrega!
+        if (celula2 == nil){
+            if (oTable.cellForRow(at: IndexPath(row: 0, section: 0)) != nil){
+                celulaUsarEntrega = (oTable.cellForRow(at: IndexPath(row: 0, section: 0)) as! CelulaEntrega)
+            }
+        } else {
+            celulaUsarEntrega = celula2!
+        }
+        if (PFUser.current()!["enderecoEntrega"] != nil){
+            let enderecoPoint = PFUser.current()!["enderecoPoint"] as! PFGeoPoint
+            let distancia = enderecoPoint.distanceInKilometers(to: pontoOrigemLimve)
+            
+            if (raioEntregaGratis < distancia){
+                taxaEntregaDou = taxaEntregaBase + (taxaEntregaAdicional * distancia);
+                var dias = Int((distancia * 0.0015))
+                dias += 3;
+                let dias2 = dias+2
+                diasEntrega = "\(dias)-\(dias2) dias úteis."
+            } else {
+                taxaEntregaDou = 0.0
+                diasEntrega = "0-1 dia útil."
+            }
+                
+            if (CarrinhoObject.get().valorDoCarrinho > minimoTaxaDeEntregaGratis){
+                taxaEntregaDou = 0.0
+            }
+            if (cupomAtivo){
+                taxaEntregaDou = taxaDeEntregaCupom
+            }
+            
+            if (celulaUsarEntrega != nil){
+                celulaUsarEntrega.imagem.image = UIImage(named: "map.png")
+                celulaUsarEntrega.endereco.text = (PFUser.current()!["enderecoEntrega"] as! String)
+                celulaUsarEntrega.botao.setTitle("Alterar meu endereço", for: [])
+                celulaUsarEntrega.prazoEntrega.text = "Prazo de entrega: \(diasEntrega)"
+            }
+             
+        } else {
+            if (celulaUsarEntrega != nil){
+                celulaUsarEntrega.imagem.image = UIImage(named: "lost.png")
+                celulaUsarEntrega.endereco.text = "Nenhum endereço cadastrado"
+                celulaUsarEntrega.botao.setTitle("Pesquisar meu endereço", for: [])
+                celulaUsarEntrega.prazoEntrega.text = "Prazo de entrega: S/N"
+            }
+        }
+        
+        var celulaUsarFinal: CelulaFinal!
+        if (celula1 == nil){
+            if (oTable.cellForRow(at: IndexPath(row: 0, section: 4)) != nil){
+                celulaUsarFinal = (oTable.cellForRow(at: IndexPath(row: 0, section: 4)) as! CelulaFinal)
+            }
+        } else {
+            celulaUsarFinal = celula1!
+        }
+        
+        var precoTotal = 0.0
+        var desconto = 0.0
+        if (cupomAtivo){
+            precoTotal = precoAposCupom
+            desconto = (CarrinhoObject.get().valorDoCarrinho + taxaEntregaDou) - precoAposCupom
+        } else {
+            precoTotal = (CarrinhoObject.get().valorDoCarrinho + taxaEntregaDou)
+        }
+        
+        if (celulaUsarFinal != nil){
+            celulaUsarFinal.total.text = formatarPreco(preco: precoTotal)
+            celulaUsarFinal.desconto.text = "- \(formatarPreco(preco: desconto))"
+            celulaUsarFinal.totalItens.text = "Total - \(CarrinhoObject.get().produtosId.count) produtos:"
+            if (taxaEntregaDou == 0.0){
+                celulaUsarFinal.taxaDeEntrega.text = "Grátis"
+                celulaUsarFinal.taxaDeEntrega.font = UIFont(name: "CeraRoundPro-Medium", size: 20.0)
+            } else if (taxaEntregaDou == -1.0) {
+                celulaUsarFinal.taxaDeEntrega.text = "Sem endereço"
+                celulaUsarFinal.taxaDeEntrega.font = UIFont(name: "CeraRoundPro-Light", size: 15.0)
+            } else {
+                celulaUsarFinal.taxaDeEntrega.text = formatarPreco(preco: taxaEntregaDou)
+                celulaUsarFinal.taxaDeEntrega.font = UIFont(name: "CeraRoundPro-Light", size: 20.0)
+            }
+            
+            if (CarrinhoObject.get().valorDoCarrinho > minimoParcelamento){
+                let div3 = precoTotal/3
+                celulaUsarFinal.parcelado.text = "(ou 3x de \(formatarPreco(preco: div3)))"
+            } else {
+                celulaUsarFinal.parcelado.text = "Parcelamento apenas em compras acima de \(formatarPreco(preco: minimoParcelamento))"
+            }
+        }
+        
+        return taxaEntregaDou
+    }
+    
     @IBAction func alterarEndereco(sender: TransitionButton){
         
         inicializarEfeitosDeBlur()
@@ -199,15 +298,7 @@ class Carrinho: UIViewController, UITableViewDelegate, UITableViewDataSource, En
             cell.botao.spinnerColor = UIColor.white
             cell.botao.cornerRadius = cell.botao.frame.height/2
             
-            if (PFUser.current()!["enderecoEntrega"] != nil){
-                cell.imagem.image = UIImage(named: "map.png")
-                cell.endereco.text = (PFUser.current()!["enderecoEntrega"] as! String)
-                cell.botao.setTitle("Alterar meu endereço", for: [])
-            } else {
-                cell.imagem.image = UIImage(named: "lost.png")
-                cell.endereco.text = "Nenhum endereço cadastrado"
-                cell.botao.setTitle("Pesquisar meu endereço", for: [])
-            }
+            atualizarEntrega(celula1: nil, celula2: cell)
             
             cell.backgroundColor = UIColor.clear
             
@@ -294,7 +385,7 @@ class Carrinho: UIViewController, UITableViewDelegate, UITableViewDataSource, En
                 cell.botaoUsarMeusCreditos.backgroundColor = hexStringToUIColor("#F26161")
                 cell.botaoUsarMeusCreditos.setTitle("Parar de usar meu saldo", for: [])
             } else {
-                cell.botaoUsarMeusCreditos.backgroundColor = hexStringToUIColor("#3C65D1")
+                cell.botaoUsarMeusCreditos.backgroundColor = hexStringToUIColor("#57005B")
                 cell.botaoUsarMeusCreditos.setTitle("Utilizar meu saldo", for: [])
             }
             
@@ -349,52 +440,7 @@ class Carrinho: UIViewController, UITableViewDelegate, UITableViewDataSource, En
             
             cell.backgroundColor = UIColor.clear
             
-            
-            var precoTotal = 0.0
-            var taxaEntrega = 0.0
-            var desconto = 0.0
-            if (cupomAtivo){
-                taxaEntrega = taxaDeEntregaDouble
-                precoTotal = precoAposCupom
-                desconto = (CarrinhoObject.get().valorDoCarrinho + taxaEntrega) - precoAposCupom
-            } else {
-                if (PFUser.current()!["enderecoPoint"] == nil){
-                    taxaEntrega = -1.0
-                } else {
-                    let point = PFUser.current()!["enderecoPoint"] as! PFGeoPoint
-                    print("verificando entrega grátis: \(point.distanceInKilometers(to: pontoOrigemLimve))")
-                    if (point.distanceInKilometers(to: pontoOrigemLimve) > raioEntregaGratis){
-                        if (CarrinhoObject.get().valorDoCarrinho < minimoTaxaDeEntregaGratis){
-                            taxaEntrega = taxaDeEntregaDouble
-                        }
-                    }
-                }
-                
-                precoTotal = (CarrinhoObject.get().valorDoCarrinho + taxaEntrega)
-            }
-            
-            cell.total.text = formatarPreco(preco: precoTotal)
-            cell.desconto.text = "- \(formatarPreco(preco: desconto))"
-            if (taxaEntrega == 0.0){
-                cell.taxaDeEntrega.text = "Grátis"
-                cell.taxaDeEntrega.font = UIFont(name: "CeraRoundPro-Medium", size: 20.0)
-            } else if (taxaEntrega == -1.0) {
-                cell.taxaDeEntrega.text = "Sem endereço"
-                cell.taxaDeEntrega.font = UIFont(name: "CeraRoundPro-Light", size: 15.0)
-            } else {
-                cell.taxaDeEntrega.text = formatarPreco(preco: taxaEntrega)
-                cell.taxaDeEntrega.font = UIFont(name: "CeraRoundPro-Light", size: 20.0)
-            }
-            
-            cell.totalItens.text = "Total - \(CarrinhoObject.get().produtosId.count) produtos:"
-            
-            if (CarrinhoObject.get().valorDoCarrinho > minimoParcelamento){
-                let div3 = precoTotal/3
-                cell.parcelado.text = "(ou 3x de \(formatarPreco(preco: div3)))"
-            } else {
-                cell.parcelado.text = "Parcelamento apenas em compras acima de \(formatarPreco(preco: minimoParcelamento))"
-            }
-            
+            atualizarEntrega(celula1: cell, celula2: nil)
             
             return cell
             
@@ -412,12 +458,12 @@ class Carrinho: UIViewController, UITableViewDelegate, UITableViewDataSource, En
             cell.botao.cornerRadius = cell.botao.frame.height/2
             cell.botao.addTarget(self, action: #selector(self.finalizarCompra(sender:)), for: .touchUpInside)
             
-            cell.botaoTrocarCPF.backgroundColor = hexStringToUIColor("#3C65D1")
+            cell.botaoTrocarCPF.backgroundColor = hexStringToUIColor("#57005B")
             cell.botaoTrocarCPF.spinnerColor = UIColor.white
             cell.botaoTrocarCPF.cornerRadius = 6.0
             cell.botaoTrocarCPF.addTarget(self, action: #selector(self.trocarDocumentoFiscal(isFinalizacao:)), for: .touchUpInside)
             
-            cell.botaoTrocarParcelamento.backgroundColor = hexStringToUIColor("#3C65D1")
+            cell.botaoTrocarParcelamento.backgroundColor = hexStringToUIColor("#57005B")
             cell.botaoTrocarParcelamento.spinnerColor = UIColor.white
             cell.botaoTrocarParcelamento.cornerRadius = 6.0
             cell.botaoTrocarParcelamento.addTarget(self, action: #selector(self.alterarParcelamento), for: .touchUpInside)
@@ -446,10 +492,7 @@ class Carrinho: UIViewController, UITableViewDelegate, UITableViewDataSource, En
                 cell.trocarNome.text = Carrinho.nome
             }
             
-            var taxaEntrega = 0.0
-            if (CarrinhoObject.get().valorDoCarrinho < minimoTaxaDeEntregaGratis){
-                taxaEntrega = taxaDeEntregaDouble
-            }
+            let taxaEntrega = atualizarEntrega(celula1: nil, celula2: nil)
             var precoTotal = 0.0
             if (cupomAtivo){
                 precoTotal = precoAposCupom
@@ -465,7 +508,7 @@ class Carrinho: UIViewController, UITableViewDelegate, UITableViewDataSource, En
                 cell.trocarParcelamento.text = "3x de \(formatarPreco(preco: precoTotal/3))"
             }
             
-            cell.botaoTrocarPagamento.backgroundColor = hexStringToUIColor("#3C65D1")
+            cell.botaoTrocarPagamento.backgroundColor = hexStringToUIColor("#57005B")
             cell.botaoTrocarPagamento.spinnerColor = UIColor.white
             cell.botaoTrocarPagamento.cornerRadius = 6.0
             cell.botaoTrocarPagamento.addTarget(self, action: #selector(self.adicionarPagamento), for: .touchUpInside)
@@ -473,7 +516,7 @@ class Carrinho: UIViewController, UITableViewDelegate, UITableViewDataSource, En
             cell.backgroundColor = UIColor.clear
             
             
-            if (precoTotal == 0.0){
+            if (cupomAtivo && precoAposCupom == 0.0){
                 cell.botaoTrocarPagamento.isHidden = true
                 cell.loader.isHidden = true
                 cell.restanteView.isHidden = false
@@ -673,7 +716,6 @@ class Carrinho: UIViewController, UITableViewDelegate, UITableViewDataSource, En
                 
                 if (resultadoJson["erro"] as! Bool){
                     
-                    self.taxaDeEntregaDouble = (configuration["taxaDeEntrega"] as! Double)
                     calcularTotais(false)
                     let motivo = (resultadoJson["motivo"] as! String)
                     self.cupomAtivo = false
@@ -711,7 +753,7 @@ class Carrinho: UIViewController, UITableViewDelegate, UITableViewDataSource, En
                 }
                 
                 (self.oTable.cellForRow(at: IndexPath(row: 0, section: 3)) as! CelulaCupomOferta).avisoCupom.text = mensagem
-                taxaDeEntregaDouble = taxaDeEntrega
+                taxaDeEntregaCupom = taxaDeEntrega
                 cupomAtivo = true
                 
                 calcularTotais(false)
@@ -720,7 +762,6 @@ class Carrinho: UIViewController, UITableViewDelegate, UITableViewDataSource, En
             } else {
                 (self.oTable.cellForRow(at: IndexPath(row: 0, section: 3)) as! CelulaCupomOferta).avisoCupom.text = "SE TIVER UM CUPOM, DIGITE-O ACIMA"
                 self.cupomAtivo = false
-                self.taxaDeEntregaDouble = (configuration["taxaDeEntrega"] as! Double)
                 calcularTotais(false)
                 oTable.reloadData()
                 
@@ -797,12 +838,7 @@ class Carrinho: UIViewController, UITableViewDelegate, UITableViewDataSource, En
                 self.present(popup, animated: true, completion: nil)
                 return 0.0
             } else {
-                let point = PFUser.current()!["enderecoPoint"] as! PFGeoPoint
-                if (point.distanceInKilometers(to: pontoOrigemLimve) > raioEntregaGratis){
-                    if (CarrinhoObject.get().valorDoCarrinho < minimoTaxaDeEntregaGratis){
-                        taxaEntrega = taxaDeEntregaDouble
-                    }
-                }
+                taxaEntrega = atualizarEntrega(celula1: nil, celula2: nil)
             }
             
             precoTotal = (CarrinhoObject.get().valorDoCarrinho + taxaEntrega)
@@ -812,12 +848,12 @@ class Carrinho: UIViewController, UITableViewDelegate, UITableViewDataSource, En
     
     @objc func adicionarPagamento(){
         
-        inicializarEfeitosDeBlur()
-        
         let precoTotal = verificarPrecoTotal()
         if (precoTotal == 0.0){
             return
         }
+        
+        inicializarEfeitosDeBlur()
         
         let pgto = FormasPagamento.inicializeFormasPagamento(valorAPagar: precoTotal, cartaoSelecionado: Carrinho.cartaoSelecionado, formaDePagamentoTipo: Carrinho.formaPagamentoSelecionado, delegate: self)
         self.present(pgto, animated: true, completion: {
@@ -959,7 +995,7 @@ class Carrinho: UIViewController, UITableViewDelegate, UITableViewDataSource, En
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         if (indexPath.section == 0){
-            return 206.0
+            return 230.0
         } else if (indexPath.section == 1){
             if (indexPath.row == 0){
                 return 48.0
@@ -991,18 +1027,14 @@ class Carrinho: UIViewController, UITableViewDelegate, UITableViewDataSource, En
             return
         }
         
-        var taxaEntrega = 0.0
-        if (CarrinhoObject.get().valorDoCarrinho < minimoTaxaDeEntregaGratis){
-            taxaEntrega = taxaDeEntregaDouble
-        }
         var precoTotal = 0.0
         if (cupomAtivo){
             precoTotal = precoAposCupom
         } else {
-            precoTotal = CarrinhoObject.get().valorDoCarrinho + taxaEntrega
+            precoTotal = CarrinhoObject.get().valorDoCarrinho
         }
         
-        if (Carrinho.formaPagamentoSelecionado == ""){
+        if (Carrinho.formaPagamentoSelecionado == "" && precoTotal != 0.0){
             let popup = PopupDialog(title: "Ops!", message: "Você não selecionou nenhuma forma de pagamento.")
             popup.buttonAlignment = .horizontal
             popup.transitionStyle = .bounceUp
@@ -1014,7 +1046,7 @@ class Carrinho: UIViewController, UITableViewDelegate, UITableViewDataSource, En
             return
         }
         
-        if (precoTotal < 25.0){
+        if (precoTotal < 25.0 && !cupomAtivo){
             let popup = PopupDialog(title: "Ops!", message: "O pedido mínimo na Limve é de R$ 25,00. Continue a fazer compras para chegar lá!")
             popup.buttonAlignment = .horizontal
             popup.transitionStyle = .bounceUp
@@ -1170,6 +1202,27 @@ class Carrinho: UIViewController, UITableViewDelegate, UITableViewDataSource, En
             self.blurEffectView.alpha = 0
         }) { _ in
             self.blurEffectView.removeFromSuperview()
+            
+            if (Carrinho.formaPagamentoSelecionado == "boleto" || Carrinho.formaPagamentoSelecionado == "transferencia" || Carrinho.formaPagamentoSelecionado == "entrega"){
+                
+                if (Carrinho.cpfCnpj.count == 0 || Carrinho.nome.count == 0){
+                    self.trocarDocumentoFiscal(isFinalizacao: true)
+                } else {
+                    self.viewBlocker = UIView(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.size.width, height: UIScreen.main.bounds.size.height))
+                    self.viewBlocker.backgroundColor = UIColor.clear
+                    self.view.addSubview(self.viewBlocker)
+                    self.finalizarCompra(botao: self.botaoHolder, cvv: "")
+                }
+                
+                return
+            }
+        
+            self.inicializarEfeitosDeBlur()
+            
+            let cvv = Cvv.inicializeCvv(botao: self.botaoHolder, cartao: Carrinho.cartaoSelecionado, delegate: self)
+            self.present(cvv, animated: true, completion: {
+                self.blurView.trackingMode = .none
+            })
         }
         
         if (telefone.count > 0){
@@ -1177,28 +1230,6 @@ class Carrinho: UIViewController, UITableViewDelegate, UITableViewDataSource, En
             PFUser.current()!["email"] = email
             PFUser.current()!.saveInBackground()
         }
-        
-        
-        if (Carrinho.formaPagamentoSelecionado == "boleto" || Carrinho.formaPagamentoSelecionado == "transferencia"){
-            
-            if (Carrinho.cpfCnpj.count == 0 || Carrinho.nome.count == 0){
-                trocarDocumentoFiscal(isFinalizacao: true)
-            } else {
-                viewBlocker = UIView(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.size.width, height: UIScreen.main.bounds.size.height))
-                viewBlocker.backgroundColor = UIColor.clear
-                self.view.addSubview(viewBlocker)
-                finalizarCompra(botao: botaoHolder, cvv: "")
-            }
-            
-            return
-        }
-    
-        inicializarEfeitosDeBlur()
-        
-        let cvv = Cvv.inicializeCvv(botao: botaoHolder, cartao: Carrinho.cartaoSelecionado, delegate: self)
-        self.present(cvv, animated: true, completion: {
-            self.blurView.trackingMode = .none
-        })
     }
     
     func finalizarCompra(botao: TransitionButton, cvv: String?){
@@ -1219,7 +1250,7 @@ class Carrinho: UIViewController, UITableViewDelegate, UITableViewDataSource, En
                 params["trocoPara"] = Carrinho.trocoPara
                 params["cpf"] = Carrinho.cpfCnpj
                 
-                if (Carrinho.formaPagamentoSelecionado == "boleto" || Carrinho.formaPagamentoSelecionado == "transferencia" || Carrinho.formaPagamentoSelecionado.contains("entrega")){
+                if (Carrinho.formaPagamentoSelecionado == "boleto" || Carrinho.formaPagamentoSelecionado == "transferencia" || Carrinho.formaPagamentoSelecionado.contains("entrega") || Carrinho.formaPagamentoSelecionado == ""){
                     
                 } else {
                     //credito ou debito
@@ -1294,11 +1325,7 @@ class Carrinho: UIViewController, UITableViewDelegate, UITableViewDataSource, En
                             
                             botao.stopAnimation(animationStyle: .normal, revertAfterDelay: 0.15) {
                                 
-                                var taxaEntrega = 0.0
-                                if (CarrinhoObject.get().valorDoCarrinho < minimoTaxaDeEntregaGratis){
-                                    taxaEntrega = taxaDeEntregaDouble
-                                }
-                                AppEvents.logPurchase((CarrinhoObject.get().valorDoCarrinho + taxaEntrega), currency: "BRL")
+                                AppEvents.logPurchase((CarrinhoObject.get().valorDoCarrinho), currency: "BRL")
                                 
                                 if (Carrinho.formaPagamentoSelecionado == "boleto"){
                                     let boleto = (resultadoJson["boleto"] as! [String : Any])
@@ -1396,6 +1423,7 @@ class Carrinho: UIViewController, UITableViewDelegate, UITableViewDataSource, En
 
 class CelulaEntrega: UITableViewCell {
     @IBOutlet weak var holder: UIView!
+    @IBOutlet weak var prazoEntrega: UILabel!
     @IBOutlet weak var endereco: UITextView!
     @IBOutlet weak var imagem: UIImageView!
     @IBOutlet weak var botao: TransitionButton!
@@ -1420,7 +1448,7 @@ class CelulaItemCarrinho: UITableViewCell {
         super.awakeFromNib()
         
         loader.backgroundColor = UIColor.clear
-        let nv = NVActivityIndicatorView(frame: CGRect(origin: .zero, size: loader.frame.size), type: NVActivityIndicatorType.ballClipRotateMultiple, color: hexStringToUIColor("#3C65D1"), padding: 15.0)
+        let nv = NVActivityIndicatorView(frame: CGRect(origin: .zero, size: loader.frame.size), type: NVActivityIndicatorType.ballClipRotateMultiple, color: hexStringToUIColor("#57005B"), padding: 15.0)
         loader.backgroundColor = UIColor.clear
         loader.addSubview(nv)
         nv.startAnimating()
@@ -1470,7 +1498,7 @@ class CelulaPagamento: UITableViewCell {
         super.awakeFromNib()
         
         loader.backgroundColor = UIColor.clear
-        let nv = NVActivityIndicatorView(frame: CGRect(origin: .zero, size: loader.frame.size), type: NVActivityIndicatorType.ballClipRotateMultiple, color: hexStringToUIColor("#3C65D1"), padding: 15.0)
+        let nv = NVActivityIndicatorView(frame: CGRect(origin: .zero, size: loader.frame.size), type: NVActivityIndicatorType.ballClipRotateMultiple, color: hexStringToUIColor("#57005B"), padding: 15.0)
         loader.backgroundColor = UIColor.clear
         loader.addSubview(nv)
         nv.startAnimating()

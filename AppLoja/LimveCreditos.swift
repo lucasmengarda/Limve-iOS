@@ -102,6 +102,7 @@ class LimveCreditos: UIViewController, UITableViewDelegate, UITableViewDataSourc
         moreAnim.addSubview(animationMore)
         animationMore.play(toProgress: 0.95)
         
+        
         let animationWhats = AnimationView(name: "whatsapp")
         animationWhats.loopMode = .playOnce
         animationWhats.animationSpeed = 0.7

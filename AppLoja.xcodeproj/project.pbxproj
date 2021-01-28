@@ -19,6 +19,8 @@
 		12113D4623E0B9EB00BA464D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 12113D4423E0B9EB00BA464D /* LaunchScreen.storyboard */; };
 		12113D5123E0B9EB00BA464D /* AppLojaTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12113D5023E0B9EB00BA464D /* AppLojaTests.swift */; };
 		12113D5C23E0B9EB00BA464D /* AppLojaUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12113D5B23E0B9EB00BA464D /* AppLojaUITests.swift */; };
+		1211E14E25BB608B00597821 /* newlogo.png in Resources */ = {isa = PBXBuildFile; fileRef = 1211E14D25BB608A00597821 /* newlogo.png */; };
+		1211E15425BB619900597821 /* cosmetics.json in Resources */ = {isa = PBXBuildFile; fileRef = 1211E15325BB619900597821 /* cosmetics.json */; };
 		12199369240E027500983D47 /* MinhasCompras.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12199368240E027500983D47 /* MinhasCompras.swift */; };
 		1219936B240E033A00983D47 /* Compra.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1219936A240E033A00983D47 /* Compra.swift */; };
 		12210D632551E597003CCF41 /* RecuperacaoSenha.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12210D622551E597003CCF41 /* RecuperacaoSenha.swift */; };
@@ -65,7 +67,6 @@
 		12B548A92548FACC00396524 /* Ubuntu-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 12B548A12548FACB00396524 /* Ubuntu-Regular.ttf */; };
 		12B548AA2548FACC00396524 /* Ubuntu-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 12B548A22548FACC00396524 /* Ubuntu-Italic.ttf */; };
 		12BB48B5257FEFCB00AEE8C8 /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = 12BB48B4257FEFCB00AEE8C8 /* Lottie */; };
-		12BB48C7257FF94000AEE8C8 /* maquinadelavar.json in Resources */ = {isa = PBXBuildFile; fileRef = 12BB48C6257FF94000AEE8C8 /* maquinadelavar.json */; };
 		12BB48CD25817DBC00AEE8C8 /* seeall.json in Resources */ = {isa = PBXBuildFile; fileRef = 12BB48CC25817DBC00AEE8C8 /* seeall.json */; };
 		12BB48D32582594200AEE8C8 /* check.json in Resources */ = {isa = PBXBuildFile; fileRef = 12BB48D22582594100AEE8C8 /* check.json */; };
 		12BB48E325825BA900AEE8C8 /* qrcode.json in Resources */ = {isa = PBXBuildFile; fileRef = 12BB48E225825BA900AEE8C8 /* qrcode.json */; };
@@ -146,6 +147,8 @@
 		12113D5223E0B9EB00BA464D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		12113D5B23E0B9EB00BA464D /* AppLojaUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppLojaUITests.swift; sourceTree = "<group>"; };
 		12113D5D23E0B9EB00BA464D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1211E14D25BB608A00597821 /* newlogo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = newlogo.png; sourceTree = "<group>"; };
+		1211E15325BB619900597821 /* cosmetics.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = cosmetics.json; sourceTree = "<group>"; };
 		12199368240E027500983D47 /* MinhasCompras.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MinhasCompras.swift; sourceTree = "<group>"; };
 		1219936A240E033A00983D47 /* Compra.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Compra.swift; sourceTree = "<group>"; };
 		12210D622551E597003CCF41 /* RecuperacaoSenha.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecuperacaoSenha.swift; sourceTree = "<group>"; };
@@ -185,7 +188,6 @@
 		12B548A02548FACB00396524 /* Ubuntu-MediumItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Ubuntu-MediumItalic.ttf"; sourceTree = "<group>"; };
 		12B548A12548FACB00396524 /* Ubuntu-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Ubuntu-Regular.ttf"; sourceTree = "<group>"; };
 		12B548A22548FACC00396524 /* Ubuntu-Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Ubuntu-Italic.ttf"; sourceTree = "<group>"; };
-		12BB48C6257FF94000AEE8C8 /* maquinadelavar.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = maquinadelavar.json; sourceTree = "<group>"; };
 		12BB48CC25817DBC00AEE8C8 /* seeall.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = seeall.json; sourceTree = "<group>"; };
 		12BB48D22582594100AEE8C8 /* check.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = check.json; sourceTree = "<group>"; };
 		12BB48E225825BA900AEE8C8 /* qrcode.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = qrcode.json; sourceTree = "<group>"; };
@@ -366,6 +368,7 @@
 				12113D4223E0B9EB00BA464D /* Assets.xcassets */,
 				12113D4423E0B9EB00BA464D /* LaunchScreen.storyboard */,
 				12113D4723E0B9EB00BA464D /* Info.plist */,
+				1211E14D25BB608A00597821 /* newlogo.png */,
 				12BB48C5257FF93100AEE8C8 /* Animações */,
 				1210BAD023E2331000C57C5A /* Fontes */,
 			);
@@ -396,13 +399,13 @@
 				12C5470825841B9F00BB53D3 /* qrcodescan.json */,
 				12BB49162583F19300AEE8C8 /* qrcodeinstruction.json */,
 				12BB49042582AD8B00AEE8C8 /* qrcode2.json */,
+				1211E15325BB619900597821 /* cosmetics.json */,
 				12BB48FE2582871000AEE8C8 /* more.json */,
 				12BB48F42582860300AEE8C8 /* facebook.json */,
 				12BB48EE258285F300AEE8C8 /* whatsapp.json */,
 				12BB48E225825BA900AEE8C8 /* qrcode.json */,
 				12BB48D22582594100AEE8C8 /* check.json */,
 				12BB48CC25817DBC00AEE8C8 /* seeall.json */,
-				12BB48C6257FF94000AEE8C8 /* maquinadelavar.json */,
 			);
 			name = "Animações";
 			path = "Animações";
@@ -579,8 +582,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				12B548A82548FACC00396524 /* Ubuntu-MediumItalic.ttf in Resources */,
+				1211E14E25BB608B00597821 /* newlogo.png in Resources */,
 				126DA93523EB486A00055783 /* CeraRoundProThin.otf in Resources */,
-				12BB48C7257FF94000AEE8C8 /* maquinadelavar.json in Resources */,
 				CB77AE73256729B500ECFBC1 /* Podfile.lock in Resources */,
 				126DA93423EB486900055783 /* CeraRoundProRegular.otf in Resources */,
 				12B548A52548FACC00396524 /* Ubuntu-Medium.ttf in Resources */,
@@ -599,6 +602,7 @@
 				12BB48F52582860500AEE8C8 /* facebook.json in Resources */,
 				1210BACF23E232FC00C57C5A /* SectionHeaderView.xib in Resources */,
 				126DA94723EB587700055783 /* Phenomena-Regular.ttf in Resources */,
+				1211E15425BB619900597821 /* cosmetics.json in Resources */,
 				12BB48FF2582871000AEE8C8 /* more.json in Resources */,
 				126DA94223EB586F00055783 /* Phenomena-Black.ttf in Resources */,
 				12B548A92548FACC00396524 /* Ubuntu-Regular.ttf in Resources */,
@@ -920,7 +924,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = AppLoja/Limve.entitlements;
-				CURRENT_PROJECT_VERSION = 8;
+				CURRENT_PROJECT_VERSION = 9;
 				DEVELOPMENT_TEAM = KCUHL3HY8Y;
 				INFOPLIST_FILE = AppLoja/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.1;
@@ -928,7 +932,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.1.0;
+				MARKETING_VERSION = 1.1.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.limve.limve;
 				PRODUCT_NAME = Limve;
 				SWIFT_VERSION = 5.0;
@@ -942,7 +946,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = AppLoja/Limve.entitlements;
-				CURRENT_PROJECT_VERSION = 8;
+				CURRENT_PROJECT_VERSION = 9;
 				DEVELOPMENT_TEAM = KCUHL3HY8Y;
 				INFOPLIST_FILE = AppLoja/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.1;
@@ -950,7 +954,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.1.0;
+				MARKETING_VERSION = 1.1.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.limve.limve;
 				PRODUCT_NAME = Limve;
 				SWIFT_VERSION = 5.0;

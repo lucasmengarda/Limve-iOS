@@ -42,12 +42,6 @@ class InicioVerdadeiro: UIViewController, SideMenuItemContent, UICollectionViewD
     
     @IBOutlet weak var botaoEndereco: UIButton!
     
-    @IBOutlet weak var holderPedidosAndamento: UIView!
-    @IBOutlet weak var statusPedido: UILabel!
-    @IBOutlet weak var descricaoPedido: UILabel!
-    @IBOutlet weak var loaderPedidosAndamento: UIView!
-    @IBOutlet weak var imagemPedidoAndamento: UIImageView!
-    
     @IBOutlet weak var seuSaldoLabel: UILabel!
     @IBOutlet weak var seuSaldo: UILabel!
     
@@ -100,12 +94,6 @@ class InicioVerdadeiro: UIViewController, SideMenuItemContent, UICollectionViewD
         self.quantidadeCarrinho.text = "\(CarrinhoObject.get().quantidadeDeItensNoCarrinho())"
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        
-        verificarPedidosEmAndamento()
-    }
-    
     var textosSeachersHolder = -1
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -118,7 +106,7 @@ class InicioVerdadeiro: UIViewController, SideMenuItemContent, UICollectionViewD
             }
         }
         
-        let animationMaq = AnimationView(name: "maquinadelavar")
+        let animationMaq = AnimationView(name: "cosmetics")
         animationMaq.loopMode = .loop
         animationMaq.animationSpeed = 0.8
         animationMaq.frame = CGRect(x: -25, y: -25, width: loaderMaqLavar.frame.width+50, height: loaderMaqLavar.frame.height+50)
@@ -171,7 +159,7 @@ class InicioVerdadeiro: UIViewController, SideMenuItemContent, UICollectionViewD
         
         let gradient: CAGradientLayer = CAGradientLayer()
         
-        gradient.colors = [hexStringToUIColor("#0E6BBB").cgColor, hexStringToUIColor("#021B79").cgColor]
+        gradient.colors = [hexStringToUIColor("#a01d5d").cgColor, hexStringToUIColor("#b12067").cgColor]
         gradient.locations = [0.0, 1.0]
         gradient.startPoint = CGPoint(x: 0.0, y: 0.0)
         gradient.endPoint = CGPoint(x: 1.0, y: 1.0)
@@ -200,7 +188,7 @@ class InicioVerdadeiro: UIViewController, SideMenuItemContent, UICollectionViewD
         
         
         let gradient2: CAGradientLayer = CAGradientLayer()
-        gradient2.colors = [hexStringToUIColor("#0E6BBB").cgColor, hexStringToUIColor("#1CB5E0").cgColor]
+        gradient2.colors = [hexStringToUIColor("#da3284").cgColor, hexStringToUIColor("#e05398").cgColor]
         gradient2.locations = [0.0, 1.0]
         gradient2.startPoint = CGPoint(x: 0.0, y: 0.0)
         gradient2.endPoint = CGPoint(x: 1.0, y: 1.0)
@@ -302,7 +290,9 @@ class InicioVerdadeiro: UIViewController, SideMenuItemContent, UICollectionViewD
                     
                     
                     let telaInicial = try PFQuery(className: "TelaInicial").getFirstObject()
-                    let recomendados = try (telaInicial["produtos"] as! PFRelation).query().findObjects()
+                    let recomendadosQuery = (telaInicial["produtos"] as! PFRelation).query()
+                    recomendadosQuery.addAscendingOrder("grauRelevancia")
+                    let recomendados = try recomendadosQuery.findObjects()
                     produtosRecomendados.removeAll()
                     if (recomendados.count > 0){
                         for y in 0 ... recomendados.count - 1 {
@@ -351,7 +341,7 @@ class InicioVerdadeiro: UIViewController, SideMenuItemContent, UICollectionViewD
                         self.searcher.animationStyle = .reveal
                         self.searcher.startTypewritingAnimation()
                         
-                        let textosSearcher = ["Amaciantes...", "Marcas como: Omo, Veja, Vanish...", "Sabão em pó...", "Cloros e detergentes...", "Qboa e Álcool..."]
+                        let textosSearcher = ["Shampoos e Condicionadores...", "Marcas: Truss, L'oreal, Wella...", "Esmaltes...", "Produtos de limpeza...", "Tintas de cabelo...", "Hidratantes e pós-barba..."]
                         
                         var numberRepeats = 0
                         let timer = Timer.scheduledTimer(withTimeInterval: 5.0, repeats: true) { timer in
@@ -414,22 +404,6 @@ class InicioVerdadeiro: UIViewController, SideMenuItemContent, UICollectionViewD
                 }
             }
         }
-        
-        holderPedidosAndamento.layer.cornerRadius = 16.0
-        //holderPedidosAndamento.frame = CGRect(x: holderInicioVerdadeiro.frame.origin.x, y: UIScreen.main.bounds.size.height, width: holderInicioVerdadeiro.frame.width, height: holderInicioVerdadeiro.frame.height)
-        
-        holderPedidosAndamento.layer.shadowColor = hexStringToUIColor("#00224B").withAlphaComponent(0.3).cgColor
-        holderPedidosAndamento.layer.shadowOpacity = 1
-        holderPedidosAndamento.layer.shadowOffset = .zero
-        holderPedidosAndamento.layer.shadowRadius = 2
-        
-        loaderPedidosAndamento.backgroundColor = UIColor.clear
-        let nv = NVActivityIndicatorView(frame: CGRect(origin: .zero, size: loaderPedidosAndamento.frame.size), type: NVActivityIndicatorType.ballSpinFadeLoader, color: hexStringToUIColor("#a9a9a9"), padding: 0.0)
-        loaderPedidosAndamento.backgroundColor = UIColor.clear
-        loaderPedidosAndamento.addSubview(nv)
-        nv.startAnimating()
-        
-        verificarPedidosEmAndamento()
     }
     
     @objc func carregarLimveCreditos(){
@@ -446,108 +420,6 @@ class InicioVerdadeiro: UIViewController, SideMenuItemContent, UICollectionViewD
             DispatchQueue.main.async {
                 self.seuSaldo.text = formatarPreco(preco: saldoDou)
                 self.refreshControl.endRefreshing()
-            }
-        }
-    }
-    
-    var verificandoPedidosEmAndamento = false;
-    func verificarPedidosEmAndamento(){
-        if (verificandoPedidosEmAndamento){
-            return;
-        }
-        verificandoPedidosEmAndamento = true
-        
-        holderPedidosAndamento.alpha = 0
-        
-        var compraEmAndamento: Compra!
-        DispatchQueue.global().async {
-            do {
-                let query = PFQuery(className: "Compras").whereKey("finalizado", equalTo: false)
-                let comprasObj = try query.findObjects()
-                if (comprasObj.count > 0){
-                    compraEmAndamento = Compra(compra: comprasObj[0])
-                }
-            } catch {
-                
-            }
-            
-            DispatchQueue.main.async {
-                if (compraEmAndamento != nil){
-                    if (compraEmAndamento.cestaDeProdutos.count == 1){
-                        self.descricaoPedido.text = "1 produto - \(formatarPreco(preco: compraEmAndamento.precoTotal))"
-                    } else {
-                        self.descricaoPedido.text = "\(compraEmAndamento.cestaDeProdutos.count) produtos - \(formatarPreco(preco: compraEmAndamento.precoTotal))"
-                    }
-                    
-                    var texto = ""
-                    var cor = UIColor.black
-                    
-                    if (compraEmAndamento.formaDePagamento == "boleto"){
-                        self.imagemPedidoAndamento.image = UIImage(named: "barcode.png")
-                        if (compraEmAndamento.boletoId == "cancelado"){
-                            texto = "CANCELADO"
-                            cor = UIColor.red
-                        } else {
-                            if (compraEmAndamento.compraPaga){
-                                texto = "APROVADO"
-                                cor = hexStringToUIColor("#008000")
-                            } else {
-                                texto = "PENDENTE"
-                                cor = hexStringToUIColor("#ffa500")
-                            }
-                        }
-                    } else if (compraEmAndamento.formaDePagamento == "transferencia"){
-                        self.imagemPedidoAndamento.image = UIImage(named: "transferencia.png")
-                        if (compraEmAndamento.compraPaga){
-                            texto = "TRANSFERIDO"
-                            cor = hexStringToUIColor("#008000")
-                        } else {
-                            texto = "PENDENTE"
-                            cor = hexStringToUIColor("#ffa500")
-                        }
-                    } else if (compraEmAndamento.formaDePagamento.contains("entrega")){
-                        self.imagemPedidoAndamento.image = UIImage(named: "delivery.png")
-                        texto = "PGTO ENTREGA"
-                        cor = hexStringToUIColor("#008000")
-                    } else {
-                        if (compraEmAndamento.cartaoCobradoBandeira == "Master"){
-                            self.imagemPedidoAndamento.image = UIImage(named: "mastercard.png")
-                        } else if (compraEmAndamento.cartaoCobradoBandeira == "Visa"){
-                            self.imagemPedidoAndamento.image = UIImage(named: "visa.png")
-                        } else if (compraEmAndamento.cartaoCobradoBandeira == "Elo"){
-                            self.imagemPedidoAndamento.image = UIImage(named: "elo.png")
-                        } else if (compraEmAndamento.cartaoCobradoBandeira == "Amex"){
-                            self.imagemPedidoAndamento.image = UIImage(named: "amex.png")
-                        } else {
-                            self.imagemPedidoAndamento.image = UIImage(named: "outrocartao.png")
-                        }
-                        
-                        texto = "APROVADO"
-                        cor = UIColor.black
-                    }
-                    
-                    let texto2 = "STATUS DO PAGAMENTO: \(texto)"
-                    let attributedTexto = NSMutableAttributedString(string: texto2)
-                    attributedTexto.addAttribute(.foregroundColor, value: UIColor.black, range: NSRange(location: 0, length: 20))
-                    
-                    attributedTexto.addAttribute(.foregroundColor, value: cor, range: NSRange(location: 20, length: texto.count+1))
-                    attributedTexto.addAttribute(.font, value: UIFont(name: "Ubuntu-Light", size: 11.0)!, range: NSRange(location: 0, length: 20))
-                    attributedTexto.addAttribute(.font, value: UIFont(name: "Ubuntu-Bold", size: 14.0)!, range: NSRange(location: 20, length: texto.count+1))
-                    
-                    self.statusPedido.attributedText = attributedTexto
-
-                    self.holderPedidosAndamento.alpha = 0
-                    self.holderPedidosAndamento.isHidden = false
-                    
-                    UIView.animate(withDuration: 0.35) {
-                        self.holderPedidosAndamento.alpha = 1
-                    }
-                    
-                } else {
-                    
-                }
-                
-                self.verificandoPedidosEmAndamento = false
             }
         }
     }
